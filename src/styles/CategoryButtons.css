@@ -20,3 +20,17 @@
   height: 100%;
   object-fit: contain; /* Use "contain" instead of "cover" */
 }
+
+.custom-categorybuttons-maincontainer {
+  box-shadow: 3px 3px 20px 10px rgba(241, 157, 1, 0.869);
+}
+
+.custom-categorybuttons-pic-carousel {
+  box-shadow: 3px 3px 10px 5px #363636;
+  border-radius: 100%;
+}
+
+.custom-categorybuttons-pic-image {
+  border-radius: 100%;
+  
+}

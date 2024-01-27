@@ -14,18 +14,18 @@ function Footer() {
           <a href='https://www.twitter.com/' aria-label="Twitter" className="footer-link">
             <FaTwitter />
           </a>
-          <a href='https://www.facebook.com/' aria-label="Facebook" className="footer-link">
+          <a href='https://www.facebook.com/profile.php?id=61556234180304' aria-label="Facebook" className="footer-link">
             <FaFacebook />
           </a>
         </div>
         <div className="footer-section">
           <h5>Contact Us</h5>
-          <p>Email: contact@yourbrand.com</p>
-          <p>Phone: (123) 456-7890</p>
+          <p>Email: fcm@gmail.com</p>
+          <p>Phone: (65) 6789 3412</p>
         </div>
            </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Your Brand. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Faithful Companions Market. All rights reserved.</p>
       </div>
     </footer>
   );

@@ -10,10 +10,10 @@ import petfood2 from '../images/petfoods/petfood2.jpg';
 
 const MainBanner = () => {
   return (
-    <Container fluid className="image-banner-container">
-      <Row className="gx-0 horizontal-photos d-flex flex-wrap">
+    <Container fluid className="image-banner-container custom-mainbanner-maincontainer">
+      <Row className="gx-0 horizontal-photos d-flex flex-wrap custom-mainbanner">
         <Col xs={2} className="">
-          <img src={cat1} alt="Cat 1" className="banner-image img-fluid" />
+          <img src={cat1} alt="Cat 1" className="banner-image img-fluid custom-mainbanner-catpic" />
         </Col>
         <Col xs={2} className="">
           <img src={dog1} alt="Dog 1" className="banner-image img-fluid" />
@@ -28,7 +28,7 @@ const MainBanner = () => {
           <img src={pet_accessories} alt="Accessories" className="banner-image img-fluid" />
         </Col>
         <Col xs={2} className="">
-          <img src={petfood2} alt="Pet Food" className="banner-image img-fluid" />
+          <img src={petfood2} alt="Pet Food" className="banner-image img-fluid custom-mainbanner-petfoodpic" />
         </Col>
       </Row>
     </Container>

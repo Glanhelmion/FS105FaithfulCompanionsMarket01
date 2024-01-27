@@ -7,10 +7,10 @@ const CustomNavbar = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="text-white">
+    <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
       <Navbar expanded={expanded} expand="lg" className="navbar navbar-text-white" variant="light">
         <Container>
-        <a href="#home"> <img src={nasmer} alt="" className="nasmer me-5" href="#home"  /> </a>
+        <a href="/"> <img src={nasmer} alt="" className="nasmer me-5 custom-navbar-icon"  /> </a>
           {/* <Navbar.Brand >nasmer fontanilla</Navbar.Brand>
            */}
           <Navbar.Toggle 
@@ -19,11 +19,11 @@ const CustomNavbar = () => {
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
-              <Nav.Link href="#about-us">About Us</Nav.Link>
-              <Nav.Link href="#contact">Contact Us</Nav.Link>
+              <Nav.Link href="aboutus" className="custom-navbar-text">About Us</Nav.Link>
+              <Nav.Link href="#contact" className="custom-navbar-text">Contact Us</Nav.Link>
               {/* Add more navigation links here */}
               {/* Example of a dropdown */}
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="custom-navbar-text">
                 <NavDropdown.Item className="text-dark" href="#action/3.1">Cats</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark" href="#action/3.2">Dogs</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark" href="#action/3.2">Birds</NavDropdown.Item>
@@ -33,7 +33,7 @@ const CustomNavbar = () => {
                             {/* More dropdown items */}
               </NavDropdown>
             </Nav>
-            <Button className="btn btn-light fw-bold">Login</Button>
+            <Button className="btn btn-light fw-bold custom-navbar-login">Login</Button>
           </Navbar.Collapse>
         </Container>
       </Navbar>

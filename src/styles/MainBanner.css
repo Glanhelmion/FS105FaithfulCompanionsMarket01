@@ -14,7 +14,24 @@
 }
 
 .image-banner-container {
-  background-color: #E48F45; 
+  background-color: #FFB76B; 
+}
+
+.custom-mainbanner {
+  box-shadow: 5px 5px 5px 5px  #7a3a01;
+  border-radius: 50px;
+  margin-top: 150px;
+}
+
+
+.custom-mainbanner-catpic {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.custom-mainbanner-petfoodpic {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
 }
 
 
