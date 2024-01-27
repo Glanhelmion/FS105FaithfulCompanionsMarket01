@@ -1,0 +1,15 @@
+.testimonial-carousel-container .slick-slide {
+  text-align: center;
+  color: #333;
+  margin: 30px 0;
+}
+
+.testimonial-carousel-container blockquote {
+  font-style: italic;
+  margin: 0 auto 20px;
+}
+
+.testimonial-carousel-container footer {
+  font-weight: bold;
+  margin-top: 10px;
+}

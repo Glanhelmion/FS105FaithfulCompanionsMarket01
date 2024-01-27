@@ -1,0 +1,28 @@
+.image-banner-container {
+  display: flex; /* Establishes a flex container */
+  justify-content: center; /* Center the items horizontally */
+  align-items: center;/* Align items vertically */
+  gap: 0px; /* Space between each photo-section */
+}
+
+
+.banner-image {
+  height: 250px; /* Adjust the height as per your preference */
+  object-fit: cover; /* This property ensures that the images maintain their aspect ratio and cover the specified height */
+  width: 210px; /* This property ensures that the images fill their parent container */
+  
+}
+
+.image-banner-container {
+  background-color: #E48F45; 
+}
+
+
+.button-container {
+  text-align: center; /* Center align the buttons */
+  padding: 30px 0px ; /* Add padding above and below the buttons */
+   width: 100%; /* Take full width */
+     background-color: #E48F45; 
+     
+}
+
