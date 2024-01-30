@@ -1,21 +1,21 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import PetCard from '../components/PetCard';
-import petFoods from '../jspage/petfoodpage';
+import accessories from '../jspage/accessoriespage';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-const PetFoodPage = () => {
+const PetAccessoriesPage = () => {
   return (
     <>
     <Navbar />
     <br/>
        <Container className="px-0 pt-5">
            <Row>
-        {petFoods.map((petfood) => (
-          <Col key={petfood._id} sm={12} md={6} lg={4} xl={3}>
-            <PetCard pet={petfood} /> {/* Pass the cat object as 'pet' prop */}
+        {accessories.map((accessory) => (
+          <Col key={accessory._id} sm={12} md={6} lg={4} xl={3}>
+            <PetCard pet={accessory} /> {/* Pass the cat object as 'pet' prop */}
           </Col>
         ))}
       </Row>
@@ -26,4 +26,4 @@ const PetFoodPage = () => {
   );
 };
 
-export default PetFoodPage;
+export default PetAccessoriesPage;

@@ -13,6 +13,7 @@ const CustomNavbar = () => {
     <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
       <Navbar expanded={expanded} expand="lg" className="navbar navbar-text-white" variant="light">
         <Container>
+        
         <a href="/"> <img src={nasmer} alt="" className="nasmer me-5 custom-navbar-icon"  /> </a>
           {/* <Navbar.Brand >nasmer fontanilla</Navbar.Brand>
            */}

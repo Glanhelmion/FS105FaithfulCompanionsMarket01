@@ -1,0 +1,7 @@
+.pet-card-image {
+  height: 180px; /* Set the desired height */
+  object-fit: cover;
+  border-radius: 20px; /* Optional: Preserve aspect ratio and cover the entire space */
+}
+
+/* Add more border radius to the card */

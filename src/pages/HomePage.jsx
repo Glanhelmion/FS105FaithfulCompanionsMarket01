@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import '../styles/HomePage.css';
 import PromoBanner from '../components/PromoBanner';
 import dogs from "../dogs"; // Adjust the path as necessary
@@ -16,12 +16,13 @@ const HomePage = () => {
     <>
       <Navbar />
       <PromoBanner />
+      <Container className="px-0">
       <Row>
          <h1><a href="/dogs" style={{ textDecoration: 'none', color: 'inherit' }}>Dogs</a></h1>
         {dogs.map((dog) => (
           <Col sm={12} md={6} lg={4} xl={2} key={dog._id} className="img-item">
             <div className="img-content">
-              <h5>{dog.name}</h5>
+              <h6>{dog.name}</h6>
               <img
                 src={dog.image}
                 alt={dog.name}
@@ -112,6 +113,7 @@ const HomePage = () => {
           </Col>
         ))}
       </Row>
+      </Container>
       <Newsletter />
       <Footer />
       

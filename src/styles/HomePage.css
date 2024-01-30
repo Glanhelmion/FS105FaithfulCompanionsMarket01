@@ -1,5 +1,5 @@
 .img-item {
-  padding: 15px; /* Adjust padding as needed */
+  padding: 5px; /* Adjust padding as needed */
 }
 
 .img-content {
@@ -8,14 +8,14 @@
   flex-direction: column; /* Stack elements vertically */
   align-items: center; /* Center-align items horizontally */
   margin-bottom: 10px; /* Adjust spacing below headings */
-  padding: 0 20px;
+  padding: 0 0px;
 }
 
 .img-centered {
   display: block;
   margin: 0 auto; /* Centers the image horizontally */
-  width: 290px; /* Sets the width to 290px */
-  height: 280px; /* Sets the height to 280px */
+  width: 200px; /* Sets the width to 290px */
+  height: 180px; /* Sets the height to 280px */
   object-fit: cover; /* Ensures the image covers the container, may crop if necessary */
   border-radius: 10px; /* Rounds the corners of the image */
   max-width: 100%; /* Ensures the image is responsive and does not exceed the container's width */
