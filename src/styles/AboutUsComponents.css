@@ -1,0 +1,15 @@
+.custom-aboutuscomponents-heading {
+    background-color: #FFB76B;
+    box-shadow: 3px 3px 3px #E48F45;
+    border-radius: 5%;
+}
+
+.custom-aboutuscomponents-ulli {
+    list-style-type: none;
+}
+
+.custom-aboutuscomponents-body {
+    border-color:#E48F45;
+    border-width: 1px;
+    border-style: solid;
+}

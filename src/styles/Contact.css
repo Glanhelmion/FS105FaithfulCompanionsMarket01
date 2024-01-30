@@ -1,0 +1,31 @@
+/* ContactUsForm.css */
+
+.center-content {
+    text-align: center;
+  }
+  
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make sure the wrapper takes up at least the full viewport height */
+  }
+  
+  .form-container {
+    width: 300px;
+    margin: auto; /* Center the form container horizontally */
+    padding: 20px;
+    border: 2px solid black; /* Add a border to the form container */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  /* Add other CSS styles as needed for styling your form elements */
+  
+  /* Footer styles */
+  .footer {
+    margin-top: auto; /* Push the footer to the bottom */
+  }
+  

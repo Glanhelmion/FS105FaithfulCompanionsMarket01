@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from './pages/LandingPage'; // Ensure this path is correct relative to App.js
 import About from "./pages/About";
-import Contact from "./pages/Contact.jsx";
+import ContactUsFrom from "./pages/Contact.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import CatPage from "./pages/CatPage.jsx";
 import DogPage from "./pages/DogPage.jsx";
@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<LandingPage />} />
               <Route index={true} path="/homepage" element={<HomePage />} />
               <Route path="/aboutus" element={<About />} />
-              <Route path="/contactus" element={<Contact />} />
+              <Route path="/contactus" element={<ContactUsFrom />} />
               <Route path="/cats" element={<CatPage />} />
               <Route path="/dogs" element={<DogPage />} />
               <Route path="/birds" element={<BirdPage />} />
