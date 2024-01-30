@@ -1,0 +1,15 @@
+.custom-signupbutton-container {
+    padding: 50px;
+    background-color: #FFB76B; 
+    
+}
+
+.custom-signupbutton {
+    box-shadow: 3px 3px 3px #7a3a01;
+    transition: transform 1s; /* Transition property added */
+}
+
+.custom-signupbutton:hover {
+    transform: scale(1.3);
+}
+

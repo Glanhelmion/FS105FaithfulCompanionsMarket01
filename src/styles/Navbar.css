@@ -1,0 +1,45 @@
+.custom-navbar-zindex {
+  z-index: 1000;
+}
+
+.navbar {
+  background-color: #E48F45;
+}
+
+.navbar-text-white a, .navbar-text-white .navbar-brand, .navbar-text-white .nav-link {
+  color: white;
+}
+
+.navbar .nav-dropdown .dropdown-item {
+  color: black; 
+}
+
+.nasmer {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity: 1; }
+  50%  { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; }
+}
+
+.custom-navbar-icon {
+  box-shadow: 3px 3px 3px #7a3a01;
+  animation: flickerAnimation 0.5s infinite;
+}
+
+.custom-navbar-icon:hover {
+  opacity: 0.5;
+}
+
+.custom-navbar-text:hover {
+  
+  text-decoration: underline;
+}
+
+.custom-navbar-login {
+  box-shadow: 3px 3px 3px  #7a3a01;
+}
