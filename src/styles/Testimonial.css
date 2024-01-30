@@ -6,7 +6,8 @@
 
 .testimonial-carousel-container blockquote {
   font-style: italic;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px;  
+  font-size: 24px;
 }
 
 .testimonial-carousel-container footer {

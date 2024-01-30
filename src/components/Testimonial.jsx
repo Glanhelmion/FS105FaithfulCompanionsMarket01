@@ -12,11 +12,11 @@ const Testimonial = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 6000,
     cssEase: "linear"
   };
 
@@ -32,6 +32,11 @@ const Testimonial = () => {
       text: "A must-have for any pet owner. Fantastic quality!",
       author: "John Smith",
     },
+     {
+      id: 3,
+      text: "I bought my Munchkin breed kitten from them, and I must say it's a very reliable pet shop that offers excellent customer service. I highly recommend them to anyone looking to bring a new furry friend into their home.",
+      author: "Zakfran",
+    },
     // More testimonials...
   ];
 
@@ -40,7 +45,7 @@ const Testimonial = () => {
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id}>
-            <blockquote>
+            <blockquote className="testimonial-text">
               "{testimonial.text}"
               <footer>— {testimonial.author}</footer>
             </blockquote>
