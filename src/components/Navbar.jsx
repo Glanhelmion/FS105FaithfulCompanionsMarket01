@@ -20,7 +20,7 @@ const CustomNavbar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
               <Nav.Link href="aboutus" className="custom-navbar-text">About Us</Nav.Link>
-              <Nav.Link href="#contact" className="custom-navbar-text">Contact Us</Nav.Link>
+              <Nav.Link href="contact" className="custom-navbar-text">Contact Us</Nav.Link>
               {/* Add more navigation links here */}
               {/* Example of a dropdown */}
               <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="custom-navbar-text">

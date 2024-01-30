@@ -10,10 +10,12 @@ const Midsection = () => {
         Paws, Claws, Fins, & Feathers: 
         <br/>Everything for Your Furry Friends!
       </h1>
-      <Container className="border border-round p-4 text-center mb-3 custom-midsection-border">
+      <Container className="border border-round p-4 text-center mb-3 custom-midsection-border1">
+        
         <p>
           Discover "Paws, Claws, Fins & Feathers," your ultimate pet cart destination. From nutritious food to fun toys, find everything for dogs, cats, birds, and fish in one convenient spot. Shop with ease for all your furry and feathered friends' needs!
         </p>
+        
       </Container>
     </div>
   );
