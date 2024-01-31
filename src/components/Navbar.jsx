@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
 import '../styles/Navbar.css';
 import { Link } from "react-router-dom";
-import nasmer from '../images/logo/fcmlogo.jpeg';
+import fcmlogo from '../images/logo/fcmlogo.jpeg';
 import { FaShoppingCart } from 'react-icons/fa';
 
 
@@ -13,7 +13,7 @@ const CustomNavbar = () => {
     <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
       <Navbar expanded={expanded} expand="lg" className="navbar navbar-text-white" variant="light">
         <Container>
-        <a href="/"> <img src={nasmer} alt="" className="nasmer me-5 custom-navbar-icon"  /> </a>
+        <a href="/"> <img src={fcmlogo} alt="" className="nasmer me-5 custom-navbar-icon"  /> </a>
           {/* <Navbar.Brand >nasmer fontanilla</Navbar.Brand>
            */}
           <Navbar.Toggle 

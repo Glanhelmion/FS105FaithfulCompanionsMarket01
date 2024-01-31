@@ -22,7 +22,7 @@ function SignUp() {
         {/* Column for the form */}
         <div className="col-md-6">
           <div className="card custom-signup-box">
-            <div className="card-header p-5">Register here!</div>
+            <div className="card-header p-5">Sign up for <em className="fw-bold fs-3">FREE</em> membership!</div>
             <div className="card-body">
               <form>
                 <div className="form-group p-1">
@@ -45,12 +45,12 @@ function SignUp() {
                     placeholder="Enter your password"
                   />
                 </div>
-                <button type="submit" className="btn btn-dark m-3">
-                  Enter
+                <button type="submit" className="custom-signup-registermembershipbuttton">
+                  Register membership
                 </button>
                 <Link to="/">
-                  <button className="btn btn-dark m-3">
-                    Click here to return to Home
+                  <button className="custom-signup-takeatour">
+                    Still not so sure? Take a tour in our online shop!
                   </button>
                 </Link>
               </form>

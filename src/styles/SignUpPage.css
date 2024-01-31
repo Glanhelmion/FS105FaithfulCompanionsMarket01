@@ -10,6 +10,35 @@
     box-shadow: 3px 3px 3px #E48F45;
 }
 
-.custom-login-loginbutton {
+.custom-signup-registermembershipbuttton {
     margin-left: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 20%;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 100;
+}
+
+.custom-signup-registermembershipbuttton:hover {
+    font-weight: 300;
+    background-color: #E48F45;
+}
+
+.custom-signup-takeatour {
+    margin-left: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 10%;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 100;
+    transition: background-color 0.5s ease, font-weight 0.5s ease;
+}
+
+.custom-signup-takeatour:hover {
+    font-weight: 300;
+    background-color: #E48F45;
 }

@@ -8,6 +8,7 @@ import greenarowana1 from '../images/fishes/greenarowana1.jpeg';
 import pet_accessories from '../images/accessories/pet_accessories.jpg';
 import petfood2 from '../images/petfoods/petfood2.jpg';
 
+
 const MainBanner = () => {
   return (
     <Container fluid className="image-banner-container custom-mainbanner-maincontainer">
