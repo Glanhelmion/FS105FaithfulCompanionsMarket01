@@ -1,0 +1,46 @@
+
+
+.custom-login-box {
+    margin-top: 200px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 5%;
+    height: 400px;
+    width: 600px;
+    box-shadow: 3px 3px 3px #E48F45;
+}
+
+.custom-login-loginbutton {
+    margin-left: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 20%;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 100;
+    transition: background-color 0.5s ease, font-weight 0.5s ease;
+}
+
+.custom-login-loginbutton:hover {
+    font-weight: 300;
+    background-color: #E48F45;
+}
+
+.custom-login-registerbutton {
+    margin-left: 32px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 10%;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 100;
+    transition: background-color 0.5s ease, font-weight 0.5s ease;
+}
+
+.custom-login-registerbutton:hover {
+    font-weight: 300;
+    background-color: #E48F45;
+}

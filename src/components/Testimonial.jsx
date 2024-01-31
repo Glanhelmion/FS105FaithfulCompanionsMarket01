@@ -1,9 +1,10 @@
-import React from 'react';
+import react, { useEffect } from "react";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../styles/Testimonial.css';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -40,8 +41,12 @@ const Testimonial = () => {
     // More testimonials...
   ];
 
+  useEffect(() => {
+    AOS.init();
+}, []);
+
   return (
-    <div className="testimonial-carousel-container">
+    <div className="testimonial-carousel-container" data-aos="fade-bottom">
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id}>

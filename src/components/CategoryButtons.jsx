@@ -1,4 +1,4 @@
-import React from 'react';
+import react, { useEffect } from "react";
 import { Carousel, Container } from 'react-bootstrap';
 import '../styles/CategoryButtons.css';
 import parrot1 from '../images/birds/parrot1.jpg';
@@ -13,7 +13,8 @@ import fish4 from '../images/fishes/fish4.jpeg';
 import dog7 from '../images/dogs/dog7.jpeg';
 import cat2 from '../images/cats/cat2.jpg';
 import cat4 from '../images/cats/cat4.jpeg';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CategoryButtons = () => {
   // Define CSS styles to control image size
@@ -23,8 +24,12 @@ const CategoryButtons = () => {
     objectFit: 'cover', // Maintain aspect ratio and cover the container
   };
 
+  useEffect(() => {
+    AOS.init();
+}, []);
+
   return (
-    <div className="main-banner-container custom-categorybuttons-maincontainer">
+    <div className="main-banner-container custom-categorybuttons-maincontainer" data-aos="fade-top">
       {/* Carousel 1 */}
       <Container className="carousel-container custom-categorybuttons-pic">
         <Carousel className="custom-categorybuttons-pic-carousel">

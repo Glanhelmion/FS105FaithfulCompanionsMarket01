@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button, InputGroup, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Newsletter.css'; // Assuming you have additional styling here
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function NewsletterSubscribe() {
   const [email, setEmail] = useState('');
@@ -14,12 +16,16 @@ function NewsletterSubscribe() {
     setEmail('');
   };
 
+  useEffect(() => {
+    AOS.init();
+}, []);
+
   return (
     <Container className="my-5">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p className="text-muted">Get notified with the latest fun events and exclusive promos</p>
+      <h2 data-aos="fade-left">Subscribe to Our Newsletter</h2>
+      <p className="text-muted" data-aos="fade-right">Get notified with the latest fun events and exclusive promos</p>
       <Form onSubmit={handleSubmit} className="newsletter-form">
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3" data-aos="fade-top">
           <Form.Control
             type="email"
             placeholder="Enter your email"

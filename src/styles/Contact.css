@@ -11,21 +11,36 @@
   }
   
   .form-container {
-    width: 300px;
+    min-width: 700px;
+    min-height: 400px;
     margin: auto; /* Center the form container horizontally */
     padding: 20px;
-    border: 2px solid black; /* Add a border to the form container */
+    border: 1px solid #FFB76B; /* Add a border to the form container */
+    margin-top: 150px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px #E48F45;
   }
   
   .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
-    text-align: left;
+  }
+
+  .form-group label,
+  .form-group input,
+  .form-group textarea,
+  .form-group button {
+   width: 500px; 
+   resize: both;
   }
   
-  /* Add other CSS styles as needed for styling your form elements */
+
   
-  /* Footer styles */
-  .footer {
-    margin-top: auto; /* Push the footer to the bottom */
-  }
+ 
   

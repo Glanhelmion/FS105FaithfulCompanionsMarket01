@@ -1,87 +1,84 @@
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar';   
-import MainBanner from '../components/MainBanner'; 
-import SignUpButton from '../components/SignUpButton'; 
-import PageUnderDevelopment from '../components/PageUnderDevelopment'; 
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import "../styles/Navbar.css";
 import "../styles/Contact.css";
 
-
-
-
-
 function ContactUsForm() {
-  // Define state variables for form fields
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  // Function to handle form submission
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle the form data here, such as sending it to a server or displaying it
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Message:', message);
+    // You can add your form submission logic here, like sending the data to a server.
+
+    // For now, let's just log the form data to the console:
+    console.log(formData);
   };
 
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+    
+    <>
+      <Navbar />
+      <div className="content-wrapper">
+        <div className="form-container">
+          <div className="center-content">
+            <h2>Contact Us</h2>
+            <br></br>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Name:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+                <div className="form-group">
+                  <label htmlFor="message">Message:</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
+                </div>
+              <div className="form-group">
+                <button type="submit" className="btn btn-success">Submit</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
 export default ContactUsForm;
-
-
-
-
-// In case if need to use back, otherwise ignore
-
-// const Contact = () => {
-//   return (
-//       <>
-//       <Navbar />
-//       <MainBanner />
-//       <SignUpButton />
-//       <PageUnderDevelopment />
-//     </>
-//   )
-// }

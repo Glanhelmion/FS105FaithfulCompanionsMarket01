@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
 import '../styles/Navbar.css';
 import { Link } from "react-router-dom";
-import nasmer from '../images/logo/nasmer.jpeg';
+import nasmer from '../images/logo/fcmlogo.jpeg';
 import { FaShoppingCart } from 'react-icons/fa';
 
 

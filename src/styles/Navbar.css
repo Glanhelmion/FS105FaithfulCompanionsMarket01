@@ -7,7 +7,7 @@
 }
 
 .navbar-text-white a, .navbar-text-white .navbar-brand, .navbar-text-white .nav-link {
-  color: white;
+  color: #F5F5DC;
 }
 
 .navbar .nav-dropdown .dropdown-item {
@@ -35,8 +35,13 @@
   opacity: 0.5;
 }
 
+.custom-navbar-text {
+  transition: color 0.3s ease, font-weight 0.3s ease, text-decoration 0.3s ease;
+}
+
 .custom-navbar-text:hover {
-  
+  color: white;
+  font-weight: bold;
   text-decoration: underline;
 }
 
