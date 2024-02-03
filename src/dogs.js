@@ -1,13 +1,16 @@
 import dog2 from "./images/dogs/dog2.jpg";
 import dog3 from "./images/dogs/dog3.jpg";
 import dog7 from "./images/dogs/dog7.jpeg";
-
+import goldenretriever1 from "./images/dogs/goldenretriever1.jpeg";
+import germanshepherd1 from "./images/dogs/germanshepherd1.jpg";
+import poodle1 from "./images/dogs/poodle1.jpg";
+import siberianhusky1 from "./images/dogs/siberianhusky1.jpg";
 
 const dogs = [
   {
     "_id": 1,
     "name": "Golden Retriever",
-    "image": dog2,
+    "image": goldenretriever1,
     "description": "A friendly and intelligent dog known for its golden fur.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
@@ -19,7 +22,7 @@ const dogs = [
   {
     "_id": 2,
     "name": "German Shepherd",
-    "image": dog3,
+    "image": germanshepherd1,
     "description": "A loyal and protective dog breed often used in police work.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
@@ -31,7 +34,7 @@ const dogs = [
   {
     "_id": 3,
     "name": "Poodle",
-    "image": dog7,
+    "image": poodle1,
     "description": "A hypoallergenic dog with curly fur, known for its elegance.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
@@ -42,9 +45,9 @@ const dogs = [
   },
   {
     "_id": 4,
-    "name": "Poodle",
-    "image": dog7,
-    "description": "A hypoallergenic dog with curly fur, known for its elegance.",
+    "name": "Pomeranian",
+    "image": dog2,
+    "description": "Smart, adaptable watchdogs for families with older kids, content with indoor play and short walks.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
     "price": 699.99,
@@ -54,9 +57,9 @@ const dogs = [
   },
     {
     "_id": 5,
-    "name": "Poodle",
-    "image": dog7,
-    "description": "A hypoallergenic dog with curly fur, known for its elegance.",
+    "name": "Siberian Husky",
+    "image": siberianhusky1,
+    "description": "Compact sled dogs bred for endurance, known for their friendliness and dignity.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
     "price": 699.99,
@@ -66,9 +69,9 @@ const dogs = [
   },
       {
     "_id": 6,
-    "name": "Poodle",
+    "name": "Samoyed",
     "image": dog7,
-    "description": "A hypoallergenic dog with curly fur, known for its elegance.",
+    "description": "Strong and graceful, 19-23 inches tall, with a cold-resistant white coat, beautifully functional.",
     "species": "Canis lupus familiaris",
     "category": "Pets",
     "price": 699.99,

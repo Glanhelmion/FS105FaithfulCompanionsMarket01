@@ -14,6 +14,13 @@ import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import Preloader from "./components/Preloader";
+import Preloader2 from "./components/Preloader2";
+import CatDetail from "./pages/CatDetail.jsx";
+import DogDetail from "./pages/DogDetail.jsx";
+import BirdDetail from "./pages/BirdDetail.jsx";
+import FishDetail from "./pages/FishDetail.jsx";
+import AccessoryDetail from "./pages/AccessoryDetail.jsx";
+import PetFoodDetail from "./pages/PetFoodDetail.jsx";
 
 function App() {
 
@@ -29,7 +36,7 @@ function App() {
   return (
     <div className="App">
       {isLoading ? (
-        <Preloader />
+        <Preloader2 />
       ) : (
         <>
           <Router>
@@ -39,12 +46,17 @@ function App() {
               <Route path="/aboutus" element={<About />} />
               <Route path="/contactus" element={<ContactUsFrom />} />
               <Route path="/cats" element={<CatPage />} />
+               <Route path="/cat-detail/:id/:name" element={<CatDetail />} />
               <Route path="/dogs" element={<DogPage />} />
+               <Route path="/dog-detail/:id/:name" element={<DogDetail />} />
               <Route path="/birds" element={<BirdPage />} />
+              <Route path="/bird-detail/:id/:name" element={<BirdDetail />} />
               <Route path="/fishes" element={<FishesPage />} />
+              <Route path="/fish-detail/:id/:name" element={<FishDetail />} />
               <Route path="/petaccessories" element={<PetAccessories />} />
+              <Route path="/accessory-detail/:id/:name" element={<AccessoryDetail />} />
               <Route path="/petfoods" element={<PetFood />} />
-              <Route path="/petfoods" element={<PetFood />} />
+               <Route path="/petfood-detail/:id/:name" element={<PetFoodDetail />} />              
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />

@@ -18,7 +18,7 @@ const AboutUs = () => {
                 <h1> About Us </h1>
             </div>
             <div className="word-wrap w-50 fw-light m-auto ">
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Introduction</h3>
                         <li>Welcome to Faithful Companions Market</li>
@@ -26,7 +26,7 @@ const AboutUs = () => {
                         <li>One-stop online destination for pet lovers</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Our Mission</h3>
                         <li>Provide a comprehensive, enjoyable online shopping experience.</li>
@@ -36,7 +36,7 @@ const AboutUs = () => {
                         <li>Commitment to honesty, integrity, and ethical practices in all our operations</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>What We Offer</h3>
                         <li>Wide variety of pets: dogs, cats, fish, birds</li>
@@ -44,7 +44,7 @@ const AboutUs = () => {
                         <li>User-friendly e-commerce platform with a focus on customer experience</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Our Values</h3>
                         <li>Trust and transparency in customer interactions</li>
@@ -52,7 +52,7 @@ const AboutUs = () => {
                         <li>Commitment to customer satisfaction and building lasting relationships</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Our Team</h3>
                         <li>A group of passionate pet lovers and experts</li>
@@ -60,14 +60,14 @@ const AboutUs = () => {
                         <li>Constantly striving to improve our services and offerings</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Our Promise</h3>
                         <li>To deliver the best online shopping experience for pet-related needs</li>
                         <li>Ensuring a safe, secure, and enjoyable process for all our customers</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Community Engagement</h3>
                         <li>Active involvement in pet welfare and community events</li>
@@ -75,7 +75,7 @@ const AboutUs = () => {
                         <li>Regular updates and tips for pet care on our platform</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Future Goals</h3>
                         <li>Continuous expansion of product range and services</li>
@@ -83,7 +83,7 @@ const AboutUs = () => {
                         <li>Strengthening our commitment to the pet-loving community</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Contact Us</h3>
                         <li>Open invitation for feedback and suggestions</li>
@@ -91,7 +91,7 @@ const AboutUs = () => {
                         <li>Our team is always here to assist with any queries or concerns</li>
                     </ul>
                 </div>
-                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-bottom">
+                <div className="p-3 custom-aboutuscomponents-body" data-aos="fade-bottom" data-aos-delay="200" data-aos-duration="1000">
                     <ul className="custom-aboutuscomponents-ulli">
                         <h3>Closing Note</h3>
                         <li>Thank you for choosing Faithful Companions Market</li>

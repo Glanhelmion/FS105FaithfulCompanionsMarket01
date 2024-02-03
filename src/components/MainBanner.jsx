@@ -4,7 +4,7 @@ import '../styles/MainBanner.css';
 import dog1 from '../images/dogs/dog1.jpg';
 import cat1 from '../images/cats/cat1.jpg';
 import parrot1 from '../images/birds/parrot1.jpg';
-import greenarowana1 from '../images/fishes/greenarowana1.jpeg';
+import greenarrowana1 from '../images/fishes/greenarrowana1.jpeg';
 import pet_accessories from '../images/accessories/pet_accessories.jpg';
 import petfood2 from '../images/petfoods/petfood2.jpg';
 
@@ -31,7 +31,7 @@ const MainBanner = () => {
           
         </Col>
         <Col xs={2} className="">
-         <a href="/fishes"  rel="noopener noreferrer"><img src={greenarowana1} alt="Fish 1" className="banner-image img-fluid" /></a>
+         <a href="/fishes"  rel="noopener noreferrer"><img src={greenarrowana1} alt="Fish 1" className="banner-image img-fluid" /></a>
           
         </Col>
         <Col xs={2} className="">

@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar';   
 import MainBanner from '../components/MainBanner'; 
-import CategoryButtons from '../components/CategoryButtons';    
+import CategoryButtons from '../components/CategoryButtons';
+import CategoryButtonsTest from '../components/CategoryButtonsTest';    
 import Footer from '../components/Footer';   
 import SignUpButton from '../components/SignUpButton';     
 import Midsection from '../components/MidSection';
@@ -16,7 +17,7 @@ const LandingPage = () => {
       <MainBanner />
       <SignUpButton />
       <Midsection />
-      <CategoryButtons />
+      <CategoryButtonsTest />
       <Testimonial />
       <Newsletter />
       <Footer />

@@ -14,7 +14,7 @@ const PromoBanner = () => {
       setTimeout(() => {
         setCurrentMessageIndex((prevIndex) => (prevIndex + 1) % promoMessages.length);
         setVisible(true); // Show the new message
-      }, 500); // This timeout should match the transition time in your CSS for a smooth effect
+      }, 2000); // This timeout should match the transition time in your CSS for a smooth effect
     }, 5000); // Example: change every 2 minutes (120000 milliseconds)
 
     return () => clearInterval(interval);

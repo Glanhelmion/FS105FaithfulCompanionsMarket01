@@ -62,6 +62,7 @@ function ContactUsForm() {
                 <div className="form-group">
                   <label htmlFor="message">Message:</label>
                   <textarea
+                  className="custom-contact-messagebox"
                     id="message"
                     name="message"
                     value={formData.message}
@@ -70,7 +71,7 @@ function ContactUsForm() {
                   ></textarea>
                 </div>
               <div className="form-group">
-                <button type="submit" className="btn btn-success">Submit</button>
+                <button type="submit" className="custom-contact-submit">Submit</button>
               </div>
             </form>
           </div>

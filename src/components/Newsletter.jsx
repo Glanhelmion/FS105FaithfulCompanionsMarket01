@@ -18,14 +18,14 @@ function NewsletterSubscribe() {
 
   useEffect(() => {
     AOS.init();
-}, []);
+    }, []);
 
   return (
     <Container className="my-5">
-      <h2 data-aos="fade-left">Subscribe to Our Newsletter</h2>
-      <p className="text-muted" data-aos="fade-right">Get notified with the latest fun events and exclusive promos</p>
+      <h2 data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">Subscribe to Our Newsletter</h2>
+      <p className="text-muted" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">Get notified with the latest fun events and exclusive promos</p>
       <Form onSubmit={handleSubmit} className="newsletter-form">
-        <InputGroup className="mb-3" data-aos="fade-top">
+        <InputGroup className="mb-3" data-aos="fade-top" data-aos-delay="200" data-aos-duration="1000">
           <Form.Control
             type="email"
             placeholder="Enter your email"

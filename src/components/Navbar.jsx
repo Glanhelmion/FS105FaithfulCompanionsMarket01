@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Navbar.css';
 import { Link } from "react-router-dom";
 import fcmlogo from '../images/logo/fcmlogo.jpeg';
@@ -27,26 +28,26 @@ const CustomNavbar = () => {
               {/* Add more navigation links here */}
               {/* Example of a dropdown */}
               <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="custom-navbar-text">
-                <NavDropdown.Item className="text-dark" href="/cats">Cats</NavDropdown.Item>
-                <NavDropdown.Item className="text-dark" href="/dogs">Dogs</NavDropdown.Item>
-                <NavDropdown.Item className="text-dark" href="/birds">Birds</NavDropdown.Item>
-                <NavDropdown.Item className="text-dark" href="/fishes">Fishes</NavDropdown.Item>
-                <NavDropdown.Item className="text-dark" href="/petaccessories">Accessories</NavDropdown.Item>
-                <NavDropdown.Item className="text-dark" href="/petfoods">Pet Foods</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/cats">Cats</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/dogs">Dogs</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/birds">Birds</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/fishes">Fishes</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petaccessories">Accessories</NavDropdown.Item>
+                <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petfoods">Pet Foods</NavDropdown.Item>
                             {/* More dropdown items */}
               </NavDropdown>
-              <Nav.Link href="/HomePage" className="custom-navbar-text">This link to Home Page after signup(to be remove after signup functionality is done)</Nav.Link>
+              
             </Nav>
              <div className="d-flex align-items-center">
    
     {/* Login Button */}
-    <Link to="/Login"> <Button className="btn btn-light fw-bold custom-navbar-login">Login</Button></Link>
+    <Link to="/Login"> <button className="custom-navbar-login">Login</button></Link>
    
      {/* Cart Icon Button */}
       <Link to="/Cart"> {/* Replace "/cart" with the actual URL you want to link to */}
-      <Button variant="light" className="btn btn-light fw-bold custom-navbar-login ms-4">
+      <button variant="light" className="custom-navbar-login ms-4">
         <FaShoppingCart />
-      </Button>
+      </button>
     </Link>
   </div>
           </Navbar.Collapse>

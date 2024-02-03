@@ -1,12 +1,29 @@
 .promo-banner {
   padding: 20px;
   padding-top: 80px;
-  background-color: #ff9500;
-  color: white;
+  background: linear-gradient(135deg, #FFA500, #FFD700);
+  color: #333;
   text-align: center;
   font-size: 2.5em;
-  transition: opacity 0.5s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  border: 2px solid #FFA500;
+  border-radius: 100px;
+  transition: opacity 2s ease-in-out;
   opacity: 1;
+  animation: changeGradient 10s linear infinite;
+  }
+
+  @keyframes changeGradient {
+    0% {
+      background: linear-gradient(135deg, #FFA500, #FFD700);
+    }
+    50% {
+      background: linear-gradient(135deg, #FFD700, #FFA500); 
+    }
+    100% {
+      background: linear-gradient(135deg, #FFA500, #FFD700);
+    }
   }
 
 /* Example of a fade-out animation */

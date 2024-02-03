@@ -39,8 +39,28 @@
    width: 500px; 
    resize: both;
   }
-  
 
+  .custom-contact-messagebox {
+    height: 100px !important;
+    overflow-y: auto;
+    resize: none !important;
+  }
+  
+  .custom-contact-submit {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 20%;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: 100;
+    transition: background-color 0.5s ease, font-weight 0.5s ease;
+  }
+
+  .custom-contact-submit:hover {
+    font-weight: 300;
+    background-color: #E48F45;
+  }
   
  
   

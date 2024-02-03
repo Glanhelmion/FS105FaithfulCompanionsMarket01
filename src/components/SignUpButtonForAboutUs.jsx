@@ -1,15 +1,15 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+// import { Button } from 'react-bootstrap';
 import '../styles/signupbutton.css';
 import { Link } from "react-router-dom";
 
       
       const SignUpButtonForAboutUs = () => {
         return ( 
-        <div className="mt-5">
-        <Link to="/signup"><Button variant="primary" className="mr-2 custom-signupbutton fw-bold">Sign Up</Button></Link>
+        <div className="">
+        <Link to="/signup"><button className="custom-signupbutton">Sign Up</button></Link>
           
-          <Button variant="danger ms-3" className="custom-signupbutton fw-bold">SHOP ONLINE NOW</Button>
+          <button className="custom-signupbutton-takeatour">SHOP ONLINE NOW</button>
         </div>
         
         )

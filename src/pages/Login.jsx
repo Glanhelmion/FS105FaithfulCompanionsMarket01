@@ -14,7 +14,7 @@ function Login() {
           <img
             src={fcmlogo}
             alt="Description"
-            className="img-fluid" // Bootstrap class for responsive images
+            className="img-fluid" // Bootstrap class for responsive images1`
           />
         </div>
 
@@ -46,7 +46,7 @@ function Login() {
                 <button type="submit" className="custom-login-loginbutton">
                   Login
                 </button>
-                <Link to="/register">
+                <Link to="/signup">
                   <button className="custom-login-registerbutton">
                     Don't have an account yet? Sign up here!
                   </button>

@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
 const CatPage = () => {
-  return (
+  return (  
     <>
     <Navbar />
       <div><h1>This is a CatPage</h1></div>

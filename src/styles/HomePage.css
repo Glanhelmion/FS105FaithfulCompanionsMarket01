@@ -28,3 +28,14 @@
   transition: transform 1s, box-shadow 0.3s;
 }
 
+/* customs css below */
+
+.custom-HomePage-icons {
+  transition: transform 0.6s;
+}
+
+.custom-HomePage-icons:hover {
+    transform: scale(1.2);
+    background-color: transparent;
+}
+
