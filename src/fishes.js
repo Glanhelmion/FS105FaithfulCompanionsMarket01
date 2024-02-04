@@ -57,7 +57,7 @@ const fishes = [
   },
     {
     _id: 5,
-    name: "Motoro Stingray",
+    name: "Motoro",
     image: motororay1,
     description: "Species that can be tamed easily. Despite its venomous tail, it has an infectious love",
     species: "Amphiprioninae",

@@ -53,7 +53,9 @@
 .custom-navbar-dropdown:hover {
     font-weight: 700;
     transform: scale(1.1);
-    background-color: #E48F45;
+    background: linear-gradient(135deg, #FFA500, #FFD700);
+    border: 1px solid #FFB76B;
+    box-shadow: 1px 10px 10px #FFB76B;
     color: white !important;
 }
 
