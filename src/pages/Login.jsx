@@ -52,7 +52,7 @@ function Login() {
                   </button>
                 </Link>
                 <br></br>
-                <Link to="/resetpassword">
+                <Link to="/resetpassword" style={{textDecoration: "none", color: "black"}}>
                   <em className="custom-login-forgotpassword">Forgot your password? No worries. Reset now!</em>
                 </Link>
               </form>

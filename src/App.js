@@ -13,6 +13,7 @@ import PetFood from "./pages/PetFood.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import ResetPassword from "./pages/ResetPassword";
 import Preloader from "./components/Preloader";
 import Preloader2 from "./components/Preloader2";
 import CatDetail from "./pages/CatDetail.jsx";
@@ -60,6 +61,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/resetpassword" element={<ResetPassword />} />
             </Routes>
           </Router>
         </>

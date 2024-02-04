@@ -48,3 +48,8 @@
 .custom-login-forgotpassword {
     margin-left: 32px;
 }
+
+.custom-login-forgotpassword:hover {
+    text-decoration: underline;
+    font-weight: 600;
+}
