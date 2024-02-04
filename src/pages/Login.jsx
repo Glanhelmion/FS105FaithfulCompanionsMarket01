@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CustomNavbar from "../components/Navbar";
+import NavbarForLoginPage from "../components/NavbarForLoginPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/Login.css";
 
 function Login() {
   return (
     <div>
-      <CustomNavbar />
+      <NavbarForLoginPage />
       <div className="row">
         {/* Column for the image */}
         <div className="col-md-6">
@@ -48,8 +48,12 @@ function Login() {
                 </button>
                 <Link to="/signup">
                   <button className="custom-login-registerbutton">
-                    Don't have an account yet? Sign up here!
+                    Don't have an account yet? Sign ups here!
                   </button>
+                </Link>
+                <br></br>
+                <Link to="/resetpassword">
+                  <em className="custom-login-forgotpassword">Forgot your password? No worries. Reset now!</em>
                 </Link>
               </form>
             </div>
