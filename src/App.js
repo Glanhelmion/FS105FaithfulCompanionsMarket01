@@ -22,6 +22,8 @@ import BirdDetail from "./pages/BirdDetail.jsx";
 import FishDetail from "./pages/FishDetail.jsx";
 import AccessoryDetail from "./pages/AccessoryDetail.jsx";
 import PetFoodDetail from "./pages/PetFoodDetail.jsx";
+import AdminPage from "./AdminPage.js"; 
+import ProfileForm from "./UploadingTest.js";
 
 function App() {
 
@@ -62,6 +64,8 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
+              <Route path="/admin/add-item" element={<AdminPage />} />
+              <Route path="/img" element={<ProfileForm />} />
             </Routes>
           </Router>
         </>
