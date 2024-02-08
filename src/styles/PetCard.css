@@ -4,4 +4,13 @@
   border-radius: 20px; /* Optional: Preserve aspect ratio and cover the entire space */
 }
 
+.custom-petcard-petname-link {
+  text-decoration: none;
+}
+
+.custom-petcard-petname {
+  font-weight: 900;
+  font-size: 20px;
+}
+
 /* Add more border radius to the card */

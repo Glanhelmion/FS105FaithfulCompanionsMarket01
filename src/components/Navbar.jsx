@@ -36,7 +36,7 @@ const CustomNavbar = () => {
     <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
       <Navbar expanded={expanded} expand="lg" className="navbar navbar-text-white" variant="light">
         <Container>
-        <a href="/"> <img src={fcmlogo} alt="" className="nasmer me-5 custom-navbar-icon"  /> </a>
+        <a href="/"> <img src={fcmlogo} alt="" className="me-5 custom-navbar-icon"  /> </a>
           {/* <Navbar.Brand >nasmer fontanilla</Navbar.Brand>
            */}
           <Navbar.Toggle 
@@ -62,15 +62,15 @@ const CustomNavbar = () => {
             </Nav>
              <div className="d-flex align-items-center">
              {isLoggedIn ? (
-              <div className="fw-bold custom-navbar-login">{username}</div>
+              <div className="">{username}</div>
               ) : (
             <Link to="/Login"> 
-              <button className="custom-navbar-login">Login</button>
+              <button className="custom-navbar-loginandshoppingcart">Login</button>
               </Link>
             )}     
-            {/* Cart Icon Button */}
-             <Link to="/Cart"> {/* Replace "/cart" with the actual URL you want to link to */}
-             <button variant="light" className="custom-navbar-login ms-4">
+           
+             <Link to="/Cart"> 
+             <button className="custom-navbar-loginandshoppingcart ms-4">
                <FaShoppingCart />
              </button>
              </Link>

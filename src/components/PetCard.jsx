@@ -19,9 +19,9 @@ const PetCard = ({ pet, type, image }) => {
 
         <Card.Body>
           {/* Use the Link component for the title as well */}
-          <Link to={`/${pet.type}-detail/${pet._id}/${pet.name}`}>
+          <Link to={`/${pet.type}-detail/${pet._id}/${pet.name}`} className="custom-petcard-petname-link">
             <Card.Title as="div">
-              <strong><h6>{pet._id}.Name: {pet.name}</h6></strong>
+              <strong><h6 className="custom-petcard-petname text-black">{pet._id}.Name: {pet.name}</h6></strong>
             </Card.Title>
           </Link>
           <StarRating rating={pet.rating} maxRating={5} />

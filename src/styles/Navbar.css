@@ -15,9 +15,7 @@
 }
 
 .nasmer {
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
+  
 }
 
 @keyframes flickerAnimation {
@@ -29,10 +27,13 @@
 .custom-navbar-icon {
   box-shadow: 3px 3px 3px #7a3a01;
   animation: flickerAnimation 0.5s infinite;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
 }
 
 .custom-navbar-icon:hover {
-  opacity: 0.1;
+  opacity: 0.01;
 }
 
 .custom-navbar-text {
@@ -59,23 +60,23 @@
     color: white !important;
 }
 
-.custom-navbar-login {
-    background-color: transparent;
-    width: 80px;
-    color: #ffffff;
-    font-weight: 500;
-    border-radius: 5%;
-    box-shadow: 3px 3px 3px 1px black;
-    text-transform: uppercase;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    position: relative;
-    
+.custom-navbar-loginandshoppingcart {
+  background-color: transparent;
+  width: 80px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 13px;
+  box-shadow: 3px 3px 3px #7a3a01;
+  text-transform: uppercase;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.6s, box-shadow 0.6s, color 0.6s, transform 0.6s;
 }
 
-.custom-navbar-login:before {
+.-custom-navbar-loginandshoppingcart {
   content: "";
     top: 0;
     left: 0;
@@ -87,9 +88,9 @@
     position: absolute;
 }
 
-.custom-navbar-login:hover {
+.custom-navbar-loginandshoppingcart:hover {
   background: linear-gradient(120deg, transparent, rgb(255, 255, 255), rgb(54, 2, 2), transparent);
   box-shadow: 0 0 20px 5px white;
   color: #ff6f00;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
