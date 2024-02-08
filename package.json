@@ -1,6 +1,7 @@
 {
   "name": "faithful-companions-market",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",

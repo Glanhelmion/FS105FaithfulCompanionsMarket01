@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+
 
 const userDetailSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
@@ -8,4 +9,4 @@ const userDetailSchema = new mongoose.Schema({
 
 const UserDetail = mongoose.model('UserDetail', userDetailSchema);
 
-module.exports = UserDetail;
+export default UserDetail;

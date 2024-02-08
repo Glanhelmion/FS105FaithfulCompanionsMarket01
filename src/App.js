@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from './pages/LandingPage'; // Ensure this path is correct relative to App.js
-import About from "./pages/About";
+import LandingPage from './pages/LandingPage.jsx'; // Ensure this path is correct relative to App.js
+import About from "./pages/About.jsx";
 import ContactUsFrom from "./pages/Contact.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import CatPage from "./pages/CatPage.jsx";
@@ -13,9 +13,9 @@ import PetFood from "./pages/PetFood.jsx";
 import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
-import ResetPassword from "./pages/ResetPassword";
-import Preloader from "./components/Preloader";
-import Preloader2 from "./components/Preloader2";
+import ResetPassword from "./pages/ResetPassword.jsx";
+import Preloader from "./components/Preloader.jsx";
+import Preloader2 from "./components/Preloader2.jsx";
 import CatDetail from "./pages/CatDetail.jsx";
 import DogDetail from "./pages/DogDetail.jsx";
 import BirdDetail from "./pages/BirdDetail.jsx";

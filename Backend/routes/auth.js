@@ -1,14 +1,27 @@
-const express = require('express');
-const User = require('../models/User'); // Import the User model
-const Item = require('../models/Item'); // Import the Item model
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const multer = require('multer'); // Import multer for image upload
+import express from "express";
+import User from "../models/User.js"; // Import the User model
+import Item from "../models/Item.js"; // Import the Item model
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import multer from "multer"; // Import multer for image upload
+import path from "path";
+
 const router = express.Router();
 const app = express();
-const port = 3002 || 3001;
 
+// Below is for profile page. Will call this data at my router.get below
+const authenticateToken = (req, res, next) => {
+  const token = req.headers.authorization.split(" ")[1];
+  if (token == null) return res.sendStatus(401);
 
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+};
+
+// Set up multer for local file storage
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './uploads')
@@ -19,26 +32,39 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
+// Get the directory name of the current module
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-router.use(express.static(__dirname + '/public'));
+router.use(express.static(path.join(__dirname, '/public')));
 router.use('/uploads', express.static('uploads'));
 
 // Register User
 router.post('/register', async (req, res) => {
-  try {
-    const { username, password } = req.body;
+  console.log("Received data:", req.body);
+  const { name, email, password } = req.body;
+
+  try {    
 
     // Check if user already exists
-    let user = await User.findOne({ username });
+    let user = await User.findOne({ 
+      email 
+    });
+   
     if (user) {
-      return res.status(400).json({ message: 'User already exists' });
+      return res.status(400).json({ 
+        message: 'Account user already exists' 
+      });
     }
 
     // Create a new user
-    user = new User({ username, password });
+    user = new User({ 
+      name,
+      email, 
+      password,
+    });
     await user.save();
 
-    res.status(201).json({ message: 'User created successfully' });
+    res.status(201).json({ message: 'Account user created successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -46,9 +72,13 @@ router.post('/register', async (req, res) => {
 
 // Login User
 router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ 
+      email
+     });
+
     if (!user) {
       return res.status(400).json({ message: 'Invalid Credentials' });
     }
@@ -59,16 +89,100 @@ router.post('/login', async (req, res) => {
 
     // Include the username in the JWT token
     const token = jwt.sign(
-      { id: user._id, username: user.username }, // Add username here
-      'your_jwt_secret', 
-      { expiresIn: '1h' }
+      { 
+        id: user._id, 
+        username: user.username,
+        role: user.role,
+      }, // Add username here
+      process.env.JWT_SECRET, 
+      { expiresIn: '1d' }
     );
 
-    res.json({ token, message: 'Login successful' });
+    res.json({ 
+      token, 
+      role: user.role,
+      message: 'Login successful' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Below to read the user data from database in MongoDB, so that render correct profile page
+
+router.get("/ProfilePage", authenticateToken, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId).select(
+      "-password"
+    );
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({
+      message: "Error fetching user data",
+    });
+  }
+});
+
+// Below is for users to edit their password
+router.post("/change-password", authenticateToken, async (req, res) => {
+  const { newPassword } = req.body;
+
+  if (!newPassword) {
+    return res.status(400).send("New password is required");
+  }
+
+  try {
+    const salt = await bcrypt.genSalt(12);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    await User.findByIdAndUpdate(req.user.userId, {
+      password: hashedPassword,
+    });
+    res.send("Password updated successfully");
+  } catch (error) {
+    res.status(500).send("Error updating password");
+  }
+});
+
+// Below is for users to delete their account
+
+router.delete("/delete-account", authenticateToken, async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.user.userId);
+    res.send("Account deleted successfully");
+  } catch (error) {
+    console.error("Error deleting account", error);
+    res.status(500).send("Error deleting account");
+  }
+});
+
+// Below is a post method for the uploading of the image to be registered unto the user's profile page
+router.post("/upload",authenticateToken,upload.single("profileImage"),async (req, res) => {
+    try {
+      // req.file is the uploaded file
+      // Get only the relative path
+      const relativeImagePath = path.join(
+        "upload",
+        path.basename(req.file.path)
+      );
+
+      // Update the user's profile to include the relative image file path
+      const user = await User.findByIdAndUpdate(
+        req.user.userId,
+        {
+          profileImagePath: relativeImagePath,
+        },
+        {
+          new: true,
+        }
+      );
+      res.json(user);
+    } catch (error) {
+      res.status(500).json({
+        message: "Error uploading image",
+      });
+    }
+  }
+);
 
 
 // Add an item without image upload
@@ -119,11 +233,6 @@ router.post('/profile-upload-single', upload.single('image'), function (req, res
 
 // Register the router with your app
 app.use('/', router);
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
 
 
 router.get('/admin/get-items', async (req, res) => {
@@ -184,4 +293,4 @@ router.put('/admin/edit-item/:id', async (req, res) => {
 });
 
 
-module.exports = router;
+export default router;

@@ -1,23 +1,23 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const authRoutes = require('./routes/auth'); // Import the auth routes
+import express from "express";
+import connectDB from "./dbconfig.js";
+import cors from "cors";
+import authRoutes from "./routes/auth.js";// Import the auth routes
+import dotenv from "dotenv";
 
 const app = express();
-app.use(cors());
+
+
+dotenv.config(); //to connect and pull data from .env
+connectDB(); // Establish database connection to MongoDB
+
 app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+app.use(cors());
 
-// MongoDB connection
-//mongodb+srv://KKK:DEaRVEBYkg6MXaSr@kkk.ki4f1ah.mongodb.net/
-mongoose.connect('mongodb+srv://KKK:DEaRVEBYkg6MXaSr@kkk.ki4f1ah.mongodb.net/Users', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
-
-mongoose.connection.once('open', () => {
-  console.log('Connected to MongoDB');
-});
 
 // Use the authentication routes
 app.use('/api/auth', authRoutes);
