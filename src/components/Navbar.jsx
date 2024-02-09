@@ -1,36 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { Navbar, Nav, NavDropdown, Container, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Navbar.css';
+import React, { useState, useEffect } from "react";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
-import fcmlogo from '../images/logo/fcmlogo.jpeg';
-import { FaShoppingCart } from 'react-icons/fa';
-import { jwtDecode } from 'jwt-decode';
+import fcmlogo from "../images/logo/fcmlogo.jpeg";
+import { FaShoppingCart } from "react-icons/fa";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 
 const CustomNavbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState(''); 
+  const [username, setUsername] = useState(""); 
 
-  const checkLoggedIn = () => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoggedIn(true);
-      try {
-        const decodedToken = jwtDecode(token);
-        console.log("Decoded Token:", decodedToken); // Debug: Log the decoded token
-        setUsername(decodedToken.username);
-      } catch (error) {
-        console.error("Token decoding error:", error);
-        // Handle token decoding error
-      }
-    }
-  };
+      const checkLoggedIn = () => {
+        console.log("Token from localStorage:", localStorage.getItem("token"));
+        const token = localStorage.getItem("token");
+        console.log("Retrieved Token:", token);
+
+        if (token) {
+          setIsLoggedIn(true);
+          try {
+            console.log("Retrieved Token from localStorage:", token);
+            const decodedToken = jwtDecode(token);
+            console.log("Decoded Token:", decodedToken); // Debug: Log the decoded token
+            setUsername(decodedToken.name);
+          } catch (error) {
+            console.error("Token decoding error:", error);
+            // Handle token decoding error
+          }
+        }
+      };
+
+      const history = useNavigate();
+
+      const handleLogout = () => {
+        localStorage.removeItem("token");
+        setIsLoggedIn(false);
+        alert("You have successfully logged out!");        
+        history("/"); // Use history to navigate to the home page after logout
+      };
 
   useEffect(() => {
     checkLoggedIn();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
@@ -62,7 +76,12 @@ const CustomNavbar = () => {
             </Nav>
              <div className="d-flex align-items-center">
              {isLoggedIn ? (
-              <div className="">{username}</div>
+              
+              <>
+              <div className="me-5">{username}</div>
+              <button className="custom-navbar-loginandshoppingcart" onClick={handleLogout}>Logout</button>
+              </>
+              
               ) : (
             <Link to="/Login"> 
               <button className="custom-navbar-loginandshoppingcart">Login</button>

@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import NavbarForLoginPage from "../components/NavbarForLoginPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/Login.css";
-import { createBrowserHistory } from 'history'; 
+import { createBrowserHistory } from "history"; 
 
 const Login = () => {
 
-  const [username, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const history = createBrowserHistory();
   const handleSubmit = async (event) => {
     event.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
-        username,
+      const response = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
         password,
       });
 
@@ -27,22 +27,22 @@ const Login = () => {
 
       // Store the token securely on the client (e.g., in local storage or a state management solution)
       // For simplicity, you can use local storage for now:
-      localStorage.setItem('token', token);
+      localStorage.setItem("token", token);
 
       // Clear any previous error message
-      setErrorMessage('');
+      setErrorMessage("");
 
       // Set a success message
-      // setSuccessMessage('Login Successful');
-      history.push('/homepage');
+      // setSuccessMessage("Login Successful");
+      history.push("/homepage");
       window.location.reload();
       // Redirect to a protected route or perform other actions based on successful login
       // For example, you can navigate to a dashboard:
-      // history.push('/dashboard');
+      // history.push("/dashboard");
     } catch (err) {
       // Handle login failure and display an error message
-      setSuccessMessage('');
-      setErrorMessage(err.response?.data?.message || 'Login Failed');
+      setSuccessMessage("");
+      setErrorMessage(err.response?.data?.message || "Login Failed");
     }
   };
 
@@ -62,8 +62,8 @@ const Login = () => {
         <div className="col-md-6">
           <div className="card custom-login-box">
             <div className="card-header p-5">Login</div>
-              {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-              {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+              {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <div className="card-body">
             <form onSubmit={handleSubmit}>
               <div className="form-group p-1">
@@ -74,11 +74,11 @@ const Login = () => {
                     id="email"
                     name="email"
                     placeholder="Enter your email address here"
-                    value={username}
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
               </div>
-                <div className="form-group">
+                <div className="form-group p-1">
                   <label htmlFor="password">Password:</label>
                   <input
                     type="password"
@@ -95,7 +95,7 @@ const Login = () => {
                 </button>
                 <Link to="/signup">
                   <button className="custom-login-registerbutton">
-                    Don't have an account yet? Sign ups here!
+                    Don"t have an account yet? Sign ups here!
                   </button>
                 </Link>
                 <br></br>
