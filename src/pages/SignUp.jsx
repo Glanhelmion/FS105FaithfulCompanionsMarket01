@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import NavbarForLoginPage from "../components/NavbarForLoginPage";
+import NavbarForSignupPage from "../components/NavbarForSignupPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/SignUpPage.css";
 import { createBrowserHistory } from "history"; 
@@ -63,7 +63,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <NavbarForLoginPage />
+      <NavbarForSignupPage />
       <div className="row">
         {" "}
         {/* Row containing image and form */}
