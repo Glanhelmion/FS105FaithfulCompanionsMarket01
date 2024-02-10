@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import multer from "multer"; // Import multer for image upload
 import path from "path";
+import crypto from "crypto";
 
 const router = express.Router();
 const app = express();
@@ -24,7 +25,7 @@ const authenticateToken = (req, res, next) => {
 // Set up multer for local file storage
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './uploads')
+    cb(null, "./uploads")
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
@@ -35,11 +36,11 @@ var upload = multer({ storage: storage })
 // Get the directory name of the current module
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
-router.use(express.static(path.join(__dirname, '/public')));
-router.use('/uploads', express.static('uploads'));
+router.use(express.static(path.join(__dirname, "/public")));
+router.use("/uploads", express.static("uploads"));
 
 // Register User
-router.post('/register', async (req, res) => {
+router.post("/register", async (req, res) => {
   console.log("Received data:", req.body);
   const { name, email, password } = req.body;
 
@@ -52,7 +53,7 @@ router.post('/register', async (req, res) => {
    
     if (user) {
       return res.status(400).json({ 
-        message: 'Account user already exists' 
+        message: "Account user already exists" 
       });
     }
 
@@ -64,25 +65,25 @@ router.post('/register', async (req, res) => {
     });
     await user.save();
 
-    res.status(201).json({ message: 'Account user created successfully' });
+    res.status(201).json({ message: "Account user created successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 // Login User
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email } );
 
     if (!user) {
-      return res.status(400).json({ message: 'Invalid Credentials' });
+      return res.status(400).json({ message: "Invalid Credentials" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid Credentials' });
+      return res.status(400).json({ message: "Invalid Credentials" });
     }
 
     
@@ -94,13 +95,13 @@ router.post('/login', async (req, res) => {
         role: user.role,
       }, 
       process.env.JWT_SECRET, 
-      { expiresIn: '1d' }
+      { expiresIn: "1d" }
     );
 
     res.json({ 
       token, 
       role: user.role,
-      message: 'Login successful' });
+      message: "Login successful" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -118,6 +119,66 @@ router.get("/ProfilePage", authenticateToken, async (req, res) => {
     res.status(500).json({
       message: "Error fetching user data",
     });
+  }
+});
+
+// Send password reset email
+router.post("/reset-password", async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      // You can decide to not reveal whether an email is registered for security
+      return res.status(404).send("If a user with that email exists, we have sent them a password reset email.");
+    }
+
+    // Generate a token
+    const resetToken = crypto.randomBytes(32).toString("hex");
+    const resetTokenExpire = Date.now() + 3600000; // 1 hour from now
+
+    // Save the token and its expiry to the user"s record
+    user.resetToken = resetToken;
+    user.resetTokenExpire = resetTokenExpire;
+    await user.save();
+
+    // TODO: Send an email to the user with the reset link
+    // The link should be something like "https://yourfrontenddomain.com/reset-password?token=" + resetToken
+    // You can use nodemailer or any other email library to send the email
+
+    res.send("Password reset email sent.");
+  } catch (error) {
+    res.status(500).send("Error in sending password reset email");
+  }
+});
+
+// Reset the password
+router.post('/reset-password/:token', async (req, res) => {
+  try {
+    const { token } = req.params;
+    const { password } = req.body;
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpire: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).send('Invalid or expired token');
+    }
+
+    // Hash the new password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Update the user's password and clear the reset token fields
+    user.password = hashedPassword;
+    user.resetToken = undefined;
+    user.resetTokenExpire = undefined;
+    await user.save();
+
+    res.send('Password has been reset successfully');
+  } catch (error) {
+    res.status(500).send('Error resetting password');
   }
 });
 
@@ -154,7 +215,7 @@ router.delete("/delete-account", authenticateToken, async (req, res) => {
   }
 });
 
-// Below is a post method for the uploading of the image to be registered unto the user's profile page
+// Below is a post method for the uploading of the image to be registered unto the user"s profile page
 router.post("/upload",authenticateToken,upload.single("profileImage"),async (req, res) => {
     try {
       // req.file is the uploaded file
@@ -164,7 +225,7 @@ router.post("/upload",authenticateToken,upload.single("profileImage"),async (req
         path.basename(req.file.path)
       );
 
-      // Update the user's profile to include the relative image file path
+      // Update the user"s profile to include the relative image file path
       const user = await User.findByIdAndUpdate(
         req.user.userId,
         {
@@ -185,19 +246,19 @@ router.post("/upload",authenticateToken,upload.single("profileImage"),async (req
 
 
 // Add an item without image upload
-router.post('/admin/add-item', upload.single('image'), async (req, res) => {
+router.post("/admin/add-item", upload.single("image"), async (req, res) => {
   try {
     const { name, description, category, species, availability, price, rating, numReviews } = req.body;
     
     const imageUrl = req.file ? `/uploads/${req.file.filename}` : null; 
     // Check for required fields
     if (!name || !description || !category || !species || !availability || !price || !rating || !numReviews) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: "All fields are required" });
     }
 
     // Check if the submitted category is valid
-    if (!['pets', 'toys'].includes(category)) {
-      return res.status(400).json({ error: 'Invalid category' });
+    if (!["pets", "toys"].includes(category)) {
+      return res.status(400).json({ error: "Invalid category" });
     }
 
     const newItem = new Item({
@@ -213,7 +274,7 @@ router.post('/admin/add-item', upload.single('image'), async (req, res) => {
     });
 
     await newItem.save();
-    res.status(201).json({ message: 'Item added successfully' });
+    res.status(201).json({ message: "Item added successfully" });
   } catch (error) {
     console.error("Item addition error: ", error);
     res.status(500).json({ message: "Error occurred during item addition", error: error.message });
@@ -221,52 +282,52 @@ router.post('/admin/add-item', upload.single('image'), async (req, res) => {
 });
 
 // Define the route to handle file uploads using the router
-router.post('/profile-upload-single', upload.single('image'), function (req, res, next) {
+router.post("/profile-upload-single", upload.single("image"), function (req, res, next) {
   // Handle the uploaded file here
   console.log(JSON.stringify(req.file));
-  var response = '<a href="/">Home</a><br>';
+  var response = "<a href="/">Home</a><br>";
   response += "File uploaded successfully.<br>";
   response += `<img src="${req.file.path}" /><br>`;
   return res.send(response);
 });
 
 // Register the router with your app
-app.use('/', router);
+app.use("/", router);
 
 
-router.get('/admin/get-items', async (req, res) => {
+router.get("/admin/get-items", async (req, res) => {
   try {
     // Fetch all items from the database
     const items = await Item.find({});
     res.json(items);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to fetch items' });
+    res.status(500).json({ error: "Failed to fetch items" });
   }
 });
-router.delete('/admin/delete-item/:itemId', async (req, res) => {
+router.delete("/admin/delete-item/:itemId", async (req, res) => {
   try {
     const itemId = req.params.itemId;
     const deletedItem = await Item.findByIdAndDelete(itemId);
 
     if (!deletedItem) {
-      return res.status(404).json({ error: 'Item not found' });
+      return res.status(404).json({ error: "Item not found" });
     }
 
-    res.json({ message: 'Item deleted successfully' });
+    res.json({ message: "Item deleted successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to delete item' });
+    res.status(500).json({ error: "Failed to delete item" });
   }
 });
 
-router.put('/admin/edit-item/:id', async (req, res) => {
+router.put("/admin/edit-item/:id", async (req, res) => {
   try {
     const { name, description, stock, price } = req.body;
     const itemId = req.params.id;
 
     if (!name || !description || !stock || !price) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: "All fields are required" });
     }
 
     const updatedItem = await Item.findByIdAndUpdate(
@@ -281,13 +342,13 @@ router.put('/admin/edit-item/:id', async (req, res) => {
     );
 
     if (!updatedItem) {
-      return res.status(404).json({ error: 'Item not found' });
+      return res.status(404).json({ error: "Item not found" });
     }
 
     res.status(200).json(updatedItem);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Failed to edit item' });
+    res.status(500).json({ error: "Failed to edit item" });
   }
 });
 

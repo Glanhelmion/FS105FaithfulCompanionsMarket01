@@ -14,6 +14,7 @@ import Cart from "./pages/Cart.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
+import SetNewPassword from "./pages/SetNewPassword.jsx";
 import Preloader from "./components/Preloader.jsx";
 import Preloader2 from "./components/Preloader2.jsx";
 import CatDetail from "./pages/CatDetail.jsx";
@@ -64,6 +65,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
+              <Route path="/setnewpassword" element={<SetNewPassword />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
             </Routes>
