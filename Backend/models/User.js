@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
-}, { collection: 'UserDetail' }); // Specify the collection name as 'Users'
+}, { collection: 'User' }); // Specify the collection name as 'User'
 
 // Pre-save hook to hash password before saving
 userSchema.pre('save', async function (next) {

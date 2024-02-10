@@ -36,20 +36,13 @@ const SignUp = () => {
       });
       console.log("Registration Response:", response.data);
 
-      // If login is successful, response.data will contain the JWT token
-      const token = response.data.token;
-
-      // Store the token securely on the client (e.g., in local storage or a state management solution)
-      // For simplicity, you can use local storage for now:
-      localStorage.setItem("token", token);
-      console.log("Token set in localStorage:", localStorage.getItem("token"));
 
       // Clear any previous error message
       setErrorMessage("");
 
       // Set a success message
       // setSuccessMessage("Login Successful");
-      history.push("/homepage");
+      history.push("/login");
       window.location.reload();
       // Redirect to a protected route or perform other actions based on successful login
       // For example, you can navigate to a dashboard:
@@ -84,12 +77,12 @@ const SignUp = () => {
             <div className="card-body">
               <form onSubmit={handleSubmit}>
               <div className="form-group">
-                  <label htmlFor="username">Name:</label>
+                  <label htmlFor="name">Name:</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="username"
-                    name="username"
+                    id="name"
+                    name="name"
                     required
                     value={name}
                     onChange={(e) => {

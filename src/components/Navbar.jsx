@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 const CustomNavbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState(""); 
+  const [name, setUsername] = useState(""); // changed username to name
 
       const checkLoggedIn = () => {
         console.log("Token from localStorage:", localStorage.getItem("token"));
@@ -78,7 +78,7 @@ const CustomNavbar = () => {
              {isLoggedIn ? (
               
               <>
-              <div className="me-5">{username}</div>
+              <div className="me-5">{name}</div>
               <button className="custom-navbar-loginandshoppingcart" onClick={handleLogout}>Logout</button>
               </>
               

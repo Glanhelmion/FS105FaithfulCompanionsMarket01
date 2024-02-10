@@ -64,17 +64,6 @@ router.post('/register', async (req, res) => {
     });
     await user.save();
 
-    // Create a token for the newly registered user
-    const token = jwt.sign({ 
-      id: user._id, 
-      name: user.name, 
-      email: user.email 
-    }, 
-      process.env.JWT_SECRET, 
-      { expiresIn: '1d' } // Adjust the expiry as needed
-    );
-    console.log("User saved, Token:", token);
-
     res.status(201).json({ message: 'Account user created successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -96,14 +85,14 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid Credentials' });
     }
 
-    // Include the username in the JWT token
+    
     const token = jwt.sign(
       { 
         id: user._id, 
         name: user.name,
         email: user.email,
         role: user.role,
-      }, // Add username here
+      }, 
       process.env.JWT_SECRET, 
       { expiresIn: '1d' }
     );
