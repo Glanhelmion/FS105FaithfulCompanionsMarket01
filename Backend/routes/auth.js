@@ -149,7 +149,7 @@ router.post("/register", async (req, res) => {
       user.tokenExpires = null; // Clear the token expiry time after activation
       await user.save();
   
-      res.send('Account activated successfully! Redirecting. . .');
+      res.send("<div style='text-align: center; margin-top: 25%; background: linear-gradient(135deg, #FFA500, #FFD700); '><p style='font-size: 18px; font-weight: 600;'>Account activated successfully! If your browser doesn't redirect you in 5 seconds, please click the following <a href='http://localhost:3000/login'>link</a>.</p></div>");
     } catch (error) {
       res.status(500).send('Error activating account.');
     }

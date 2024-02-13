@@ -1,5 +1,5 @@
-import { BIRDS_URL, CATS_URL, DOGS_URL, FISHES_URL, PETFOOD_URL, ACCESSORIES_URL } from "../constants";
-import { apiSlice } from "./apiSlice";
+import { BIRDS_URL, CATS_URL, DOGS_URL, FISHES_URL, PETFOOD_URL, ACCESSORIES_URL } from "../constants.js";
+import { apiSlice } from "./apiSlice.js";
 
 export const productApiSlice = apiSlice.injectEndpoints({
   endpoints: builder => ({

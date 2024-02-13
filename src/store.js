@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { apiSlice } from './slices/apiSlice';
-import  cartSliceReducer from './slices/cartSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { apiSlice } from "./slices/apiSlice.js";
+import  cartSliceReducer from "./slices/cartSlice.js";
 
 
 const store = configureStore ({
@@ -16,4 +16,4 @@ const store = configureStore ({
 export default store;
 
 
-// devTools: process.env.NODE_ENV !== 'production'
+// devTools: process.env.NODE_ENV !== "production"
