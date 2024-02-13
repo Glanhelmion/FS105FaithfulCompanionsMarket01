@@ -76,7 +76,7 @@ const petFoods = [
     rating: 4.4,
     numReviews: 35,
   },
-  // Add more pet food objects as needed
+  
 ];
 
 export default petFoods;

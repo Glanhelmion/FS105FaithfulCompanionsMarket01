@@ -10,12 +10,13 @@ import BirdPage from "./pages/BirdPage.jsx";
 import FishesPage from "./pages/FishesPage.jsx";
 import PetAccessories from "./pages/PetAccessoriesPage.jsx";
 import PetFood from "./pages/PetFood.jsx";
-import Cart from "./pages/Cart.jsx";
+import CartPage from "./pages/CartPage.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
+import ActivationPage from "./components/ActivationPage.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import SetNewPassword from "./pages/SetNewPassword.jsx";
-import Preloader from "./components/Preloader.jsx";
+// import Preloader from "./components/Preloader.jsx";
 import Preloader2 from "./components/Preloader2.jsx";
 import CatDetail from "./pages/CatDetail.jsx";
 import DogDetail from "./pages/DogDetail.jsx";
@@ -23,6 +24,7 @@ import BirdDetail from "./pages/BirdDetail.jsx";
 import FishDetail from "./pages/FishDetail.jsx";
 import AccessoryDetail from "./pages/AccessoryDetail.jsx";
 import PetFoodDetail from "./pages/PetFoodDetail.jsx";
+import ShippingPage from "./pages/ShippingPage.jsx";
 import AdminPage from "./AdminPage.js"; 
 import ProfileForm from "./UploadingTest.js";
 
@@ -61,11 +63,13 @@ function App() {
               <Route path="/accessory-detail/:id/:name" element={<AccessoryDetail />} />
               <Route path="/petfoods" element={<PetFood />} />
                <Route path="/petfood-detail/:id/:name" element={<PetFoodDetail />} />              
-              <Route path="/cart" element={<Cart />} />
+              <Route path="/cartpage" element={<CartPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/activate" element={<ActivationPage />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
               <Route path="/setnewpassword" element={<SetNewPassword />} />
+              <Route path='/shipping' element={<ShippingPage />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
             </Routes>

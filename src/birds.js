@@ -1,6 +1,4 @@
 import parrot1 from "./images/birds/parrot1.jpg";
-import parrot2 from "./images/birds/parrot2.jpeg";
-import parrot3 from "./images/birds/parrot3.jpeg";
 import bird1 from "./images/birds/bird1.jpeg";
 import cockatiel1 from "./images/birds/cockatiel1.jpg";
 import bulbul1 from "./images/birds/bulbul1.jpg";
@@ -80,7 +78,7 @@ const birds = [
     rating: 4.0,
     numReviews: 15,
   },
-  // Add more bird objects as needed
+  
 ];
 
 export default birds;

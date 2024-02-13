@@ -1,4 +1,3 @@
-import pet_accessories from "../images/accessories/pet_accessories.jpg";
 import acc1 from "../images/accessories/acc1.jpeg";
 import acc2 from "../images/accessories/acc2.jpeg";
 import acc3 from "../images/accessories/acc3.jpeg";
