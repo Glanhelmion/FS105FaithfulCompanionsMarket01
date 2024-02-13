@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavbarForResetPasswordPage from "../components/NavbarForResetPasswordPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/Login.css";
