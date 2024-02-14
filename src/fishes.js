@@ -79,7 +79,7 @@ const fishes = [
     rating: 4.5,
     numReviews: 18,
   },
-  // Add more fish objects as needed
+  
 ];
 
 export default fishes;

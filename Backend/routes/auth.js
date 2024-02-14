@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import multer from "multer"; // Import multer for image upload
 import path from "path";
 import crypto from "crypto";
+import nodemailer from "nodemailer"; // server-side email solution
 
 const router = express.Router();
 const app = express();
@@ -62,14 +63,99 @@ router.post("/register", async (req, res) => {
       name,
       email, 
       password,
+      isActivated: false
     });
+
+    // Generate a token for email activation
+    const token = jwt.sign(
+      { userId: user._id, email: user.email }, // Include email in the token payload
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    // Set token and token expiry time for the user
+    user.token = token;
+    user.tokenExpires = new Date(Date.now() + 3600000); // Token expires in 1 hour
+
+
+    // Save the user to the database
     await user.save();
 
-    res.status(201).json({ message: "Account user created successfully" });
+    const activationLink = `http://localhost:5000/api/auth/activate?token=${token}`;
+    const imageURL = "https://i.ibb.co/0Kd17XY/fcmlogo.jpg";
+    console.log("auth link 1 \n" + activationLink);
+    // Send activation email
+    try {
+      await sendActivationEmail(user.email, activationLink, imageURL);
+      res.status(201).json({ message: "Account user created successfully. Activation email sent." });
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      res.status(500).json({ message: 'User registered, but failed to send activation email.' });
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
+    async function sendActivationEmail(email, activationLink, imageURL) {
+      const transporter = nodemailer.createTransport({
+        service: "gmail", 
+        auth: {
+          user: process.env.EMAIL_ADDRESS,
+          pass: process.env.EMAIL_PASSWORD // see .env file
+          }
+      });
+      const mailOptions = {
+        from: process.env.EMAIL_ADDRESS,
+        to: email,
+        subject: 'Account Activation',
+        html: `<div style="font-family: Arial, sans-serif; color: #333;">
+        <h1 style="color: #555;">Account Activation</h1>
+        <p style="color: #666;">Please click on the following link to activate your account :</p>
+        <a href="${activationLink}" style="background-color: #0046ff; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Activate account</a>
+        <p style="margin-top: 20px;">Or copy and paste this URL into your browser:</p>
+        <p><a href="${activationLink}" style="color: #0046ff;">${activationLink}</a></p>
+        <p style="color: #666;">Let's paw now with your wings and fins and bring heaven to your loved pets</p>
+        <p><em>Paw Regards</em></p>
+        <p><em>The Faithful Companion Market Team</em></p>
+        <img src="${imageURL}" alt="Your Brand Image" style="width: 100px; height: 100px;">
+      </div>`
+      };
+
+      return transporter.sendMail(mailOptions);
+
+      
+  };
+
+
+  //For the activation link
+  router.get('/activate', async (req, res) => {
+    const { token } = req.query;
+  
+    try { 
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const user = await User.findById(decoded.userId);
+  
+      if (!user) {
+        return res.status(404).send('User not found.');
+      }
+
+      if (user.isActivated) {
+        return res.status(400).send('Account already activated.');
+      }
+  
+      user.isActivated = true; // Change the isActivated field from false to true to indicated acccount activated
+      user.token = null; // Clear the token after activation
+      user.tokenExpires = null; // Clear the token expiry time after activation
+      await user.save();
+  
+      res.send("<div style='text-align: center; margin-top: 25%; background: linear-gradient(135deg, #FFA500, #FFD700); '><p style='font-size: 18px; font-weight: 600;'>Account activated successfully! If your browser doesn't redirect you in 5 seconds, please click the following <a href='http://localhost:3000/login'>link</a>.</p></div>");
+    } catch (error) {
+      res.status(500).send('Error activating account.');
+    }
+  });
+  
+
 
 // Login User
 router.post("/login", async (req, res) => {
@@ -81,6 +167,12 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: "Invalid Credentials" });
     }
+
+    // Check if the account has been activated
+    if (!user.isActivated) {
+      return res.status(401).json({ message: "Account not activated. Please check your email to activate your account." });
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid Credentials" });
@@ -128,57 +220,95 @@ router.post("/reset-password", async (req, res) => {
     const { email } = req.body;
     const user = await User.findOne({ email });
 
-    if (!user) {
-      // You can decide to not reveal whether an email is registered for security
-      return res.status(404).send("If a user with that email exists, we have sent them a password reset email.");
-    }
-
     // Generate a token
     const resetToken = crypto.randomBytes(32).toString("hex");
     const resetTokenExpire = Date.now() + 3600000; // 1 hour from now
 
-    // Save the token and its expiry to the user"s record
-    user.resetToken = resetToken;
-    user.resetTokenExpire = resetTokenExpire;
-    await user.save();
+     if (user) {
+      // Save the token and its expiry to the user"s record
+      user.resetToken = resetToken;
+      user.resetTokenExpire = resetTokenExpire;
+      await user.save();
 
     // TODO: Send an email to the user with the reset link
     // The link should be something like "https://yourfrontenddomain.com/reset-password?token=" + resetToken
     // You can use nodemailer or any other email library to send the email
 
-    res.send("Password reset email sent.");
-  } catch (error) {
-    res.status(500).send("Error in sending password reset email");
-  }
-});
+    const transporter = nodemailer.createTransport({
+      service: "gmail", 
+      auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD // see .env file
+      }
+    });
+  
+    const resetLink = `http://localhost:3000/setnewpassword?token=${resetToken}`;
+    
+    const imageURL = "https://i.ibb.co/0Kd17XY/fcmlogo.jpg";
 
-// Reset the password
-router.post('/reset-password/:token', async (req, res) => {
+    const mailOptions = {
+      from: process.env.EMAIL_ADDRESS,
+      to: user.email,
+      subject: "Password Reset Link",
+      html: `<div style="font-family: Arial, sans-serif; color: #333;">
+              <h1 style="color: #555;">Reset Your Password</h1>
+              <p style="color: #666;">Please click on the following link to reset your password:</p>
+              <a href="${resetLink}" style="background-color: #0046ff; color: #ffffff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Password</a>
+              <p style="margin-top: 20px;">Or copy and paste this URL into your browser:</p>
+              <p><a href="${resetLink}" style="color: #0046ff;">${resetLink}</a></p>
+              <p><em>Paw Regards</em></p>
+              <p><em>The Faithful Companion Market Team</em></p>
+              <img src="${imageURL}" alt="Your Brand Image" style="width: 100px; height: 100px;">
+            </div>`
+    };
+  
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+        res.status(500).send("Error in sending email");
+      } else {
+        console.log("Email sent: " + info.response);
+        res.status(200).send("Password reset email sent.");
+      }
+    });
+  }
+
+  // Respond with a generic message
+  res.status(200).send("If a user with that email exists, we have sent them a password reset email.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error processing request');
+    }
+    });
+
+// For users to set up the new password
+router.post("/setnewpassword", async (req, res) => {
   try {
-    const { token } = req.params;
+    const { token } = req.query;
+    console.log("Received token:", token);
     const { password } = req.body;
     const user = await User.findOne({
       resetToken: token,
       resetTokenExpire: { $gt: Date.now() }
     });
 
+    console.log("User found:", user);
+
     if (!user) {
-      return res.status(400).send('Invalid or expired token');
+      return res.status(400).send("Invalid or expired token");
     }
 
-    // Hash the new password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Update the user's password and clear the reset token fields
-    user.password = hashedPassword;
+    // Update the user"s password and clear the reset token fields
+    user.password = password;
     user.resetToken = undefined;
     user.resetTokenExpire = undefined;
     await user.save();
 
-    res.send('Password has been reset successfully');
+    res.send("Password has been reset successfully");
   } catch (error) {
-    res.status(500).send('Error resetting password');
+    console.error("Error resetting password:", error);
+    res.status(500).send("Error resetting password");
   }
 });
 

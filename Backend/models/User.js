@@ -15,6 +15,12 @@ const userSchema = new mongoose.Schema({
     type: String, 
     required: true 
   },
+  isActivated: {
+    type: Boolean,
+    default: false
+  },
+  resetToken: String,
+  resetTokenExpire: Date, 
 }, { collection: 'User' }); // Specify the collection name as 'User'
 
 // Pre-save hook to hash password before saving

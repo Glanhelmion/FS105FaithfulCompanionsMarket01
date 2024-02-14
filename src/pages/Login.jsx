@@ -10,11 +10,19 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const history = createBrowserHistory();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    
     
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", {
@@ -81,7 +89,7 @@ const Login = () => {
                 <div className="form-group p-1">
                   <label htmlFor="password">Password:</label>
                   <input
-                    type="password"
+                     type={showPassword ? "text" : "password"}
                       className="form-control"
                       id="password"
                       name="password"
@@ -89,7 +97,14 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                </div>
+                      <button
+                      onClick={togglePasswordVisibility} 
+                      type="button"
+                      className="bg-warning text-white"
+                      >
+                      {showPassword ? "Hide" : "Show"} Password 👀
+                      </button>
+                    </div>
                 <button type="submit" className="custom-login-loginbutton">
                   Login
                 </button>

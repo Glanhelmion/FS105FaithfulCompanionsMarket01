@@ -79,7 +79,7 @@ const cats = [
     rating: 4.8,
     numReviews: 20,
   },
-  // Add more cat objects as needed
+  
 ];
 
 export default cats;

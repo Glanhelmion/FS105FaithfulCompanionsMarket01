@@ -1,5 +1,4 @@
 import dog2 from "./images/dogs/dog2.jpg";
-import dog3 from "./images/dogs/dog3.jpg";
 import dog7 from "./images/dogs/dog7.jpeg";
 import goldenretriever1 from "./images/dogs/goldenretriever1.jpeg";
 import germanshepherd1 from "./images/dogs/germanshepherd1.jpg";
