@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+    import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 
 // export const BASE_URL = process.env.NODE_ENV === 'development' ?
@@ -20,16 +20,16 @@ export const UPLOAD_URL = '/api/upload'
 const baseQuery = fetchBaseQuery({ baseUrl:''});
 const TAG_TYPES = ['Accessories', 'Birds', 'Cats', 'Dogs', 'Fishes', 'PetFood', 'Order', 'User'];
 
-// export const apiSlice = createApi({
-//   reducerPath: 'api',
-//   baseQuery,
-//   tagTypes: TAG_TYPES,
-//   endpoints: (builder) => ({}),
-// });
+export const apiSlice = createApi({
+  reducerPath: 'api',
+  baseQuery,
+  tagTypes: TAG_TYPES,
+  endpoints: (builder) => ({}),
+});
 
-// export const { useGetAccessoriesQuery, useGetBirdsQuery, useGetCatsQuery, useGetDogsQuery, useGetFishesQuery, useGetPetfoodQuery } = apiSlice;
+export const { useGetAccessoriesQuery, useGetBirdsQuery, useGetCatsQuery, useGetDogsQuery, useGetFishesQuery, useGetPetfoodQuery } = apiSlice;
 
-// export const { reducer: apiReducer } = apiSlice;
+export const { reducer: apiReducer } = apiSlice;
 
 
 //  These constants will help maintain consistency and avoid hardcoding URLs throughout your application.

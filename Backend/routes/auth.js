@@ -6,7 +6,14 @@ import jwt from "jsonwebtoken";
 import multer from "multer"; // Import multer for image upload
 import path from "path";
 import crypto from "crypto";
-import nodemailer from "nodemailer"; // server-side email solution
+import nodemailer from "nodemailer"; 
+import Dog from "../models/dog.js";
+import Cat from "../models/cat.js";
+import birds from "../data/birdpage.js";
+import Bird from "../models/bird.js";
+import Fish from "../models/fish.js";
+import Accessories from "../models/accessories.js";
+import Petfood from "../models/petfood.js";
 
 const router = express.Router();
 const app = express();
@@ -483,4 +490,149 @@ router.put("/admin/edit-item/:id", async (req, res) => {
 });
 
 
+
+//-------------for item page------------------------------
+router.get('/cats', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const cats = await Cat.find({});
+    res.json(cats);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching cats' });
+  }
+});
+router.get('/cats/:id', async (req, res) => {
+  try {
+    const cat = await Cat.findById(req.params.id);
+    if (!cat) {
+      return res.status(404).json({ message: 'cats not found' });
+    }
+    res.json(cat);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching cats details', error: error.toString() });
+  }
+});
+
+
+
+router.get('/dogs', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const dogs = await Dog.find({});
+    res.json(dogs);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching dogs' });
+  }
+});
+// Get dog details by _id
+router.get('/dogs/:id', async (req, res) => {
+  try {
+    const dog = await Dog.findById(req.params.id);
+    if (!dog) {
+      return res.status(404).json({ message: 'Dog not found' });
+    }
+    res.json(dog);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching dog details', error: error.toString() });
+  }
+});
+
+
+
+router.get('/birds', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const birds = await Bird.find({});
+    res.json(birds);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching birds' });
+  }
+});
+router.get('/birds/:id', async (req, res) => {
+  try {
+    const bird = await Bird.findById(req.params.id);
+    if (!bird) {
+      return res.status(404).json({ message: 'birds not found' });
+    }
+    res.json(bird);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching birds details', error: error.toString() });
+  }
+});
+
+
+
+router.get('/fishes', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const fishes = await Fish.find({});
+    res.json(fishes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching fishes' });
+  }
+});
+router.get('/fishes/:id', async (req, res) => {
+  try {
+    const fish = await Fish.findById(req.params.id);
+    if (!fish) {
+      return res.status(404).json({ message: 'fishes not found' });
+    }
+    res.json(fish);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching fishes details', error: error.toString() });
+  }
+});
+
+
+
+
+router.get('/accessories', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const accessories = await Accessories.find({});
+    res.json(accessories);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching accessories' });
+  }
+});
+router.get('/accessories/:id', async (req, res) => {
+  try {
+    const accessory = await Accessories.findById(req.params.id);
+    if (!accessory) {
+      return res.status(404).json({ message: 'accessories not found' });
+    }
+    res.json(accessory);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching accessories details', error: error.toString() });
+  }
+});
+
+
+
+router.get('/petfoods', async (req, res) => {
+  try {
+    // Fetch all dogs using your preferred method (Mongoose example)
+    const petfood = await Petfood.find({});
+    res.json(petfood);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error fetching petfood' });
+  }
+});
+router.get('/petfoods/:id', async (req, res) => {
+  try {
+    const petfood = await Petfood.findById(req.params.id);
+    if (!petfood) {
+      return res.status(404).json({ message: 'petfoods not found' });
+    }
+    res.json(petfood);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching petfoods details', error: error.toString() });
+  }
+});
 export default router;

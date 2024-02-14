@@ -8,7 +8,7 @@ import CatsData from './data/catpage.js';
 import DogsData from './data/dogpage.js';
 import FishData from './data/fishpage.js';
 import PetfoodsData from './data/petfoodpage.js';
-import User from './models/user.js';
+import User from './models/User.js';
 import Accessories from './models/accessories.js';
 import Bird from './models/bird.js';
 import Cat from './models/cat.js';
