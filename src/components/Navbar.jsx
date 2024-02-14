@@ -59,6 +59,7 @@ const CustomNavbar = () => {
           />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" >
+            <Nav.Link href="homepage" className="custom-navbar-text">Home</Nav.Link>
               <Nav.Link href="aboutus" className="custom-navbar-text">About Us</Nav.Link>
               <Nav.Link href="contactus" className="custom-navbar-text">Contact Us</Nav.Link>
               {/* Add more navigation links here */}
@@ -88,7 +89,7 @@ const CustomNavbar = () => {
               </Link>
             )}     
            
-             <Link to="/Cart"> 
+             <Link to="/cartpage"> 
              <button className="custom-navbar-loginandshoppingcart ms-4">
                <FaShoppingCart />
              </button>
