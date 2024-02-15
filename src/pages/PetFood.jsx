@@ -1,37 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import PetCard from '../components/PetCard';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { useGetPetFoodQuery } from '../slices/apiProducts';
 
 const PetFoodPage = () => {
-  const { data: petFood, isLoading, error } = useGetPetFoodQuery();
+  const [petfoods, setPetFoods] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/petfoods'); // Assuming '/api/dogs' is your endpoint
+        const data = await response.json();
+        setPetFoods(data);
+      } catch (error) {
+        console.error('Error fetching petfoods:', error);
+        // Handle errors here (e.g., display an error message)
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
-      {isLoading ? (
-        <h2>Loading...</h2>
-      ) : error ? (
-        <div>{error?.data?.message || error.error}</div>
-      ) : (
-        <>
-          <Navbar />
-          <br />
-          <Container className="px-0 pt-5">
-            <Row>
-              {petFood.map((food) => (
-                <Col key={food.id} sm={12} md={6} lg={4} xl={3}>
-                  <PetCard pet={food} />
-                </Col>
-              ))}
-            </Row>
-          </Container>
-          <Newsletter />
-          <Footer />
-        </>
-      )}
+      <Navbar />
+      <br />
+      <Container className="px-0 pt-5">
+        {petfoods.length > 0 ? (
+          <Row>
+            {petfoods.map((petfood) => (
+              <Col key={petfood._id} sm={12} md={6} lg={4} xl={3}>
+                <PetCard pet={petfood} />
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          // Show a loading indicator if dogs are not yet fetched
+          <p>Loading petfoods...</p>
+        )}
+      </Container>
+      <Newsletter />
+      <Footer />
     </>
   );
 };
