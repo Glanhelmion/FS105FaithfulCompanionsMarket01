@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavbarForLoginPage from "../components/NavbarForLoginPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/Login.css";
-import { createBrowserHistory } from "history"; 
 
 const Login = () => {
 
@@ -13,7 +12,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const history = createBrowserHistory();
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -32,18 +31,22 @@ const Login = () => {
 
       // If login is successful, response.data will contain the JWT token
       const token = response.data.token;
-
+      const role = response.data.role;
       // Store the token securely on the client (e.g., in local storage or a state management solution)
       // For simplicity, you can use local storage for now:
       localStorage.setItem("token", token);
 
       // Clear any previous error message
       setErrorMessage("");
-
-      // Set a success message
-      // setSuccessMessage("Login Successful");
-      history.push("/homepage");
-      window.location.reload();
+      if (role === "admin") {
+        
+        // Redirect to the admin page
+        navigate("/admin/add-item");
+      } else {
+        // Redirect to the homepage
+        navigate("/homepage");
+      }
+  
       // Redirect to a protected route or perform other actions based on successful login
       // For example, you can navigate to a dashboard:
       // history.push("/dashboard");
