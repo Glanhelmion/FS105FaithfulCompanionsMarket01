@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col,} from 'react-bootstrap';
 import '../styles/MainBanner.css';
 import dog1 from '../images/dogs/dog1.jpg';
@@ -10,6 +10,8 @@ import petfood2 from '../images/petfoods/petfood2.jpg';
 
 
 const MainBanner = () => {
+
+
   return (
     <Container fluid className="image-banner-container custom-mainbanner-maincontainer">
       <Row className="gx-0 horizontal-photos d-flex flex-wrap custom-mainbanner">

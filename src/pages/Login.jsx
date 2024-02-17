@@ -78,7 +78,7 @@ const Login = () => {
                   <label htmlFor="email">Email:</label>
                   <input
                     type="email"
-                    className="form-control"
+                    className="form-control email-input"
                     id="email"
                     name="email"
                     placeholder="Enter your email address here"
@@ -90,7 +90,7 @@ const Login = () => {
                   <label htmlFor="password">Password:</label>
                   <input
                      type={showPassword ? "text" : "password"}
-                      className="form-control"
+                      className="form-control password-input"
                       id="password"
                       name="password"
                       placeholder="Enter your password"
@@ -100,7 +100,7 @@ const Login = () => {
                       <button
                       onClick={togglePasswordVisibility} 
                       type="button"
-                      className="bg-warning text-white"
+                      className="bg-warning text-white password-input"
                       >
                       {showPassword ? "Hide" : "Show"} Password 👀
                       </button>

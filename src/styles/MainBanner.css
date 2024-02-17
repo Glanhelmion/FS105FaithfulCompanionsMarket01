@@ -1,15 +1,15 @@
 .image-banner-container {
-  display: flex; /* Establishes a flex container */
-  justify-content: center; /* Center the items horizontally */
-  align-items: center;/* Align items vertically */
-  gap: 0px; /* Space between each photo-section */
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 0px; 
 }
 
 
 .banner-image {
-  height: 250px; /* Adjust the height as per your preference */
-  object-fit: cover; /* This property ensures that the images maintain their aspect ratio and cover the specified height */
-  width: 210px; /* This property ensures that the images fill their parent container */
+  height: 250px; 
+  object-fit: cover; 
+  width: 210px; 
   
 }
 
@@ -21,7 +21,17 @@
   box-shadow: 5px 5px 5px 5px  #7a3a01;
   border-radius: 50px;
   margin-top: 150px;
+  animation: colorChange 10s infinite;
 }
+
+@keyframes colorChange {
+  0% { box-shadow: 5px 5px 5px 5px #FFB76B; }
+  25% { box-shadow: 5px 5px 5px 5px #E48F45; }
+  50% { box-shadow: 5px 5px 5px 5px #7a3a01; }
+  75% { box-shadow: 5px 5px 5px 5px #FFB76B; }
+  100% { box-shadow: 5px 5px 5px 5px #E48F45; }
+}
+
 
 
 .custom-mainbanner-catpic {

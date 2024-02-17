@@ -1,19 +1,33 @@
 .categorybuttons-container {
     position: relative;
     height: 500px;
-    width: 700px;
+    width: 500px;
     perspective: 500px;
     transform-style: preserve-3d;
+    margin-left: 40%;
+}
+
+@media (max-width: 768px) {
+
+    .categorybuttons-container {
+        margin-left: 10%;
+        height: 500px;
+         width: 500px;
+        margin-top: 50px;
+    }
+
+    .categorybuttons-box {
+       margin-left: 30%;
+    }
 }
 
 .categorybuttons-box {
     width: 440px;
     height: 440px;
-    box-shadow: 0 0 5px #ffd900;
+    filter: drop-shadow(15px 1px 15px #ffd900);
     border: 1px solid #bbb;
     box-sizing: border-box;
     position: absolute;
-    margin-left: 70%;
     top: 50%;
     transform: translateY(-50%);
     transition: 800ms ease-in-out;

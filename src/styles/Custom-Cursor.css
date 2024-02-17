@@ -1,0 +1,14 @@
+html, body {
+    cursor: none !important; 
+  }
+  
+  .custom-cursor {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background-image: url('https://i.pinimg.com/originals/0f/86/6f/0f866f91bac50da1fed4911385b23ea4.png'); 
+      background-size: cover;
+      pointer-events: none;
+      transform: translate(-40%, -40%);
+      z-index: 9999;
+  }

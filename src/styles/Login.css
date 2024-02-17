@@ -6,10 +6,20 @@
     border-style: solid;
     border-color: #FFB76B;
     border-radius: 5%;
-    height: 400px;
-    width: 600px;
+    min-height: 400px;
+    width: 700px;
+    padding: 20px;
     box-shadow: 3px 3px 3px #E48F45;
+    overflow: visible;
 }
+
+@media screen and (max-width: 768px) {
+    .custom-login-box {
+      margin-top: 0; 
+      width: 90%; 
+      min-height: auto; 
+    }
+  }
 
 .custom-login-loginbutton {
     margin-left: 32px;
@@ -52,4 +62,17 @@
 .custom-login-forgotpassword:hover {
     text-decoration: underline;
     font-weight: 600;
+}
+
+.email-input, .password-input {
+    width: 100%; /* Ensures width is not more than the container */
+    max-width: 100%; /* Prevents the element from exceeding the container's width */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's width */
+  }
+
+@media screen and (max-width: 768px) {
+  .email-input, .password-input {
+    /* Adjust padding and margins for smaller screens if necessary */
+    padding: 10px;
+  }
 }
