@@ -3,6 +3,14 @@
   width: 100%;
 }
 
+@media (max-width: 768px) {
+
+  .custom-navbar {
+    width: 80%;
+  }
+  
+}
+
 .navbar {
   background-color: #E48F45;
 }

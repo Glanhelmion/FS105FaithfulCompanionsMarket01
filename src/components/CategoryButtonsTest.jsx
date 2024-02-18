@@ -28,22 +28,22 @@
     return (
       <div className="categorybuttons-container" ref={containerRef}>
         <div className="categorybuttons-box">
-          <img src={parrot1} alt="parrot1" />
+          <img src={parrot1} alt="parrot1" className="custom-categorybuttonstest-img" />
         </div>
         <div className="categorybuttons-box">
-          <img src={dog6} alt="dog6" />
+          <img src={dog6} alt="dog6" className="custom-categorybuttonstest-img" />
         </div>
         <div className="categorybuttons-box">
-          <img src={cat1} alt="cat1" />
+          <img src={cat1} alt="cat1" className="custom-categorybuttonstest-img" />
         </div>
         <div className="categorybuttons-box">
-          <img src={peacockbassazul} alt="peacockbassazul" />
+          <img src={peacockbassazul} alt="peacockbassazul" className="custom-categorybuttonstest-img" />
         </div>
         <div className="categorybuttons-box">
-          <img src={bird2} alt="bird2" />
+          <img src={bird2} alt="bird2" className="custom-categorybuttonstest-img" />
         </div>
         <div className="categorybuttons-box">
-          <img src={cat3} alt="cat3" />
+          <img src={cat3} alt="cat3" className="custom-categorybuttonstest-img" />
         </div>
       </div>
     );

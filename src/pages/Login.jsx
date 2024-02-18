@@ -66,13 +66,13 @@ const Login = () => {
           <img
             src={fcmlogo}
             alt="Description"
-            className="img-fluid" // Bootstrap class for responsive images1`
+            className="img-fluid custom-login-fcmlogo" // Bootstrap class for responsive images1`
           />
         </div>
 
         <div className="col-md-6">
           <div className="card custom-login-box">
-            <div className="card-header p-5">Login</div>
+            <div className="card-header p-5 custom-login-title">Login</div>
               {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
               {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <div className="card-body">
@@ -117,7 +117,7 @@ const Login = () => {
                   </button>
                 </Link>
                 <br></br>
-                <Link to="/resetpassword" style={{textDecoration: "none", color: "black"}}>
+                <Link to="/resetpassword" style={{textDecoration: "none", color: "black"}} className="custom-login-forgotpassword-link">
                   <em className="custom-login-forgotpassword">Forgot your password? No worries. Reset now!</em>
                 </Link>
               </form>

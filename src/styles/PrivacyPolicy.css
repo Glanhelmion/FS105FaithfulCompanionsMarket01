@@ -1,0 +1,15 @@
+.policy-container h2 {
+    padding-top: 100px;
+}
+
+.policy-title {
+    font-weight: 900;
+}
+
+.policy-date {
+    font-weight: 700;
+}
+
+.policy-question {
+    font-weight: 800;
+}

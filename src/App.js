@@ -15,6 +15,7 @@ import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import ActivationPage from "./components/ActivationPage.jsx";
 import FAQ from "./pages/FAQ.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import SetNewPassword from "./pages/SetNewPassword.jsx";
 // import Preloader from "./components/Preloader.jsx";
@@ -97,6 +98,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/activate" element={<ActivationPage />} />
               <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
               <Route path="/setnewpassword" element={<SetNewPassword />} />
               <Route path="/shipping" element={<ShippingPage />} />

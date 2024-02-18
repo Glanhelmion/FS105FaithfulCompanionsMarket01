@@ -10,15 +10,21 @@
 @media (max-width: 768px) {
 
     .categorybuttons-container {
-        margin-left: 10%;
+        margin-left: 0;
         height: 500px;
-         width: 500px;
+         width: 350px;
         margin-top: 50px;
     }
 
     .categorybuttons-box {
-       margin-left: 30%;
+       margin-left: 10%;
     }
+
+    .custom-categorybuttonstest-img {
+        transform: scale(0.5);
+        margin-left: 70px;
+    }
+    
 }
 
 .categorybuttons-box {
