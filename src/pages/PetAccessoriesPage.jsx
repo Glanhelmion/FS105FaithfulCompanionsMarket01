@@ -8,6 +8,11 @@ import Navbar from '../components/Navbar';
 const PetAccessoriesPage = () => {
 
   const [accessories, setAccessories] = useState([]);
+  const [activeAccessory, setActiveAccessory] = useState(null);
+
+  const toggle3DEffect = (accessoryId) => {
+    setActiveAccessory(accessoryId === activeAccessory ? null : accessoryId);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +38,11 @@ const PetAccessoriesPage = () => {
           <Row>
             {accessories.map((accessory) => (
               <Col key={accessory._id} sm={12} md={6} lg={4} xl={3}>
-                <PetCard pet={accessory} />
+                <PetCard 
+                pet={accessory} 
+                onCardClick={() => toggle3DEffect(accessory._id)} 
+                isActive={accessory._id === activeAccessory}
+                />
               </Col>
             ))}
           </Row>

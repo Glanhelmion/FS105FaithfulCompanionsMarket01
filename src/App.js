@@ -16,6 +16,7 @@ import SignUp from "./pages/SignUp.jsx";
 import ActivationPage from "./components/ActivationPage.jsx";
 import FAQ from "./pages/FAQ.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import SetNewPassword from "./pages/SetNewPassword.jsx";
 // import Preloader from "./components/Preloader.jsx";
@@ -29,6 +30,7 @@ import PetFoodDetail from "./pages/PetFoodDetail.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
 import AdminPage from "./AdminPage.js"; 
 import ProfileForm from "./UploadingTest.js";
+import ProfilePage from "./pages/Profilepage.jsx";
 import AnimatedCursor from "react-animated-cursor"
 // import CustomCursor from "./custom-cursor/Custom-Cursor.jsx";
 
@@ -54,7 +56,8 @@ function App() {
       innerScale={0.7}
       outerScale={5}
       outerStyle={{
-       border: "100px solid var(--cursor-color)"
+       border: "100px solid var(--cursor-color)",
+       zIndex: 9999
      }}
       clickables={[
         "a",
@@ -99,11 +102,13 @@ function App() {
               <Route path="/activate" element={<ActivationPage />} />
               <Route path="/FAQ" element={<FAQ />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
               <Route path="/setnewpassword" element={<SetNewPassword />} />
               <Route path="/shipping" element={<ShippingPage />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
+              <Route path="/profilepage" element={<ProfilePage />} />
             </Routes>
           </Router>
         </>

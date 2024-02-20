@@ -79,6 +79,12 @@ const servicesData = [
     }
 }
 
+
+const getAosEffect = (index) => {
+    // Alternate AOS effect based on whether the index is odd or even
+    return index % 2 === 0 ? "fade-left" : "fade-right";
+  };
+  
     useEffect(() => {
         AOS.init();
     }, []);
@@ -86,7 +92,9 @@ const servicesData = [
     return (
         <div className="services-section" >
                 {servicesData.map((service, index) => (
-                    <div className="service position-relative" key={index} onClick={(e) => toggle3DEffect(e, service.link)}>
+                    <div className="service position-relative mt-5" key={index} onClick={(e) => toggle3DEffect(e, service.link)}
+                    data-aos={getAosEffect(index)}
+                    >
                         <Link to={service.link} style={{ textDecoration: "none" }} >
                             <img src={service.imgSrc} alt={service.title}  />
                             <h3 className="service-title fs-1">{service.title}</h3>

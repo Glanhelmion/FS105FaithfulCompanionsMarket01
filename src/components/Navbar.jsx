@@ -62,8 +62,7 @@ const CustomNavbar = () => {
             <Nav.Link href="homepage" className="custom-navbar-text">Home</Nav.Link>
               <Nav.Link href="aboutus" className="custom-navbar-text">About Us</Nav.Link>
               <Nav.Link href="contactus" className="custom-navbar-text">Contact Us</Nav.Link>
-              {/* Add more navigation links here */}
-              {/* Example of a dropdown */}
+              <Nav.Link href="profilepage" className="custom-navbar-text">Profile Frontend</Nav.Link>
               <NavDropdown title="Catalog" id="basic-nav-dropdown" className="custom-navbar-text">
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/cats">Cats</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/dogs">Dogs</NavDropdown.Item>
@@ -71,7 +70,6 @@ const CustomNavbar = () => {
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/fishes">Fishes</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petaccessories">Accessories</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petfoods">Pet Foods</NavDropdown.Item>
-                            {/* More dropdown items */}
               </NavDropdown>
               
             </Nav>

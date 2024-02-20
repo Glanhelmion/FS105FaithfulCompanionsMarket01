@@ -9,6 +9,11 @@ import Navbar from '../components/Navbar';
 
 const BirdPage = () => {
   const [birds, setBirds] = useState([]);
+  const [activeBird, setActiveBird] = useState(null);
+
+  const toggle3DEffect = (birdId) => {
+    setActiveBird(birdId === activeBird ? null : birdId);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +39,11 @@ const BirdPage = () => {
           <Row>
             {birds.map((bird) => (
               <Col key={bird._id} sm={12} md={6} lg={4} xl={3}>
-                <PetCard pet={bird} />
+                <PetCard 
+                pet={bird}
+                onCardClick={() => toggle3DEffect(bird._id)} 
+                isActive={bird._id === activeBird}
+                 />
               </Col>
             ))}
           </Row>

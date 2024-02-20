@@ -24,8 +24,8 @@ function Footer() {
           <h5 className="custom-footer-subheader text-uppercase">Information</h5>
             <a href="/FAQ" className="text-decoration-none text-black"><p className="custom-footer-content">Frequently Asked Questions</p></a>
             <a href="/privacy-policy" className="text-decoration-none text-black"><p className="custom-footer-content">Privacy Policy</p></a>
-            <p className="custom-footer-content">Terms & Condition</p>
-            <a href="https://wa.me/6598620945" target="_blank" id="whatsapp-icon">
+            <a href="/terms-and-conditions" className="text-decoration-none text-black"><p className="custom-footer-content">Terms & Conditions</p></a>
+            <a href="https://wa.me/6581893603" target="_blank" id="whatsapp-icon">
               <img src={whatsappicon} className="whatsappicon rounded-circle border border-5 border-warning" alt="WhatsApp"/>
             </a>
         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Backgroundimage from "../components/Backgroundimage";
-import NavigationForHome from "../components/NavigationForHome";
+// import Backgroundimage from "../components/Backgroundimage";
+// import NavigationForHome from "../components/NavigationForHome";
 
 const ProfilePage = () => {
     const [userData, setUserData] = useState({});
@@ -97,7 +97,7 @@ const ProfilePage = () => {
   
     return (
       <div className="bg-light">
-        <NavigationForHome />
+        {/* <NavigationForHome /> */}
         <h1 className="text-center fw-bold mt-5 p-5">Hello {userData.name}</h1>
         <div className="text-center">
           {userData.profileImagePath && (

@@ -1,0 +1,39 @@
+.custom-shippingpage-container {
+    height: 100vh;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 15px;
+    background-color: #ffd900;
+    font-weight: 800;
+    transition: background-color 0.5s ease, font-weight 0.1s ease;
+}
+
+.custom-shippingpage-title {
+    font-weight: 900;
+}
+
+.custom-shippingpage-continue {
+    background-color: #459AE4;
+    font-weight: 900;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 2px #1F81D7;
+    text-shadow: 1px 1px 1px #1F81D7;
+    margin-left: 6px;
+}
+
+.custom-detail-addtocard:hover {
+    background-color: #E48F45;
+    font-weight: 900;
+    border: white;
+    border-width: 1px;
+    border-style: solid;
+    color: #7a3a01 !important;
+    box-shadow: 5px 5px 5px black;
+}
+
+.custom-shippingpage-marginpaddinghandler {
+    margin-top: 8px;
+    padding: 6px;
+}

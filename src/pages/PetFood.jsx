@@ -7,6 +7,11 @@ import Navbar from '../components/Navbar';
 
 const PetFoodPage = () => {
   const [petfoods, setPetFoods] = useState([]);
+  const [activePetFood, setActivePetFood] = useState(null);
+
+  const toggle3DEffect = (petFoodId) => {
+    setActivePetFood(petFoodId === activePetFood ? null : petFoodId);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +37,11 @@ const PetFoodPage = () => {
           <Row>
             {petfoods.map((petfood) => (
               <Col key={petfood._id} sm={12} md={6} lg={4} xl={3}>
-                <PetCard pet={petfood} />
+                <PetCard 
+                pet={petfood}
+                onCardClick={() => toggle3DEffect(petfood._id)} 
+                isActive={petfood._id === activePetFood}
+                 />
               </Col>
             ))}
           </Row>

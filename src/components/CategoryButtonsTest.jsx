@@ -6,9 +6,8 @@
   import cat1 from '../images/cats/cat1.jpg';
   import cat3 from '../images/cats/cat3.jpeg';
   import peacockbassazul from "../images/fishes/peacockbassazul.jpg";
- 
-  // import AOS from 'aos';
-  // import 'aos/dist/aos.css';
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
 
   const CategoryButtonsTest = () => {
     const containerRef = useRef(null);
@@ -24,9 +23,13 @@
   
       return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+      AOS.init();
+  }, []);
   
     return (
-      <div className="categorybuttons-container" ref={containerRef}>
+      <div className="categorybuttons-container" data-aos="fade-down" ref={containerRef}>
         <div className="categorybuttons-box">
           <img src={parrot1} alt="parrot1" className="custom-categorybuttonstest-img" />
         </div>
