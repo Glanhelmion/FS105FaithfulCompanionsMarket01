@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "CI": "false"
+    }
+  },
+  "scripts": {
+    "start": "npm start"
+  }
+}
