@@ -36,7 +36,9 @@ app.use("/api/fishpage", fishRouter); // Mount the fishRouter at /api/fishes
 app.use("/api/petfoodpage", petfoodRouter);
 
 // Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(5000, () => {
+  console.log("Port 5000 connected");
 });
+// Below is Ritchie"s code for "Start the server"
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
