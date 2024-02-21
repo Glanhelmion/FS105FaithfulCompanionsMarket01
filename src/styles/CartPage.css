@@ -1,0 +1,38 @@
+.custom-cartpage-itemname {
+    text-decoration: none;
+    width: 70px;
+    border-radius: 15px;
+    background: transparent;
+    padding: 10px;
+    font-weight: 800;
+    transition: background-color 0.5s ease, font-weight 0.1s ease;
+}
+
+.custom-cartpage-itemname:hover {
+    background-color: #E48F45;
+    font-weight: 900;
+    border: white;
+    border-width: 1px;
+    border-style: solid;
+    color: #7a3a01 !important;
+    box-shadow: 5px 5px 5px black;
+}
+
+
+.custom-cartpage-subtotalcard {
+    margin-top: 120px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    box-shadow: -10px 3px 30px #E48F45;
+    padding: 16px;
+}
+
+.custom-cartpage-checkout {
+    font-weight: 900;
+    padding: 16px;
+    background-color: #459AE4;
+    box-shadow: 0 0 10px 2px #1F81D7;
+    text-shadow: 1px 1px 1px #1F81D7;
+    border-radius: 15px;
+}

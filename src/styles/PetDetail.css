@@ -10,3 +10,26 @@
   overflow: hidden;
 max-width: 100%;
 }
+
+.custom-detail-addtocard {
+  
+    width: 130px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #FFB76B;
+    border-radius: 15px;
+    background-color: #FFB76B;
+    padding: 10px;
+    font-weight: 800;
+    transition: background-color 0.5s ease, font-weight 0.1s ease;
+}
+
+.custom-detail-addtocard:hover {
+    background-color: #E48F45;
+    font-weight: 900;
+    border: white;
+    border-width: 1px;
+    border-style: solid;
+    color: #7a3a01 !important;
+    box-shadow: 5px 5px 5px black;
+}

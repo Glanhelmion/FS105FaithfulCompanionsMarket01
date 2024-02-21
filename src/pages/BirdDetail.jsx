@@ -103,7 +103,7 @@ return (
             )}
             <ListGroup.Item>
               <Button
-                className="btn btn-block mt-2"
+                className="mt-2 text-black custom-detail-addtocard"
                 type="button"
                 disabled={pet.availability === 0}
                 onClick={addToCartHandler}

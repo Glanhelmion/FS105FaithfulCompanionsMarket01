@@ -47,8 +47,8 @@ const CustomNavbar = () => {
   }, [isLoggedIn]);
 
   return (
-    <div className="text-white position-fixed w-100 mt-0 fw-semibold custom-navbar-zindex">
-      <Navbar expanded={expanded} expand="lg" className="navbar navbar-text-white" variant="light">
+    <div className="text-white position-fixed mt-0 fw-semibold custom-navbar">
+      <Navbar expanded={expanded} expand="lg" className="navbar w-100 navbar-text-white" variant="light">
         <Container>
         <a href="/"> <img src={fcmlogo} alt="" className="me-5 custom-navbar-icon"  /> </a>
           {/* <Navbar.Brand >nasmer fontanilla</Navbar.Brand>
@@ -62,16 +62,14 @@ const CustomNavbar = () => {
             <Nav.Link href="homepage" className="custom-navbar-text">Home</Nav.Link>
               <Nav.Link href="aboutus" className="custom-navbar-text">About Us</Nav.Link>
               <Nav.Link href="contactus" className="custom-navbar-text">Contact Us</Nav.Link>
-              {/* Add more navigation links here */}
-              {/* Example of a dropdown */}
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown" className="custom-navbar-text">
+              <Nav.Link href="profilepage" className="custom-navbar-text">Profile Frontend</Nav.Link>
+              <NavDropdown title="Catalog" id="basic-nav-dropdown" className="custom-navbar-text">
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/cats">Cats</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/dogs">Dogs</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/birds">Birds</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/fishes">Fishes</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petaccessories">Accessories</NavDropdown.Item>
                 <NavDropdown.Item className="text-dark custom-navbar-dropdown" href="/petfoods">Pet Foods</NavDropdown.Item>
-                            {/* More dropdown items */}
               </NavDropdown>
               
             </Nav>
@@ -90,7 +88,7 @@ const CustomNavbar = () => {
             )}     
            
              <Link to="/cartpage"> 
-             <button className="custom-navbar-loginandshoppingcart ms-4">
+             <button className="custom-navbar-shoppingcart ms-4">
                <FaShoppingCart />
              </button>
              </Link>

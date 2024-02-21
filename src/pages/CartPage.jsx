@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap';
-import { FaTrash } from 'react-icons/fa';
-import Message from '../components/Message';
-import { addToCart, removeFromCart } from '../slices/cartSlice';
-import Navbar from '../components/Navbar';
-import { updateCart } from '../utils/cartUtils';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap";
+import { FaTrash } from "react-icons/fa";
+import Message from "../components/Message";
+import { addToCart, removeFromCart } from "../slices/cartSlice";
+import Navbar from "../components/Navbar";
+import { updateCart } from "../utils/cartUtils";
+import "../styles/CartPage.css";
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const CartPage = () => {
   };
 
   const checkoutHandler = () => {
-    navigate('/shipping');
+    navigate("/shipping");
   };
 
   return (
@@ -38,33 +39,33 @@ const CartPage = () => {
       <Navbar />
       <Row>
         <Col md={8}>
-          <h1 style={{ marginBottom: '20px' }}>Shopping Cart</h1>
+          <h1 style={{ marginBottom: "20px" }}>Shopping Cart</h1>
           {cartItems.length === 0 ? (
             <Message>
-              Your cart is empty <Link to='/'>Go Back</Link>
+              Your cart is empty <Link to="/">Go Back</Link>
             </Message>
           ) : (
-            <ListGroup variant='flush'>
-              <h4 className='ms-4 mt-5'>Items</h4>
+            <ListGroup variant="flush">
+              <h4 className="ms-4 mt-5">Items</h4>
               {cartItems.map(item => (
                 <ListGroup.Item key={item._id}>
                   <Row>
                     <Col md={2}>
-                      <Image src={item.image} alt={item.name} fluid rounded style={{ width: '180px', height: '80px' }} />
+                      <Image src={item.image} alt={item.name} fluid rounded style={{ width: "180px", height: "100px" }} />
                     </Col>
-                    <Col md={5} className='mt-4'>
-                      <Link to={`/${item.type}-detail/${item._id}/${item.name}`}>{item.name}</Link>
-                      <Button as={Link} to={`/${item.type}-detail/${item._id}/${item.name}`} className='ms-3'>
+                    <Col md={5} className="mt-5">
+                      <Link to={`/${item.type}-detail/${item._id}/${item.name}`} className="text-black custom-cartpage-itemname">{item.name}</Link>
+                      <Button as={Link} to={`/${item.type}-detail/${item._id}/${item.name}`} className="ms-3 btn btn-light">
                         Return
                       </Button>
                     </Col>
-                    <Col md={1} className='mt-4'>
+                    <Col md={1} className="mt-4">
                       ${item.price}
                     </Col>
                     <Col md={1}>
                       <Form.Control
-                        className='mt-3'
-                        as='select'
+                        className="mt-3"
+                        as="select"
                         value={item.qty}
                         onChange={e => addToCartHandler(item, Number(e.target.value))}
                       >
@@ -76,8 +77,8 @@ const CartPage = () => {
                       </Form.Control>
                     </Col>
                     <Col md={3}>
-                      <Button type='button' variant='light' className='mt-3 pt-1' onClick={() => removeFromCartHandler(item._id)}>
-                        <FaTrash style={{ width: '20px', height: '20px' }} />
+                      <Button type="button" variant="light" className="mt-3 pt-1" onClick={() => removeFromCartHandler(item._id)}>
+                        <FaTrash style={{ width: "20px", height: "20px" }} />
                       </Button>
                     </Col>
                   </Row>
@@ -86,16 +87,16 @@ const CartPage = () => {
             </ListGroup>
           )}
         </Col>
-        <Col md={4} className='mt-5'>
-          <Card className='mt-5'>
-            <ListGroup variant='flush'>
-              <ListGroup.Item style={{ color: 'black', backgroundColor: 'light-grey' }}>
+        <Col md={4} className="mt-5">
+          <Card className="custom-cartpage-subtotalcard">
+            <ListGroup variant="flush">
+              <ListGroup.Item style={{ color: "black", backgroundColor: "light-grey" }}>
                 <h3>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h3>
                 <strong>${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</strong>
               
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkoutHandler}>
+                <Button type="button" className="btn-block custom-cartpage-checkout" disabled={cartItems.length === 0} onClick={checkoutHandler}>
                   Proceed To CheckOut
                 </Button>
               </ListGroup.Item>

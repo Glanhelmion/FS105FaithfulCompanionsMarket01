@@ -35,15 +35,15 @@
 .custom-signupbutton:hover {
     transform: scale(1.05);
     font-weight: 800;
-    background: linear-gradient(120deg, transparent, rgb(255, 255, 255), rgb(54, 2, 2), transparent);
+    background: linear-gradient(360deg, #0690FA, #EA06FA, #FA7006, #16FA06);
     box-shadow: 0 0 20px 5px white;
-    color: #ff6f00;
+    color: #16FA06;
 }
 
 .custom-signupbutton-takeatour {
     background-color: #e43a3a;
     border-radius: 20px;
-    width: 200px;
+    width: 210px;
     color: #ffffff;
     font-weight: 600;
     box-shadow: 3px 3px 3px #7a3a01;
@@ -71,10 +71,10 @@
 
 .custom-signupbutton-takeatour:hover {
     transform: scale(1.05);
-    font-weight: 700;
-    background: linear-gradient(120deg, transparent, rgb(255, 255, 255), rgb(54, 2, 2), transparent);
+    font-weight: 800;
+    background: linear-gradient(360deg, #E43A3A, #8FE43A, #3AE4E4, #8F3AE4);
     box-shadow: 0 0 20px 5px white;
-    color: #ff6f00;
+    color: #E43A3A;
 }
 
 

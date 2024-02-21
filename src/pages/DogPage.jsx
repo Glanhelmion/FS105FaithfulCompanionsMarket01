@@ -7,6 +7,11 @@ import Navbar from '../components/Navbar';
 
 const DogPage = () => {
   const [dogs, setDogs] = useState([]);
+  const [activeDog, setActiveDog] = useState(null);
+
+  const toggle3DEffect = (dogId) => {
+    setActiveDog(dogId === activeDog ? null : dogId);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +37,11 @@ const DogPage = () => {
           <Row>
             {dogs.map((dog) => (
               <Col key={dog._id} sm={12} md={6} lg={4} xl={3}>
-                <PetCard pet={dog} />
+                <PetCard 
+                pet={dog} 
+                onCardClick={() => toggle3DEffect(dog._id)} 
+                isActive={dog._id === activeDog}
+                />
               </Col>
             ))}
           </Row>

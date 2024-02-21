@@ -34,7 +34,7 @@ function ContactUsForm() {
       <div className="content-wrapper">
         <div className="form-container">
           <div className="center-content">
-            <h2>Contact Us</h2>
+            <h2 className="fw-bold">Contact Us</h2>
             <br></br>
             <form onSubmit={handleSubmit}>
               <div className="form-group">

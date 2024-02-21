@@ -7,6 +7,11 @@ import Navbar from '../components/Navbar';
 
 const FishesPage = () => {
   const [fishes, setFishes] = useState([]);
+  const [activeFish, setActiveFish] = useState(null);
+
+  const toggle3DEffect = (fishId) => {
+    setActiveFish(fishId === activeFish ? null : fishId);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +37,11 @@ const FishesPage = () => {
           <Row>
             {fishes.map((fish) => (
               <Col key={fish._id} sm={12} md={6} lg={4} xl={3}>
-                <PetCard pet={fish} />
+                <PetCard 
+                pet={fish}
+                onCardClick={() => toggle3DEffect(fish._id)} 
+                isActive={fish._id === activeFish}
+                 />
               </Col>
             ))}
           </Row>

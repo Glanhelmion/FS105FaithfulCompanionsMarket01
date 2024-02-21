@@ -1,0 +1,101 @@
+.services-section {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    padding: 20px;
+    background: #ffffff;
+}
+
+.service {
+    width: calc(33.333% - 20px); /* Three items per row */
+    text-align: center;
+    margin: 10px; 
+    box-sizing: border-box; 
+}
+
+.click-me-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Additional styling for 'Click me' text (color, background, etc.) */
+  }
+
+.shadow-3d {
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+    transition: transform 1s, box-shadow 0.3s;
+  }
+
+.service img {
+  width: 300px;
+  max-width: 300px;
+  height: 300px;
+  margin-bottom: 10px;
+  filter: drop-shadow(15px 1px 15px #7a3a01);
+}
+
+.service h3 {
+  color: #333333; 
+  font-size: 1.2em;
+}
+
+.service p {
+  color: #666666; 
+  font-size: 1em;
+}
+
+.service-title {
+    font-weight: 900;
+    text-shadow: 15px 5px 5px rgb(247, 131, 6);
+}
+  
+.about-us-button {
+  display: block;
+  background-color: #f1c40f; 
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.about-us-button:hover {
+  background-color: #d4ac0d; 
+}
+
+.image-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1024px) {
+  .service {
+      width: calc(50% - 20px); /* Two items per row on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+    .service {
+        width: calc(100% - 20px); /* Full width for very small screens */
+    }
+}
+  

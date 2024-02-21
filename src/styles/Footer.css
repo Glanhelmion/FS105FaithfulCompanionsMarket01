@@ -12,50 +12,91 @@
  */
 
 
- .footer-container {
+.footer-container {
   background: linear-gradient(45deg, hsla(180, 100%, 50%, 0.7), hsla(300, 100%, 50%, 0.7));
-text-align: center;
- color: #260202;
-font-family: 'Arial', sans-serif;
-padding: 2rem 0;
-line-height: 1.6;
+  text-align: center;
+  color: #260202;
+  font-family: 'Arial', sans-serif;
+  padding: 2rem 0;
+  line-height: 1.6;
 }
 
 .footer-content {
-display: flex;
-justify-content: space-around;
-align-items: flex-start;
-flex-wrap: wrap;
-padding: 0 10%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 10%;
 }
 
 .footer-section {
-margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .footer-section h5 {
-margin-bottom: 0.5rem;
-color: #120e03; /* A golden-like color for the headings */
+  margin-bottom: 0.5rem;
+  color: #120e03;
+  /* A golden-like color for the headings */
+}
+
+.custom-footer-subheader {
+  font-weight: 900;
+}
+
+.custom-footer-content {
+  font-weight: 600;
+  transition: color 0.6s;
+}
+
+.custom-footer-content:hover {
+  color: white;
+}
+
+.custom-footer-content-address {
+  font-weight: 600;
+  transition: transform 0.6s;
+}
+
+.custom-footer-content-address:hover {
+  transform: scale(1.1);
+  color: white;
 }
 
 .footer-link {
-display: inline-block;
-margin-right: 10px;
-color: #161515;
-font-size: 1.5rem;
+  display: inline-block;
+  margin-right: 10px;
+  color: #161515;
+  font-size: 1.5rem;
+  transition: color 0.6s, transform 0.6s;
 }
 
 .footer-link:hover {
-color: #0f0e0d; /* Change color on hover */
+  color: white;
+  transform: scale(2);
 }
 
 .footer-bottom {
-text-align: center;
-padding-top: 1rem;
-border-top: 1px solid #444;
- /* Slight border for a visual separation */
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+  /* Slight border for a visual separation */
 }
 
 .footer-bottom p {
-margin: 0.5rem 0;
+  margin: 0.5rem 0;
+}
+
+.whatsappicon {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  z-index: 1000;
+  bottom: 20px;
+  left: 20px;
+  filter: drop-shadow(1px 1px 1px black);
+  transition: transform 0.6s;
+}
+
+.whatsappicon:hover {
+  transform: scale(1.3);
 }

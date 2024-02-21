@@ -47,6 +47,7 @@ const Testimonial = () => {
 
   return (
     <div className="testimonial-carousel-container" data-aos="fade-bottom">
+      <div style={{textAlign: "center"}}><h1 className="fw-bold">See what others have to say</h1></div>
       <Slider {...settings}>
         {testimonials.map(testimonial => (
           <div key={testimonial.id}>

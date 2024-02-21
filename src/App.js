@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from './pages/LandingPage.jsx'; // Ensure this path is correct relative to App.js
+import LandingPage from "./pages/LandingPage.jsx"; // Ensure this path is correct relative to App.js
 import About from "./pages/About.jsx";
 import ContactUsFrom from "./pages/Contact.jsx";
 import HomePage from "./pages/HomePage.jsx";
@@ -14,6 +14,9 @@ import CartPage from "./pages/CartPage.jsx";
 import Login from "./pages/Login.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import ActivationPage from "./components/ActivationPage.jsx";
+import FAQ from "./pages/FAQ.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 import ResetPassword from "./pages/ResetPassword.jsx";
 import SetNewPassword from "./pages/SetNewPassword.jsx";
 // import Preloader from "./components/Preloader.jsx";
@@ -27,6 +30,9 @@ import PetFoodDetail from "./pages/PetFoodDetail.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
 import AdminPage from "./AdminPage.js"; 
 import ProfileForm from "./UploadingTest.js";
+import ProfilePage from "./pages/Profilepage.jsx";
+import AnimatedCursor from "react-animated-cursor"
+// import CustomCursor from "./custom-cursor/Custom-Cursor.jsx";
 
 function App() {
 
@@ -41,6 +47,33 @@ function App() {
 
   return (
     <div className="App">
+
+      <AnimatedCursor
+      innerSize={8}
+      outerSize={8}
+      color="0, 0, 0"
+      outerAlpha={0.2}
+      innerScale={0.7}
+      outerScale={5}
+      outerStyle={{
+       border: "100px solid var(--cursor-color)",
+       zIndex: 9999
+     }}
+      clickables={[
+        "a",
+        "input[type='text']",
+        "input[type='email']",
+        "input[type='number']",
+        "input[type='submit']",
+        "input[type='image']",
+        "label[for]",
+        "select",
+        "textarea",
+        "button",
+        ".link"
+      ]}
+       />
+
       {isLoading ? (
         <Preloader2 />
       ) : (
@@ -67,11 +100,15 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/activate" element={<ActivationPage />} />
+              <Route path="/FAQ" element={<FAQ />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
               <Route path="/resetpassword" element={<ResetPassword />} />
               <Route path="/setnewpassword" element={<SetNewPassword />} />
-              <Route path='/shipping' element={<ShippingPage />} />
+              <Route path="/shipping" element={<ShippingPage />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
+              <Route path="/profilepage" element={<ProfilePage />} />
             </Routes>
           </Router>
         </>

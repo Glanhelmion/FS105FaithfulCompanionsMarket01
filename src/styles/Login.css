@@ -6,9 +6,10 @@
     border-style: solid;
     border-color: #FFB76B;
     border-radius: 5%;
-    height: 400px;
-    width: 600px;
+    min-height: 400px;
+    width: 700px;
     box-shadow: 3px 3px 3px #E48F45;
+    overflow: visible;
 }
 
 .custom-login-loginbutton {
@@ -49,7 +50,52 @@
     margin-left: 32px;
 }
 
+
+
+
 .custom-login-forgotpassword:hover {
     text-decoration: underline;
     font-weight: 600;
+}
+
+.email-input, .password-input {
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+  }
+
+@media (max-width: 768px) {
+  .email-input, .password-input {
+    
+    padding: 10px;
+  }
+
+  .custom-login-box {
+    margin-top: 10px; 
+    width: 77%; 
+    min-height: auto; 
+  }
+
+  .custom-login-title {
+    padding: 20px !important;
+  }
+
+  .custom-login-fcmlogo {
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .custom-login-loginbutton {
+    margin-left: 95px;
+  }
+
+  .custom-login-registerbutton {
+    margin-right: 35px;
+  }
+  
+  .custom-login-forgotpassword::after {
+    content: " Click to reset!! ";
+  }
 }

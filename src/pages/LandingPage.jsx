@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../components/Navbar";   
-import MainBanner from "../components/MainBanner"; 
+import MainBanner from "../components/MainBanner";
+import SignUpButton from "../components/SignUpButton";    
+import Midsection from "../components/MidSection"; 
+import CatalogSection from "../components/CatalogSection";
 import CategoryButtons from "../components/CategoryButtons";
-import CategoryButtonsTest from "../components/CategoryButtonsTest";    
-import Footer from "../components/Footer";   
-import SignUpButton from "../components/SignUpButton";     
-import Midsection from "../components/MidSection";
+import CategoryButtonsTest from "../components/CategoryButtonsTest";      
 import Testimonial from "../components/Testimonial";
 import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";  
 
 
 const LandingPage = () => {
@@ -17,6 +18,7 @@ const LandingPage = () => {
       <MainBanner />
       <SignUpButton />
       <Midsection />
+      <CatalogSection />
       <CategoryButtonsTest />
       <Testimonial />
       <Newsletter />

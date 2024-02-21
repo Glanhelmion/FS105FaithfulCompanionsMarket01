@@ -1,5 +1,14 @@
-.custom-navbar-zindex {
+.custom-navbar {
   z-index: 1000;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .custom-navbar {
+    width: 80%;
+  }
+  
 }
 
 .navbar {
@@ -14,9 +23,6 @@
   color: black; 
 }
 
-.nasmer {
-  
-}
 
 @keyframes flickerAnimation {
   0%   { opacity: 1; }
@@ -37,13 +43,18 @@
 }
 
 .custom-navbar-text {
-  transition: color 0.3s ease, font-weight 0.3s ease, text-decoration 0.3s ease;
+  background: transparent;
+  font-weight: 700;
+  margin: 8px;
+  transition: color 0.3s ease, font-weight 0.3s ease, text-decoration 0.3s ease, background-color 5s ease ;
 }
+
 
 .custom-navbar-text:hover {
   color: white;
   font-weight: 900;
   text-decoration: underline;
+  background: #D3751E;
   border: 1px solid white;
 }
 
@@ -61,7 +72,7 @@
 }
 
 .custom-navbar-loginandshoppingcart {
-  background-color: transparent;
+  background-color: #459AE4;
   width: 90px;
   color: #ffffff;
   font-weight: 600;
@@ -89,9 +100,48 @@
 }
 
 .custom-navbar-loginandshoppingcart:hover {
-  background: linear-gradient(180deg, transparent, rgb(54, 2, 2), transparent);
+  background: linear-gradient(360deg, #E48F45, #E4DF45, #E4454B);
   box-shadow: 0 0 20px 5px white;
   font-weight: 900;
-  color: #ff6f00;
+  color: #454AE4;
   transform: scale(1.05);
 }
+
+.custom-navbar-shoppingcart {
+  background-color: #9AE445;
+  width: 90px;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 13px;
+  box-shadow: 3px 3px 3px #7a3a01;
+  text-transform: uppercase;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: background 1s, box-shadow 1s, color 0.6s, transform 1.5s, font-weight 0.1s;
+}
+
+.custom-navbar-shoppingcart:before {
+  content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, yellow);
+    transform: translateX(-100%);
+    transition: 10s;
+    position: absolute;
+}
+
+.custom-navbar-shoppingcart:hover {
+  background: linear-gradient(180deg, #9AE445, #459AE4, #E4459A);
+  box-shadow: 0 0 20px 5px white;
+  font-weight: 900;
+  color: #E48F45;
+  text0-shadow: 5px 5px 5px red;
+  transform: scale(1.05);
+}
+
+/* background: linear-gradient(180deg, #E48F45, #E4DF45, #E4454B); */
