@@ -15,6 +15,30 @@ const CartPage = () => {
   const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
 
+  const checkoutHandler = () => {
+    // Prepare the items from the cart for the Stripe Checkout session
+    // Ensure the item structure matches what your backend expects
+    cartItems.forEach(item => {
+      console.log(`Item: ${item.name}, Quantity: ${item.qty}`);
+    });
+    const itemsForStripe = cartItems.map(item => ({
+      name: item.name,
+      price: item.price, // Assuming price is in the correct format (e.g., dollars, not cents)
+      quantity: item.qty,
+    }));
+    console.log("Items for Stripe:", itemsForStripe);
+    // Call your backend endpoint to create a Stripe Checkout session
+    fetch('http://localhost:5000/api/auth/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ items: itemsForStripe }),
+    })
+    .then(response => response.json())
+    .then(data => window.location.href = data.url)
+    .catch(error => console.error('Error:', error));
+  };
   // Function to calculate the total price including discount, tax, and shipping
   const calculateTotalPrice = () => {
     // Call the updateCart function to recalculate cart totals
@@ -30,9 +54,9 @@ const CartPage = () => {
     dispatch(removeFromCart(itemId));
   };
 
-  const checkoutHandler = () => {
-    navigate("/shipping");
-  };
+  // const checkoutHandler = () => {
+  //   navigate("/shipping");
+  // };
 
   return (
     <>

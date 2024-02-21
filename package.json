@@ -41,6 +41,7 @@
     "react-slick": "^0.30.0",
     "redux": "^5.0.1",
     "slick-carousel": "^1.8.1",
+    "stripe": "^14.17.0",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"

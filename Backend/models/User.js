@@ -20,7 +20,12 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   resetToken: String,
-  resetTokenExpire: Date, 
+  resetTokenExpire: Date,
+  role: {
+    type: String,
+    enum: ['user', 'admin'], // Define possible roles
+    default: 'user' // Default role is 'user'
+  }
 }, { collection: 'User' }); // Specify the collection name as 'User'
 
 // Pre-save hook to hash password before saving
