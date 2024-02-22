@@ -32,6 +32,7 @@ import AdminPage from "./AdminPage.js";
 import ProfileForm from "./UploadingTest.js";
 import ProfilePage from "./pages/Profilepage.jsx";
 import AnimatedCursor from "react-animated-cursor"
+import Checkout from "./pages/Checkout.jsx";
 
 // import "./styles/App.css";
 // import CustomCursor from "./custom-cursor/Custom-Cursor.jsx";
@@ -110,7 +111,7 @@ function App() {
               <Route path="/shipping" element={<ShippingPage />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
-              <Route path="/ProfilePage" element={<ProfilePage />} />
+              <Route path="/profilepage" element={<ProfilePage />} />
             </Routes>
           </Router>
         </>

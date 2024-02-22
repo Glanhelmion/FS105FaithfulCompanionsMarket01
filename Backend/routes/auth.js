@@ -15,6 +15,10 @@ import Bird from "../models/bird.js";
 import Fish from "../models/fish.js";
 import Accessories from "../models/accessories.js";
 import Petfood from "../models/petfood.js";
+import Cart from "../models/cart.js";
+import Stripe from 'stripe';
+
+const stripe = new Stripe('sk_test_51OmE8VEkckOis0EQXB3upH0jrRQ8XuPi4fRAcaaJnKbjpnrRGbc0TxZfDTaAYH5k0F3Ak9YjOgXh4shyDsbg0UkZ000pieUmyG');
 
 const router = express.Router();
 const app = express();
@@ -639,4 +643,153 @@ router.get('/petfoods/:id', async (req, res) => {
     res.status(500).json({ message: 'Error fetching petfoods details', error: error.toString() });
   }
 });
+
+
+//----CART --------------------
+router.post('/cart/add', async (req, res) => {
+  // Extract userName, productId, and quantity from request body
+  const { userName, item } = req.body;
+  
+  try {
+    // Find the user's cart
+    let cart = await Cart.findOne({ userName });
+
+    // If the cart doesn't exist, create a new one
+    if (!cart) {
+      cart = new Cart({ userName, cartItems: [] });
+    }
+
+    // Check if the item is already in the cart
+    const existingItem = cart.cartItems.find(cartItem => cartItem.productId.toString() === item._id);
+
+    // If the item exists, update its quantity
+    if (existingItem) {
+      existingItem.quantity = item.qty;
+    } else {
+      // Otherwise, add a new item to the cart
+      cart.cartItems.push({ productId: item._id, quantity: item.qty });
+    }
+
+    // Save the updated cart to the database
+    const updatedCart = await cart.save();
+
+    res.json(updatedCart);
+  } catch (error) {
+    console.error('Error adding item to cart:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
+
+
+router.post('/cart/update', async (req, res) => {
+  const { cartItems } = req.body;
+
+  try {
+    // Find the user's cart in the database and update it with the new cartItems
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId: req.user._id }, // Assuming you have authentication middleware that adds req.user
+      { cartItems },
+      { new: true }
+    );
+
+    if (!updatedCart) {
+      // If the user doesn't have a cart yet, create one
+      const newCart = await Cart.create({ userId: req.user._id, cartItems });
+      res.json(newCart);
+    } else {
+      res.json(updatedCart);
+    }
+  } catch (error) {
+    console.error('Error updating cart:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Remove item from cart
+router.delete('/cart/remove', async (req, res) => {
+  // Extract userId and itemId from request
+  const { userId, itemId } = req.body;
+  
+  try {
+    // Remove item from user's cart in the database
+    const updatedCart = await Cart.findOneAndUpdate(
+      { userId },
+      { $pull: { cartItems: { _id: itemId } } },
+      { new: true }
+    );
+    res.json(updatedCart);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+// Get user's cart
+router.get('/cart/:userId', async (req, res) => {
+  const { userId } = req.params;
+  
+  try {
+    // Find user's cart in the database
+    const cart = await Cart.findOne({ userId });
+    res.json(cart);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
+// router.post('/create-checkout-session', async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     payment_method_types: ['card'],
+//     line_items: [{
+//       price_data: {
+//         currency: 'sgd',
+//         product_data: {
+//           name: 'Dog',
+//         },
+//         unit_amount: 2000,
+//       },
+//       quantity: 1,
+//     }],
+//     mode: 'payment',
+//     success_url: 'http://localhost:4242/success',
+//     cancel_url: 'http://localhost:4242/cancel',
+//   });
+
+//   res.json({ url: session.url });
+// });
+router.post('/create-checkout-session', async (req, res) => {
+  const { items } = req.body; // Assuming you're now sending items from the frontend
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: items.map(item => ({
+        price_data: {
+          currency: 'sgd',
+          product_data: {
+            name: item.name,
+          },
+          // Convert price to the smallest unit (e.g., cents) and ensure it's an integer
+          unit_amount: Math.round(item.price * 100),
+        },
+        quantity: item.quantity,
+      })),
+      mode: 'payment',
+      success_url: 'http://localhost:4242/success',
+      cancel_url: 'http://localhost:4242/cancel',
+    });
+
+    res.json({ url: session.url });
+  } catch (error) {
+    console.error("Error creating checkout session:", error);
+    res.status(500).send({ error: "Failed to create checkout session" });
+  }
+});
+
+
+
 export default router;

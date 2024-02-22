@@ -8,47 +8,61 @@ import Footer from '../components/Footer';
 import axios from "axios"; // Make sure to install and import axios
 import { addToCart } from "../slices/cartSlice";
 import { useDispatch } from "react-redux"; 
+import { jwtDecode } from "jwt-decode";
 
 const DogDetail = () => {
-    const { id: petId } = useParams();
-    const [pet, setPet] = useState(null); // State to store the fetched pet details
-    const [loading, setLoading] = useState(true); // State to manage loading status
-    const [error, setError] = useState(null); // State to manage error status
+  const { id: petId } = useParams();
+  const [pet, setPet] = useState(null); // State to store the fetched pet details
+  const [loading, setLoading] = useState(true); // State to manage loading status
+  const [error, setError] = useState(null); // State to manage error status
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [qty, setQty] = useState(1);
-    useEffect(() => {
-        const fetchPetDetails = async () => {
-            try {
-                const { data } = await axios.get(`http://localhost:5000/api/auth/dogs/${petId}`);
-                setPet(data);
-            } catch (err) {
-                setError(err.message || "An error occurred while fetching pet details.");
-            } finally {
-                setLoading(false);
-            }
-        };
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [qty, setQty] = useState(1);
+  
+  const [name, setUsername] = useState(""); 
+  const token = localStorage.getItem("token");
+  const decodedToken = jwtDecode(token);
+  useEffect(() => {
+      setUsername(decodedToken.name); // Set the user's name in the state
+      const fetchPetDetails = async () => {
+          try {
+              const { data } = await axios.get(`http://localhost:5000/api/auth/dogs/${petId}`);
+              setPet(data);
+          } catch (err) {
+              setError(err.message || "An error occurred while fetching pet details.");
+          } finally {
+              setLoading(false);
+          }
+      };
 
-        fetchPetDetails();
-    }, [petId]); // Dependency array ensures useEffect runs when petId changes
+      fetchPetDetails();
+  }, [petId]); // Dependency array ensures useEffect runs when petId changes
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+  if (loading) {
+      return <div>Loading...</div>;
+  }
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+  if (error) {
+      return <div>Error: {error}</div>;
+  }
 
-    if (!pet) {
-        return <div>Pet not found</div>;
-    }
+  if (!pet) {
+      return <div>Pet not found</div>;
+  }
 
-    const addToCartHandler = () => {
-      dispatch(addToCart({ ...pet, qty}));
+  const addToCartHandler = async () => {
+    dispatch(addToCart({ ...pet, qty}));
+    try {
+      // Send a POST request to the server endpoint with userName and item data
+      await axios.post('http://localhost:5000/api/auth/cart/add', 
+      { userName: name, item: { ...pet, qty } }); // Use the user's name instead of "admin"
       navigate('/cartpage');
+    } catch (error) {
+      console.error('Error adding item to cart:', error);
+      // Handle error (e.g., show error message to the user)
     }
+  };
     return (
       <>
         <Container>
