@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 const ProfilePage = () => {
   const [userData, setUserData] = useState({});
   const fileInputRef = useRef(null); // Reference to the file input
@@ -16,9 +15,12 @@ const ProfilePage = () => {
     const fetchProfile = async () => {
       const token = localStorage.getItem("token");
       try {
-        const response = await axios.get("http://localhost:5000/api/auth/ProfilePage", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          "http://localhost:5000/api/auth/ProfilePage",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setUserData(response.data);
       } catch (error) {
         console.error("Error fetching profile", error);
@@ -96,7 +98,6 @@ const ProfilePage = () => {
 
   return (
     <div className="bg-light">
-      
       <h1 className="text-center fw-bold mt-5 p-5">Hello {userData.name}</h1>
       <div className="text-center">
         {userData.profileImagePath && (

@@ -13,7 +13,7 @@ const itemSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['pets', 'toys'] // Define valid category values
+    enum: ["pets", "toys"], // Define valid category values
   },
   species: {
     type: String,
@@ -36,11 +36,11 @@ const itemSchema = new mongoose.Schema({
     required: true,
   },
   imageUrl: {
-    type: String, 
+    type: String,
   },
 });
 
 // Create a model for the Item schema
-const Item = mongoose.model('Items', itemSchema);
+const Item = mongoose.model("Items", itemSchema);
 
 export default Item;

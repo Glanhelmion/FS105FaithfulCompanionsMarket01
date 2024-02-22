@@ -10,7 +10,8 @@ const birds = [
     _id: 1,
     name: "Macaw",
     image: parrot1,
-    description: "Big parrots with powerful beaks, playful toes, and captivating voices! ",
+    description:
+      "Big parrots with powerful beaks, playful toes, and captivating voices! ",
     species: "Big parrots",
     category: "Pets",
     price: 99.99,
@@ -34,7 +35,8 @@ const birds = [
     _id: 3,
     name: "Cockatiel",
     image: cockatiel1,
-    description: "Social birds that bond closely with their owners and are known as the 'whistling bird' for their sweet melodies.",
+    description:
+      "Social birds that bond closely with their owners and are known as the 'whistling bird' for their sweet melodies.",
     species: "Small parrots",
     category: "Birds of Prey",
     price: 79.99,
@@ -42,11 +44,12 @@ const birds = [
     rating: 4.0,
     numReviews: 15,
   },
-    {
+  {
     _id: 4,
     name: "Bulbul",
     image: bulbul1,
-    description: "Medium-sized with a distinctive appearance, agile and melodious, can mimic sounds with training.",
+    description:
+      "Medium-sized with a distinctive appearance, agile and melodious, can mimic sounds with training.",
     species: "Owl",
     category: "Birds of Prey",
     price: 79.99,
@@ -54,11 +57,12 @@ const birds = [
     rating: 4.0,
     numReviews: 15,
   },
-    {
+  {
     _id: 5,
     name: "Sun Conure",
     image: sunconure1,
-    description: "Lively, expressive, beautiful personality and beautifully colorful birds, about 12 inches long.",
+    description:
+      "Lively, expressive, beautiful personality and beautifully colorful birds, about 12 inches long.",
     species: "Owl",
     category: "Birds of Prey",
     price: 79.99,
@@ -66,11 +70,12 @@ const birds = [
     rating: 4.0,
     numReviews: 15,
   },
-    {
+  {
     _id: 6,
     name: "African Grey",
     image: africangrey1,
-    description: "Handsome, social, and affectionate birds, ideal companions for those with time to interact with them. They enjoy head petting & scratches when handled regularly.",
+    description:
+      "Handsome, social, and affectionate birds, ideal companions for those with time to interact with them. They enjoy head petting & scratches when handled regularly.",
     species: "Owl",
     category: "Birds of Prey",
     price: 79.99,
@@ -78,7 +83,6 @@ const birds = [
     rating: 4.0,
     numReviews: 15,
   },
-  
 ];
 
 export default birds;

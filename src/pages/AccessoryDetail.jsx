@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Form, Row, Col, ListGroup, Button, Container } from "react-bootstrap";
 import Rating from "../components/Rating";
-import '../styles/PetDetail.css';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
+import "../styles/PetDetail.css";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 import axios from "axios"; // Make sure to install and import axios
 import { addToCart } from "../slices/cartSlice";
 import { useDispatch } from "react-redux"; 
@@ -47,7 +47,7 @@ const AccessoryDetail = () => {
 
     const addToCartHandler = () => {
       dispatch(addToCart({ ...pet, qty}));
-      navigate('/cartpage');
+      navigate("/cartpage");
     }
     return (
       <>

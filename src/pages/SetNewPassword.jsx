@@ -11,7 +11,7 @@ function SetNewPassword() {
   const [searchParams] = useSearchParams();
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const token = searchParams.get('token'); // Getting token from query string
+  const token = searchParams.get("token"); // Getting token from query string
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -35,9 +35,9 @@ function SetNewPassword() {
     // Example: await resetPassword(token, password);
     try {
         const response = await fetch(`http://localhost:5000/api/auth/setnewpassword?token=${token}`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ token, password }),
         });

@@ -1,22 +1,22 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import colors from 'colors';
-import UsersData from './data/users.js';
-import AccessoriesData from './data/accessoriespage.js';
-import BirdsData from './data/birdpage.js';
-import CatsData from './data/catpage.js';
-import DogsData from './data/dogpage.js';
-import FishData from './data/fishpage.js';
-import PetfoodsData from './data/petfoodpage.js';
-import User from './models/User.js';
-import Accessories from './models/accessories.js';
-import Bird from './models/bird.js';
-import Cat from './models/cat.js';
-import Dog from './models/dog.js';
-import Fish from './models/fish.js';
-import Petfood from './models/petfood.js';
-import Order from './models/order.js';
-import connectDB from './config/mongodb.js';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import colors from "colors";
+import UsersData from "./data/users.js";
+import AccessoriesData from "./data/accessoriespage.js";
+import BirdsData from "./data/birdpage.js";
+import CatsData from "./data/catpage.js";
+import DogsData from "./data/dogpage.js";
+import FishData from "./data/fishpage.js";
+import PetfoodsData from "./data/petfoodpage.js";
+import User from "./models/User.js";
+import Accessories from "./models/accessories.js";
+import Bird from "./models/bird.js";
+import Cat from "./models/cat.js";
+import Dog from "./models/dog.js";
+import Fish from "./models/fish.js";
+import Petfood from "./models/petfood.js";
+import Order from "./models/order.js";
+import connectDB from "./config/mongodb.js";
 
 dotenv.config();
 
@@ -93,7 +93,7 @@ const importData = async () => {
     // Insert petfoods data
     await Petfood.insertMany(petfoodsData);
 
-    console.log('Data Imported!'.green.inverse);
+    console.log("Data Imported!".green.inverse);
 
     process.exit();
   } catch (error) {
@@ -113,7 +113,7 @@ const destroyData = async () => {
     await Petfood.deleteMany();
     await User.deleteMany();
 
-    console.log('Data destroyed successfully.'.red.inverse);
+    console.log("Data destroyed successfully.".red.inverse);
     process.exit();
   } catch (error) {
     console.error(`Error destroying data: ${error.message}`.red.inverse);
@@ -121,7 +121,7 @@ const destroyData = async () => {
   }
 };
 
-if (process.argv[2] === '-d') {
+if (process.argv[2] === "-d") {
   destroyData();
 } else {
   importData();

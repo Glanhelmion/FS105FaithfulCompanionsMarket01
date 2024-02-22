@@ -112,6 +112,7 @@ function App() {
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
               <Route path="/profilepage" element={<ProfilePage />} />
+              <Route path="/payment" element={<Checkout />} />
             </Routes>
           </Router>
         </>

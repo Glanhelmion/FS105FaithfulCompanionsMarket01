@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Form, Row, Col, ListGroup, Button, Container } from "react-bootstrap";
 import Rating from "../components/Rating";
-import '../styles/PetDetail.css';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
+import "../styles/PetDetail.css";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 import axios from "axios"; // Make sure to install and import axios
 import { addToCart } from "../slices/cartSlice";
-import { useDispatch } from "react-redux"; 
+import { useDispatch } from "react-redux";
 
 const FishDetail = () => {
   const { id: petId } = useParams();
@@ -19,42 +19,48 @@ const FishDetail = () => {
   const dispatch = useDispatch();
   const [qty, setQty] = useState(1);
   useEffect(() => {
-      const fetchPetDetails = async () => {
-          try {
-              const { data } = await axios.get(`http://localhost:5000/api/auth/fishes/${petId}`);
-              setPet(data);
-          } catch (err) {
-              setError(err.message || "An error occurred while fetching pet details.");
-          } finally {
-              setLoading(false);
-          }
-      };
+    const fetchPetDetails = async () => {
+      try {
+        const { data } = await axios.get(
+          `http://localhost:5000/api/auth/fishes/${petId}`
+        );
+        setPet(data);
+      } catch (err) {
+        setError(
+          err.message || "An error occurred while fetching pet details."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      fetchPetDetails();
+    fetchPetDetails();
   }, [petId]); // Dependency array ensures useEffect runs when petId changes
 
   if (loading) {
-      return <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   if (error) {
-      return <div>Error: {error}</div>;
+    return <div>Error: {error}</div>;
   }
 
   if (!pet) {
-      return <div>Pet not found</div>;
+    return <div>Pet not found</div>;
   }
 
   const addToCartHandler = () => {
-    dispatch(addToCart({ ...pet, qty}));
-    navigate('/cartpage');
-  }
+    dispatch(addToCart({ ...pet, qty }));
+    navigate("/cartpage");
+  };
   return (
     <>
       <Container>
         <Row className="pt-5">
           <Col md={5}>
-            <div className="zoomed-image"> {/* Changed from <Container> to <div> for correct usage */}
+            <div className="zoomed-image">
+              {" "}
+              {/* Changed from <Container> to <div> for correct usage */}
               <img
                 src={pet.image}
                 alt={pet.name}
@@ -79,13 +85,18 @@ const FishDetail = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <p className="mt-2">
-                  Status: {pet.availability > 0 ? `Available ${pet.availability}` : "Not Available"}
+                  Status:{" "}
+                  {pet.availability > 0
+                    ? `Available ${pet.availability}`
+                    : "Not Available"}
                 </p>
               </ListGroup.Item>
               {pet.availability > 0 && (
                 <ListGroup.Item>
                   <Row>
-                    <Col><p className="mt-2 ms-1">Quantity:</p></Col>
+                    <Col>
+                      <p className="mt-2 ms-1">Quantity:</p>
+                    </Col>
                     <Col>
                       <Form.Control
                         as="select"

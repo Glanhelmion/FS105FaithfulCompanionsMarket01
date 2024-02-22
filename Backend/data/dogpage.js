@@ -1,11 +1,11 @@
-
 const dogs = [
   {
     sn: 1,
     name: "Max",
     type: "dog",
-    image: '/images/dogs/dog1.jpg',
-    description: "A charming, small-sized crossbreed with a curly coat and a friendly personality.",
+    image: "/images/dogs/dog1.jpg",
+    description:
+      "A charming, small-sized crossbreed with a curly coat and a friendly personality.",
     species: "Mini Goldendoodle",
     category: "Pets",
     price: 799.99,
@@ -17,8 +17,9 @@ const dogs = [
     sn: 2,
     name: "Daisy",
     type: "dog",
-    image: '/images/dogs/dog2.jpg',
-    description: "A pint-sized Pomeranian with a big personality and a fluffy coat.",
+    image: "/images/dogs/dog2.jpg",
+    description:
+      "A pint-sized Pomeranian with a big personality and a fluffy coat.",
     species: "Mini Pomeranian",
     category: "Pets",
     price: 899.99,
@@ -30,8 +31,9 @@ const dogs = [
     sn: 3,
     name: "Rocky",
     type: "dog",
-    image: '/images/dogs/dog3.jpg',
-    description: "A delightful mix of Cavalier King Charles Spaniel and Bichon Frise, known for its affectionate nature.",
+    image: "/images/dogs/dog3.jpg",
+    description:
+      "A delightful mix of Cavalier King Charles Spaniel and Bichon Frise, known for its affectionate nature.",
     species: "Cavachon",
     category: "Pets",
     price: 699.99,
@@ -43,8 +45,9 @@ const dogs = [
     sn: 4,
     name: "Lucy",
     type: "dog",
-    image: '/images/dogs/dog4.jpg',
-    description: "The iconic short-legged herding dog, full of energy and loyalty.",
+    image: "/images/dogs/dog4.jpg",
+    description:
+      "The iconic short-legged herding dog, full of energy and loyalty.",
     species: "Corgi",
     category: "Pets",
     price: 699.99,
@@ -56,8 +59,9 @@ const dogs = [
     sn: 5,
     name: "Bailey",
     type: "dog",
-    image: '/images/dogs/dog5.jpg',
-    description: "A strikingly beautiful working dog with a strong, independent spirit.",
+    image: "/images/dogs/dog5.jpg",
+    description:
+      "A strikingly beautiful working dog with a strong, independent spirit.",
     species: "Siberian Husky",
     category: "Pets",
     price: 699.99,
@@ -69,8 +73,9 @@ const dogs = [
     sn: 6,
     name: "Charlie",
     type: "dog",
-    image: '/images/dogs/dog6.jpg',
-    description: "One of the most popular and lovable family dogs, known for its friendly nature and intelligence.",
+    image: "/images/dogs/dog6.jpg",
+    description:
+      "One of the most popular and lovable family dogs, known for its friendly nature and intelligence.",
     species: "Labrador Retriever",
     category: "Pets",
     price: 699.99,
@@ -82,8 +87,9 @@ const dogs = [
     sn: 7,
     name: "Bella",
     type: "dog",
-    image: '/images/dogs/dog7.jpeg',
-    description: "An elegant and fluffy white breed, famous for its friendly smile and gentle temperament.",
+    image: "/images/dogs/dog7.jpeg",
+    description:
+      "An elegant and fluffy white breed, famous for its friendly smile and gentle temperament.",
     species: "Samoyed",
     category: "Pets",
     price: 699.99,
@@ -95,8 +101,9 @@ const dogs = [
     sn: 8,
     name: "Buddy",
     type: "dog",
-    image: '/images/dogs/dog8.jpg',
-    description: "A spirited and independent Japanese breed, known for its loyalty and fox-like appearance.",
+    image: "/images/dogs/dog8.jpg",
+    description:
+      "A spirited and independent Japanese breed, known for its loyalty and fox-like appearance.",
     species: "Shiba Inu",
     category: "Pets",
     price: 699.99,
@@ -104,8 +111,6 @@ const dogs = [
     rating: 4.8,
     numReviews: 35,
   },
-
-
 ];
 
 export default dogs;

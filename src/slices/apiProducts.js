@@ -1,8 +1,15 @@
-import { BIRDS_URL, CATS_URL, DOGS_URL, FISHES_URL, PETFOOD_URL, ACCESSORIES_URL } from "../constants.js";
+import {
+  BIRDS_URL,
+  CATS_URL,
+  DOGS_URL,
+  FISHES_URL,
+  PETFOOD_URL,
+  ACCESSORIES_URL,
+} from "../constants.js";
 import { apiSlice } from "./apiSlice.js";
 
 export const productApiSlice = apiSlice.injectEndpoints({
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     getBirds: builder.query({
       query: () => ({
         url: BIRDS_URL,
@@ -74,8 +81,21 @@ export const productApiSlice = apiSlice.injectEndpoints({
         url: `${ACCESSORIES_URL}/${accessoryId}`,
       }),
       keepUnusedDataFor: 5,
-    })
+    }),
   }),
 });
 
-export const { useGetBirdsQuery, useGetBirdDetailsQuery, useGetCatsQuery, useGetCatsDetailsQuery, useGetDogsQuery, useGetDogsDetailsQuery, useGetFishesQuery, useGetFishesDetailsQuery, useGetPetFoodQuery, useGetPetFoodDetailsQuery, useGetAccessoriesQuery, useGetAccessoriesDetailQuery } = productApiSlice;
+export const {
+  useGetBirdsQuery,
+  useGetBirdDetailsQuery,
+  useGetCatsQuery,
+  useGetCatsDetailsQuery,
+  useGetDogsQuery,
+  useGetDogsDetailsQuery,
+  useGetFishesQuery,
+  useGetFishesDetailsQuery,
+  useGetPetFoodQuery,
+  useGetPetFoodDetailsQuery,
+  useGetAccessoriesQuery,
+  useGetAccessoriesDetailQuery,
+} = productApiSlice;

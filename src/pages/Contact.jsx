@@ -5,7 +5,6 @@ import "../styles/Navbar.css";
 import "../styles/Contact.css";
 import contactbanner from "../images/logo/contactbanner2.png";
 
-
 function ContactUsForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -30,7 +29,6 @@ function ContactUsForm() {
   };
 
   return (
-    
     <>
       <Navbar />
       <img src={contactbanner} alt="Contact Banner"></img>
@@ -41,7 +39,9 @@ function ContactUsForm() {
             <br></br>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name" className="custom-contact-label">Name:</label>
+                <label htmlFor="name" className="custom-contact-label">
+                  Name:
+                </label>
                 <input
                   type="text"
                   id="name"
@@ -52,7 +52,9 @@ function ContactUsForm() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email" className="custom-contact-label">Email:</label>
+                <label htmlFor="email" className="custom-contact-label">
+                  Email:
+                </label>
                 <input
                   type="email"
                   id="email"
@@ -62,19 +64,23 @@ function ContactUsForm() {
                   required
                 />
               </div>
-                <div className="form-group">
-                  <label htmlFor="message" className="custom-contact-label">Message:</label>
-                  <textarea
-                  className="custom-contact-messagebox"
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                  ></textarea>
-                </div>
               <div className="form-group">
-                <button type="submit" className="custom-contact-submit">Submit</button>
+                <label htmlFor="message" className="custom-contact-label">
+                  Message:
+                </label>
+                <textarea
+                  className="custom-contact-messagebox"
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+              </div>
+              <div className="form-group">
+                <button type="submit" className="custom-contact-submit">
+                  Submit
+                </button>
               </div>
             </form>
           </div>
