@@ -7,6 +7,7 @@ import multer from "multer"; // Import multer for image upload
 import path from "path";
 import crypto from "crypto";
 import nodemailer from "nodemailer"; 
+import cors from "cors";
 import Dog from "../models/dog.js";
 import Cat from "../models/cat.js";
 import birds from "../data/birdpage.js";
@@ -17,6 +18,8 @@ import Petfood from "../models/petfood.js";
 
 const router = express.Router();
 const app = express();
+// Enable CORS
+app.use(cors());
 
 // Below is for profile page. Will call this data at my router.get below
 const authenticateToken = (req, res, next) => {
@@ -50,7 +53,7 @@ router.use("/uploads", express.static("uploads"));
 // Register User
 router.post("/register", async (req, res) => {
   console.log("Received data:", req.body);
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {    
 
@@ -70,7 +73,8 @@ router.post("/register", async (req, res) => {
       name,
       email, 
       password,
-      isActivated: false
+      isActivated: false,
+      role,
     });
 
     // Generate a token for email activation
@@ -210,7 +214,7 @@ router.post("/login", async (req, res) => {
 
 router.get("/ProfilePage", authenticateToken, async (req, res) => {
   try {
-    const user = await User.findById(req.user.userId).select(
+    const user = await User.findById(req.user.id).select(
       "-password"
     );
     res.json(user);

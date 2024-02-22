@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/Navbar.css";
 import "../styles/Contact.css";
+import contactbanner from "../images/logo/contactbanner2.png";
+
 
 function ContactUsForm() {
   const [formData, setFormData] = useState({
@@ -31,14 +33,15 @@ function ContactUsForm() {
     
     <>
       <Navbar />
+      <img src={contactbanner} alt="Contact Banner"></img>
       <div className="content-wrapper">
         <div className="form-container">
           <div className="center-content">
-            <h2 className="fw-bold">Contact Us</h2>
+            <h2 className="custom-contact-contactus">Contact Us</h2>
             <br></br>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name" className="custom-contact-label">Name:</label>
                 <input
                   type="text"
                   id="name"
@@ -49,7 +52,7 @@ function ContactUsForm() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email" className="custom-contact-label">Email:</label>
                 <input
                   type="email"
                   id="email"
@@ -60,7 +63,7 @@ function ContactUsForm() {
                 />
               </div>
                 <div className="form-group">
-                  <label htmlFor="message">Message:</label>
+                  <label htmlFor="message" className="custom-contact-label">Message:</label>
                   <textarea
                   className="custom-contact-messagebox"
                     id="message"

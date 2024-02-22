@@ -19,14 +19,20 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  role: {
+    type: String,
+    required: true,
+    enum: ["user", "admin"],
+    default: "user", // Default role is "user"
+  },
   resetToken: String,
   resetTokenExpire: Date, 
-}, { collection: 'User' }); // Specify the collection name as 'User'
+}, { collection: "User" }); // Specify the collection name as "User"
 
 // Pre-save hook to hash password before saving
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
   // Only hash the password if it has been modified (or is new) 
-  if (!this.isModified('password')) next();
+  if (!this.isModified("password")) next();
   // Generate a salt and hash the password
   const salt = await bcrypt.genSalt(12);
   this.password = await bcrypt.hash(this.password, salt);
@@ -39,6 +45,6 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-const User = mongoose.model('UserDetail', userSchema);
+const User = mongoose.model("User", userSchema);
 
 export default User;

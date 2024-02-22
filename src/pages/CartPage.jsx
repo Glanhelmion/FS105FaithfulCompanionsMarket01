@@ -77,7 +77,7 @@ const CartPage = () => {
                       </Form.Control>
                     </Col>
                     <Col md={3}>
-                      <Button type="button" variant="light" className="mt-3 pt-1" onClick={() => removeFromCartHandler(item._id)}>
+                      <Button type="button" variant="light" className="mt-3 pt-1 custom-cartpage-deletebutton" onClick={() => removeFromCartHandler(item._id)}>
                         <FaTrash style={{ width: "20px", height: "20px" }} />
                       </Button>
                     </Col>

@@ -77,7 +77,7 @@ const CustomNavbar = () => {
              {isLoggedIn ? (
               
               <>
-              <div className="me-5">{name}</div>
+              <Link to="/profilepage" className="text-decoration-none custom-navbar-profilenamelink"><div className="me-5 fw-bold text-decoration-none custom-navbar-profilename">{name}</div></Link>
               <button className="custom-navbar-loginandshoppingcart" onClick={handleLogout}>Logout</button>
               </>
               

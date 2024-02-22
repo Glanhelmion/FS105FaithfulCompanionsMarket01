@@ -104,7 +104,7 @@ const AccessoryDetail = () => {
                 )}
                 <ListGroup.Item>
                   <Button
-                    className="mt-2 text-black custom-detail-addtocard"
+                    className="mt-2 custom-detail-addtocard1"
                     type="button"
                     disabled={pet.availability === 0}
                     onClick={addToCartHandler}

@@ -32,6 +32,8 @@ import AdminPage from "./AdminPage.js";
 import ProfileForm from "./UploadingTest.js";
 import ProfilePage from "./pages/Profilepage.jsx";
 import AnimatedCursor from "react-animated-cursor"
+
+// import "./styles/App.css";
 // import CustomCursor from "./custom-cursor/Custom-Cursor.jsx";
 
 function App() {
@@ -108,7 +110,7 @@ function App() {
               <Route path="/shipping" element={<ShippingPage />} />
               <Route path="/admin/add-item" element={<AdminPage />} />
               <Route path="/img" element={<ProfileForm />} />
-              <Route path="/profilepage" element={<ProfilePage />} />
+              <Route path="/ProfilePage" element={<ProfilePage />} />
             </Routes>
           </Router>
         </>

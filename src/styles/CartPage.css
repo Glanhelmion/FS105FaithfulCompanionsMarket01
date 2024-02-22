@@ -36,3 +36,8 @@
     text-shadow: 1px 1px 1px #1F81D7;
     border-radius: 15px;
 }
+
+.custom-cartpage-deletebutton:hover {
+    opacity: 0.4;
+    color: #fe1d1e;
+}

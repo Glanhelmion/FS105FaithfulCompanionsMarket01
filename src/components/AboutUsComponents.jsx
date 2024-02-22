@@ -96,7 +96,10 @@ const AboutUs = () => {
                         <h3>Closing Note</h3>
                         <li>Thank you for choosing Faithful Companions Market</li>
                         <li>We look forward to being a part of your pet care journey</li>
+                        <div className="mt-5">
                         <SignUpButtonForAboutUs />
+                        </div>
+                        
                     </ul>
                 </div>
             </div>

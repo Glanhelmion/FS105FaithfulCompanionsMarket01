@@ -102,14 +102,14 @@ const CatDetail = () => {
                   </ListGroup.Item>
                 )}
                 <ListGroup.Item>
-                  <Button
-                    className="mt-2 text-black custom-detail-addtocard"
+                  <button
+                    className="mt-2 custom-detail-addtocard1"
                     type="button"
                     disabled={pet.availability === 0}
                     onClick={addToCartHandler}
                   >
                     Add to Cart
-                  </Button>
+                  </button>
                   <Link className="btn btn-light mt-2 ms-4" to="/cats">
                     Go Back
                   </Link>
