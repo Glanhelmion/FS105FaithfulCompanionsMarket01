@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "main": "backend/server.js",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
@@ -47,11 +46,8 @@
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "scripts": {
-    "start": "cd backend && nodemon server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
