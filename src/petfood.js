@@ -1,7 +1,4 @@
-
 import petfood2 from "./images/petfoods/petfood2.jpg";
-
-
 
 const petFoods = [
   {
@@ -32,7 +29,8 @@ const petFoods = [
     _id: 3,
     name: "Yummy Bird food",
     image: petfood2,
-    description: "Food are important for your bird's health. BEST quaility here!",
+    description:
+      "Food are important for your bird's health. BEST quaility here!",
     species: "Fish",
     category: "Fish Food",
     price: 8.99,
@@ -40,11 +38,12 @@ const petFoods = [
     rating: 4.4,
     numReviews: 35,
   },
-    {
+  {
     _id: 4,
     name: "Tropical Fish Flakes",
     image: petfood2,
-    description: "Colorful fish flakes that provide essential nutrition to aquarium fish.",
+    description:
+      "Colorful fish flakes that provide essential nutrition to aquarium fish.",
     species: "Fish",
     category: "Fish Food",
     price: 8.99,
@@ -52,11 +51,12 @@ const petFoods = [
     rating: 4.4,
     numReviews: 35,
   },
-    {
+  {
     _id: 5,
     name: "Vitamins & Minerals",
     image: petfood2,
-    description: "Pets are like family. So you agree health is important for them. Certified products here!",
+    description:
+      "Pets are like family. So you agree health is important for them. Certified products here!",
     species: "Fish",
     category: "Fish Food",
     price: 8.99,
@@ -64,11 +64,12 @@ const petFoods = [
     rating: 4.4,
     numReviews: 35,
   },
-    {
+  {
     _id: 6,
     name: "Medicine & First Aid",
     image: petfood2,
-    description: "Sometimes it just comes. And we are here to aid you as much as possible!",
+    description:
+      "Sometimes it just comes. And we are here to aid you as much as possible!",
     species: "Fish",
     category: "Fish Food",
     price: 8.99,
@@ -76,7 +77,6 @@ const petFoods = [
     rating: 4.4,
     numReviews: 35,
   },
-  
 ];
 
 export default petFoods;

@@ -11,50 +11,49 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const servicesData = [
-    {
-      imgSrc: dogcatalog1,
-      title: "Woof",
-      description: "Unleash the joy! Discover loyal companions for life.",
-      link: "/dogs"
-    },
-    {
-      imgSrc: catcatalog1,
-      title: "Meow",
-      description: "Purr-fect companions await! Find your feline friend here.",
-      link: "/cats"
-    },
-    {
-      imgSrc: birdcatalog1,
-      title: "Chirp",
-      description: "Take flight into companionship! Find chirpy friends here.",
-      link: "/birds"
-    },
-    {
-        imgSrc: fishcatalog1,
-        title: "Bloop",
-        description: "Dive into tranquility! Explore our underwater wonders.",
-        link: "/fishes"
-    },
-    {
-        imgSrc: petfoodcatalog1,
-        title: "Yummy",
-        description: "Satisfy their cravings, nourish their souls.",
-        link: "/petfoods"
-    },
-    {
-        imgSrc: accessoriescatalog1,
-        title: "Let's Play!",
-        description: "Style meets comfort for your furry, feathery, or scaly friend.",
-        link: "/accessories"
-    },
-    
-  ];
+  {
+    imgSrc: dogcatalog1,
+    title: "Woof",
+    description: "Unleash the joy! Discover loyal companions for life.",
+    link: "/dogs",
+  },
+  {
+    imgSrc: catcatalog1,
+    title: "Meow",
+    description: "Purr-fect companions await! Find your feline friend here.",
+    link: "/cats",
+  },
+  {
+    imgSrc: birdcatalog1,
+    title: "Chirp",
+    description: "Take flight into companionship! Find chirpy friends here.",
+    link: "/birds",
+  },
+  {
+    imgSrc: fishcatalog1,
+    title: "Bloop",
+    description: "Dive into tranquility! Explore our underwater wonders.",
+    link: "/fishes",
+  },
+  {
+    imgSrc: petfoodcatalog1,
+    title: "Yummy",
+    description: "Satisfy their cravings, nourish their souls.",
+    link: "/petfoods",
+  },
+  {
+    imgSrc: accessoriescatalog1,
+    title: "Let's Play!",
+    description:
+      "Style meets comfort for your furry, feathery, or scaly friend.",
+    link: "/accessories",
+  },
+];
 
-
-  const CatalogSection = () => {
-    /* This code below is to be called in the function toggle3DEffect */
-    const [activeService, setActiveService] = useState(null);
-    const [activeElement, setActiveElement] = useState(null);
+const CatalogSection = () => {
+  /* This code below is to be called in the function toggle3DEffect */
+  const [activeService, setActiveService] = useState(null);
+  const [activeElement, setActiveElement] = useState(null);
 
   /* Called into each card accordingly */
   function toggle3DEffect(event, serviceLink) {
@@ -63,47 +62,53 @@ const servicesData = [
     const newActiveElement = event.currentTarget;
 
     if (activeService === serviceLink) {
-        window.location.href = serviceLink; // Navigate after second click
+      window.location.href = serviceLink; // Navigate after second click
     } else {
-        // Remove the effect from the previously active element
-        if (activeElement) {
-            activeElement.classList.remove('shadow-3d');
-        }
+      // Remove the effect from the previously active element
+      if (activeElement) {
+        activeElement.classList.remove("shadow-3d");
+      }
 
-        // Apply the effect to the new element
-        newActiveElement.classList.add('shadow-3d');
+      // Apply the effect to the new element
+      newActiveElement.classList.add("shadow-3d");
 
-        // Update state
-        setActiveService(serviceLink);
-        setActiveElement(newActiveElement);
+      // Update state
+      setActiveService(serviceLink);
+      setActiveElement(newActiveElement);
     }
-}
+  }
 
-
-const getAosEffect = (index) => {
+  const getAosEffect = (index) => {
     // Alternate AOS effect based on whether the index is odd or even
     return index % 2 === 0 ? "fade-left" : "fade-right";
   };
-  
-    useEffect(() => {
-        AOS.init();
-    }, []);
 
-    return (
-        <div className="services-section" >
-                {servicesData.map((service, index) => (
-                    <div className="service position-relative mt-5" key={index} onClick={(e) => toggle3DEffect(e, service.link)}
-                    data-aos={getAosEffect(index)}
-                    >
-                        <Link to={service.link} style={{ textDecoration: "none" }} >
-                            <img src={service.imgSrc} alt={service.title}  />
-                            <h3 className="service-title fs-1">{service.title}</h3>
-                            <p className="service-description">{service.description}</p>
-                            {activeService === service.link && <span className="click-me-text fs-1 fw-bold text-white">Click me</span>}
-                        </Link>
-                    </div>
-                ))}
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  return (
+    <div className="services-section">
+      {servicesData.map((service, index) => (
+        <div
+          className="service position-relative mt-5"
+          key={index}
+          onClick={(e) => toggle3DEffect(e, service.link)}
+          data-aos={getAosEffect(index)}
+        >
+          <Link to={service.link} style={{ textDecoration: "none" }}>
+            <img src={service.imgSrc} alt={service.title} />
+            <h3 className="service-title fs-1">{service.title}</h3>
+            <p className="service-description">{service.description}</p>
+            {activeService === service.link && (
+              <span className="click-me-text fs-1 fw-bold text-white">
+                Click me
+              </span>
+            )}
+          </Link>
         </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
 export default CatalogSection;

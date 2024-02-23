@@ -1,28 +1,28 @@
 import react, { useEffect } from "react";
-import { Carousel, Container } from 'react-bootstrap';
-import '../styles/CategoryButtons.css';
-import parrot1 from '../images/birds/parrot1.jpg';
-import parrot2 from '../images/birds/parrot2.jpeg';
-import dog3 from '../images/dogs/dog3.jpg';
-import cat1 from '../images/cats/cat1.jpg';
-import parrot3 from '../images/birds/parrot3.jpeg';
-import fish2 from '../images/fishes/fish2.jpeg';
-import fish3 from '../images/fishes/fish3.jpg';
-import dog6 from '../images/dogs/dog6.jpg';
-import fish4 from '../images/fishes/fish4.jpeg';
-import dog7 from '../images/dogs/dog7.jpeg';
-import cat2 from '../images/cats/cat2.jpeg';
-import cat4 from '../images/cats/cat4.jpg';
+import { Carousel, Container } from "react-bootstrap";
+import "../styles/CategoryButtons.css";
+import parrot1 from "../images/birds/parrot1.jpg";
+import parrot2 from "../images/birds/parrot2.jpeg";
+import dog3 from "../images/dogs/dog3.jpg";
+import cat1 from "../images/cats/cat1.jpg";
+import parrot3 from "../images/birds/parrot3.jpeg";
+import fish2 from "../images/fishes/fish2.jpeg";
+import fish3 from "../images/fishes/fish3.jpg";
+import dog6 from "../images/dogs/dog6.jpg";
+import fish4 from "../images/fishes/fish4.jpeg";
+import dog7 from "../images/dogs/dog7.jpeg";
+import cat2 from "../images/cats/cat2.jpeg";
+import cat4 from "../images/cats/cat4.jpg";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CategoryButtons = () => {
   // Define CSS styles to control image size
   const imageStyle = {
-    maxWidth: '100%', // Set maximum width
-    maxHeight: '300px', // Set maximum height
-    objectFit: 'cover', // Maintain aspect ratio and cover the container
+    maxWidth: "100%", // Set maximum width
+    maxHeight: "300px", // Set maximum height
+    objectFit: "cover", // Maintain aspect ratio and cover the container
   };
 
   useEffect(() => {
@@ -30,18 +30,38 @@ const CategoryButtons = () => {
   }, []);
 
   return (
-    <div className="main-banner-container custom-categorybuttons-maincontainer" data-aos="fade-top" data-aos-delay="200" data-aos-duration="1000">
+    <div
+      className="main-banner-container custom-categorybuttons-maincontainer"
+      data-aos="fade-top"
+      data-aos-delay="200"
+      data-aos-duration="1000"
+    >
       {/* Carousel 1 */}
       <Container className="carousel-container custom-categorybuttons-pic">
         <Carousel className="custom-categorybuttons-pic-carousel">
           <Carousel.Item>
-            <img src={parrot1} alt="Parrot 1" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={parrot1}
+              alt="Parrot 1"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={parrot2} alt="Parrot 2" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={parrot2}
+              alt="Parrot 2"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={parrot3} alt="Parrot 2" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={parrot3}
+              alt="Parrot 2"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           {/* Add more items as needed */}
         </Carousel>
@@ -51,13 +71,28 @@ const CategoryButtons = () => {
       <Container className="carousel-container">
         <Carousel className="custom-categorybuttons-pic-carousel">
           <Carousel.Item>
-            <img src={dog3} alt="dog3" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={dog3}
+              alt="dog3"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={dog7} alt="dog7" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={dog7}
+              alt="dog7"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={dog6} alt="dog6" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={dog6}
+              alt="dog6"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           {/* Add more items as needed */}
         </Carousel>
@@ -67,13 +102,28 @@ const CategoryButtons = () => {
       <Container className="carousel-container">
         <Carousel className="custom-categorybuttons-pic-carousel">
           <Carousel.Item>
-            <img src={fish4} alt="fish4" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={fish4}
+              alt="fish4"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={fish2} alt="fish2" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={fish2}
+              alt="fish2"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={fish3} alt="fish3" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={fish3}
+              alt="fish3"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           {/* Add more items as needed */}
         </Carousel>
@@ -83,13 +133,28 @@ const CategoryButtons = () => {
       <Container className="carousel-container">
         <Carousel className="custom-categorybuttons-pic-carousel">
           <Carousel.Item>
-            <img src={cat1} alt="cat1" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={cat1}
+              alt="cat1"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={cat2} alt="cat2" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={cat2}
+              alt="cat2"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           <Carousel.Item>
-            <img src={cat4} alt="cat4" style={imageStyle} className="carousel-image custom-categorybuttons-pic-image" />
+            <img
+              src={cat4}
+              alt="cat4"
+              style={imageStyle}
+              className="carousel-image custom-categorybuttons-pic-image"
+            />
           </Carousel.Item>
           {/* Add more items as needed */}
         </Carousel>

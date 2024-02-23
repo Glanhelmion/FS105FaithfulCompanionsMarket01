@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import NavbarForSignupPage from "../components/NavbarForSignupPage";
 import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/SignUpPage.css";
-import { createBrowserHistory } from "history"; 
+import { createBrowserHistory } from "history";
 
 const SignUp = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,21 +21,23 @@ const SignUp = () => {
 
     // Check if passwords match
     if (password !== confirmPassword) {
-    setPasswordError("Passwords do not match.");
-    return; // Stop the form submission
-     }
+      setPasswordError("Passwords do not match.");
+      return; // Stop the form submission
+    }
 
     // Reset password error if passwords match
     setPasswordError("");
-    
-    try {
-      const response = await axios.post("http://localhost:5000/api/auth/register", {
-        name,
-        email,
-        password,
-      });
-      console.log("Registration Response:", response.data);
 
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
+      console.log("Registration Response:", response.data);
 
       // Clear any previous error message
       setErrorMessage("");
@@ -51,7 +52,9 @@ const SignUp = () => {
     } catch (err) {
       // Handle login failure and display an error message
       setSuccessMessage("Registration is successful");
-      setErrorMessage(err.response?.data?.message || "Registration failed. Please try again");
+      setErrorMessage(
+        err.response?.data?.message || "Registration failed. Please try again"
+      );
     }
   };
 
@@ -72,12 +75,16 @@ const SignUp = () => {
         {/* Column for the form */}
         <div className="col-md-6">
           <div className="card custom-signup-box">
-            <div className="card-header p-5">Sign up for <em className="fw-bold fs-3">FREE</em> membership!</div>
-              {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+            <div className="card-header p-5">
+              Sign up for <em className="fw-bold fs-3">FREE</em> membership!
+            </div>
+            {successMessage && (
+              <p style={{ color: "green" }}>{successMessage}</p>
+            )}
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <div className="card-body">
               <form onSubmit={handleSubmit}>
-              <div className="form-group">
+                <div className="form-group">
                   <label htmlFor="name">Name:</label>
                   <input
                     type="text"
@@ -116,7 +123,9 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-group">
-                {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
+                  {passwordError && (
+                    <p style={{ color: "red" }}>{passwordError}</p>
+                  )}
                   <label htmlFor="confirmPassword">Confirm Password:</label>
                   <input
                     type="password"
@@ -129,7 +138,10 @@ const SignUp = () => {
                     placeholder="Confirm Your Password"
                   />
                 </div>
-                <button type="submit" className="custom-signup-registermembershipbuttton">
+                <button
+                  type="submit"
+                  className="custom-signup-registermembershipbuttton"
+                >
                   Register membership
                 </button>
                 <Link to="/">
@@ -144,6 +156,6 @@ const SignUp = () => {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;

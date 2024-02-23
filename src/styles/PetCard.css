@@ -19,25 +19,20 @@
   margin-top: 10px;
   padding: 5px 10px;border-width: 1px;
   border-style: solid;
-  border-color: #454BE4;
+  border-color: #0690fa;
   border-radius: 100%;
-  border-width: 1px;
-  filter: drop-shadow(1px 1px 15px #1F26D7);
-  background-color: #459AE4;
-  color: white;
-  text-shadow: 1px 1px 1px #1F26D7;
+  border-width: 3px;
+  background-color: transparent;
+  color: #0473C9;
   text-decoration: none;
   border-radius: 5px;
-  font-weight: 700;
-  transition: font-weight 0.1s ease;
+  font-weight: 750;
+  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
 .view-details-btn:hover {
-    font-weight: 800;
-    background-color: #1F81D7;
-    text-shadow: 1px 1px 1px #741FD7;
-    filter: drop-shadow(1px 1px 15px #741FD7);
-    /* background: linear-gradient(180deg, #E44599, #1F81D7, #9AE445); */
+    background-color: #0473C9;
+    box-shadow: 0 0 10px 5px #068FFA;
     color: white;
 }
 

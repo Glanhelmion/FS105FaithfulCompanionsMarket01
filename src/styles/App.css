@@ -1,7 +1,11 @@
 html {
-    --cursor-color: #333
+    --cursor-color: red
   }
   
   html.dark-mode {
-    --cursor-color: #fff
+    --cursor-color: yellow
+  }
+
+  .App {
+    font-family: 'Aberus', sans-serif;
   }

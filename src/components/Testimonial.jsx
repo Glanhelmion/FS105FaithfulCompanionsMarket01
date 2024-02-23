@@ -1,12 +1,10 @@
-import react, { useEffect } from "react";
-import Slider from 'react-slick';
+import React, { useEffect } from "react";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import '../styles/Testimonial.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-
+import "../styles/Testimonial.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Testimonial = () => {
   // Settings for the slider
@@ -18,7 +16,7 @@ const Testimonial = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 6000,
-    cssEase: "linear"
+    cssEase: "linear",
   };
 
   // Sample data for testimonials
@@ -33,7 +31,7 @@ const Testimonial = () => {
       text: "A must-have for any pet owner. Fantastic quality!",
       author: "John Smith",
     },
-     {
+    {
       id: 3,
       text: "I bought my Munchkin breed kitten from them, and I must say it's a very reliable pet shop that offers excellent customer service. I highly recommend them to anyone looking to bring a new furry friend into their home.",
       author: "Zakfran",
@@ -43,17 +41,18 @@ const Testimonial = () => {
 
   useEffect(() => {
     AOS.init();
-}, []);
+  }, []);
 
   return (
     <div className="testimonial-carousel-container" data-aos="fade-bottom">
-      <div style={{textAlign: "center"}}><h1 className="fw-bold">See what others have to say</h1></div>
+      <div style={{ textAlign: "center" }}>
+        <h1 className="fw-bold">See what others have to say</h1>
+      </div>
       <Slider {...settings}>
-        {testimonials.map(testimonial => (
+        {testimonials.map((testimonial) => (
           <div key={testimonial.id}>
             <blockquote className="testimonial-text">
-              "{testimonial.text}"
-              <footer>— {testimonial.author}</footer>
+              "{testimonial.text}"<footer>— {testimonial.author}</footer>
             </blockquote>
           </div>
         ))}

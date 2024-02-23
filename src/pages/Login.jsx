@@ -6,7 +6,6 @@ import fcmlogo from "../images/logo/fcmlogo.jpeg";
 import "../styles/Login.css";
 
 const Login = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -21,13 +20,14 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    
-    
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
 
       // If login is successful, response.data will contain the JWT token
       const token = response.data.token;
@@ -39,14 +39,13 @@ const Login = () => {
       // Clear any previous error message
       setErrorMessage("");
       if (role === "admin") {
-        
         // Redirect to the admin page
         navigate("/admin/add-item");
       } else {
         // Redirect to the homepage
         navigate("/homepage");
       }
-  
+
       // Redirect to a protected route or perform other actions based on successful login
       // For example, you can navigate to a dashboard:
       // history.push("/dashboard");
@@ -73,11 +72,13 @@ const Login = () => {
         <div className="col-md-6">
           <div className="card custom-login-box">
             <div className="card-header p-5 custom-login-title">Login</div>
-              {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-              {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+            {successMessage && (
+              <p style={{ color: "green" }}>{successMessage}</p>
+            )}
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group p-1">
+              <form onSubmit={handleSubmit}>
+                <div className="form-group p-1">
                   <label htmlFor="email">Email:</label>
                   <input
                     type="email"
@@ -88,26 +89,26 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-              </div>
+                </div>
                 <div className="form-group p-1">
                   <label htmlFor="password">Password:</label>
                   <input
-                     type={showPassword ? "text" : "password"}
-                      className="form-control password-input"
-                      id="password"
-                      name="password"
-                      placeholder="Enter your password"
+                    type={showPassword ? "text" : "password"}
+                    className="form-control password-input"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                      <button
-                      onClick={togglePasswordVisibility} 
-                      type="button"
-                      className="bg-warning text-white password-input"
-                      >
-                      {showPassword ? "Hide" : "Show"} Password 👀
-                      </button>
-                    </div>
+                  <button
+                    onClick={togglePasswordVisibility}
+                    type="button"
+                    className="bg-warning text-white password-input"
+                  >
+                    {showPassword ? "Hide" : "Show"} Password 👀
+                  </button>
+                </div>
                 <button type="submit" className="custom-login-loginbutton">
                   Login
                 </button>
@@ -117,8 +118,14 @@ const Login = () => {
                   </button>
                 </Link>
                 <br></br>
-                <Link to="/resetpassword" style={{textDecoration: "none", color: "black"}} className="custom-login-forgotpassword-link">
-                  <em className="custom-login-forgotpassword">Forgot your password? No worries. Reset now!</em>
+                <Link
+                  to="/resetpassword"
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="custom-login-forgotpassword-link"
+                >
+                  <em className="custom-login-forgotpassword">
+                    Forgot your password? No worries. Reset now!
+                  </em>
                 </Link>
               </form>
             </div>
@@ -127,6 +134,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // Reference to the User model
+      ref: "User", // Reference to the User model
       required: true,
     },
     orderItems: [
@@ -15,7 +15,7 @@ const orderSchema = new mongoose.Schema(
         price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Product', // Reference to the Product model
+          ref: "Product", // Reference to the Product model
           required: true,
         },
       },
@@ -49,8 +49,8 @@ const orderSchema = new mongoose.Schema(
   },
   {
     timestamps: true, // Enable timestamps for createdAt and updatedAt
-    collection: 'Order', // Specify the collection name here
+    collection: "Order", // Specify the collection name here
   }
 );
 
-export default mongoose.model('Order', orderSchema);
+export default mongoose.model("Order", orderSchema);

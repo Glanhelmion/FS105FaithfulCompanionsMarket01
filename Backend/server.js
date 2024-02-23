@@ -1,13 +1,20 @@
 import express from "express";
-import cookieParser from 'cookie-parser';
+import cookieParser from "cookie-parser";
 import connectDB from "./dbconfig.js";
 import cors from "cors";
-import authRoutes from "./routes/auth.js";// Import the auth routes
-import { accessoryRouter, birdRouter, catRouter, dogRouter, fishRouter, petfoodRouter } from "./routes/productRouter.js";
+import authRoutes from "./routes/auth.js";
+import profileRoutes from "./routes/auth.js";
+import {
+  accessoryRouter,
+  birdRouter,
+  catRouter,
+  dogRouter,
+  fishRouter,
+  petfoodRouter,
+} from "./routes/productRouter.js";
 import dotenv from "dotenv";
 
 const app = express();
-
 
 dotenv.config(); //to connect and pull data from .env
 connectDB(); // Establish database connection to MongoDB
@@ -23,9 +30,11 @@ app.use(cookieParser());
 // Enable CORS
 app.use(cors());
 
-
 // Use the authentication routes
 app.use("/api/auth", authRoutes);
+
+// Use the profile routes
+app.use("/api/auth", profileRoutes);
 
 // Routes
 app.use("/api/accessoriespage", accessoryRouter); // Mount the accessoryRouter at /api/accessories
