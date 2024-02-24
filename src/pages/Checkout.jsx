@@ -20,6 +20,8 @@ const Checkout = () => {
         return res.json().then((json) => Promise.reject(json));
       })
       .then(({ url }) => {
+        // Clear cart from local storage before redirecting
+        localStorage.removeItem('cartItems');
         window.location = url;
       })
       .catch((e) => {

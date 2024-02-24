@@ -17,15 +17,23 @@ import Accessories from "../models/accessories.js";
 import Petfood from "../models/petfood.js";
 import Cart from "../models/cart.js";
 import Stripe from "stripe";
+import { fileURLToPath } from "url";
 
 const stripe = new Stripe(
   "sk_test_51OmE8VEkckOis0EQXB3upH0jrRQ8XuPi4fRAcaaJnKbjpnrRGbc0TxZfDTaAYH5k0F3Ak9YjOgXh4shyDsbg0UkZ000pieUmyG"
 );
 
+// Creating __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 const router = express.Router();
 const app = express();
 // Enable CORS
 app.use(cors());
+
+
 
 // Below is for profile page. Will call this data at my router.get below
 const authenticateToken = (req, res, next) => {
@@ -40,21 +48,16 @@ const authenticateToken = (req, res, next) => {
 };
 
 // Set up multer for local file storage
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads");
+    cb(null, path.join(__dirname, "../uploads/"));
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
   },
 });
-var upload = multer({ storage: storage });
+const upload = multer({ storage: storage });
 
-// Get the directory name of the current module
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-
-router.use(express.static(path.join(__dirname, "/public")));
-router.use("/uploads", express.static("uploads"));
 
 // Register User
 router.post("/register", async (req, res) => {
@@ -340,22 +343,27 @@ router.post("/setnewpassword", async (req, res) => {
 
 // Below is for users to edit their password
 router.post("/change-password", authenticateToken, async (req, res) => {
-  const { newPassword } = req.body;
-
+  const { newPassword,email } = req.body;
+  
   if (!newPassword) {
     return res.status(400).send("New password is required");
   }
 
   try {
-    const salt = await bcrypt.genSalt(12);
-    const hashedPassword = await bcrypt.hash(newPassword, salt);
+    const user = await User.findOne({ email });
+    console.log("Found user:", user);
 
-    await User.findByIdAndUpdate(req.user.userId, {
-      password: hashedPassword,
-    });
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
+    user.password = newPassword;  
+    await user.save();
+
     res.send("Password updated successfully");
   } catch (error) {
-    res.status(500).send("Error updating password");
+    console.error("Error updating password:", error);
+    res.status(500).send("Error updating password" + error.message);
   }
 });
 
@@ -363,31 +371,44 @@ router.post("/change-password", authenticateToken, async (req, res) => {
 
 router.delete("/delete-account", authenticateToken, async (req, res) => {
   try {
-    await User.findByIdAndDelete(req.user.userId);
+    // Assuming the user's email is stored in req.user.email
+    const { email } = req.body;;
+
+    // Delete the user by email
+    const deletedUser = await User.findOneAndDelete({ email });
+
+    if (!deletedUser) {
+      return res.status(404).send("User not found");
+    }
     res.send("Account deleted successfully");
   } catch (error) {
     console.error("Error deleting account", error);
-    res.status(500).send("Error deleting account");
+    res.status(500).send("Error deleting account: " + error.message);
   }
 });
 
 // Below is a post method for the uploading of the image to be registered unto the user"s profile page
 router.post(
-  "/upload",
+  "/uploads",
   authenticateToken,
   upload.single("profileImage"),
   async (req, res) => {
     try {
+      console.log("Received file:", req.file);
       // req.file is the uploaded file
       // Get only the relative path
       const relativeImagePath = path.join(
-        "upload",
+        "uploads",
         path.basename(req.file.path)
-      );
+      ).replace(/\\/g, "\"");
+      
+      const userEmail = req.user.email;
 
       // Update the user"s profile to include the relative image file path
-      const user = await User.findByIdAndUpdate(
-        req.user.userId,
+      const user = await User.findOneAndUpdate(
+        {
+          email: userEmail
+        },
         {
           profileImagePath: relativeImagePath,
         },
@@ -395,14 +416,31 @@ router.post(
           new: true,
         }
       );
+      console.log("Updated user profile with image path:", user);
       res.json(user);
     } catch (error) {
+      console.error("Error in /uploads endpoint:", error);
       res.status(500).json({
         message: "Error uploading image",
       });
     }
   }
 );
+
+// GET route for serving images
+router.get('/uploads/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const dir = path.join(__dirname, '../uploads');
+  const filePath = path.join(dir, filename);
+
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    res.status(404).send('File not found');
+  }
+});
+
+
 
 // Add an item without image upload
 router.post("/admin/add-item", upload.single("image"), async (req, res) => {
@@ -472,7 +510,7 @@ router.post(
     console.log(JSON.stringify(req.file));
     var response = "<a href=" / ">Home</a><br>";
     response += "File uploaded successfully.<br>";
-    response += `<img src="${req.file.path}" /><br>`;
+    response += `<img src="${req.file.name}" /><br>`;
     return res.send(response);
   }
 );
@@ -830,8 +868,8 @@ router.post("/create-checkout-session", async (req, res) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: "http://localhost:4242/success",
-      cancel_url: "http://localhost:4242/cancel",
+      success_url: "http://localhost:3000/successpage?payment=success",
+      cancel_url: "http://localhost:3000/cartpage",
     });
 
     res.json({ url: session.url });

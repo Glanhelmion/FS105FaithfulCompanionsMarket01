@@ -69,13 +69,13 @@ const SignUp = () => {
           <img
             src={fcmlogo}
             alt="Description"
-            className="img-fluid" // Bootstrap class for responsive images
+            className="img-fluid custom-signup-fcmlogo" // Bootstrap class for responsive images
           />
         </div>
         {/* Column for the form */}
         <div className="col-md-6">
           <div className="card custom-signup-box">
-            <div className="card-header p-5">
+            <div className="card-header p-5 custom-signup-title">
               Sign up for <em className="fw-bold fs-3">FREE</em> membership!
             </div>
             {successMessage && (
@@ -88,7 +88,7 @@ const SignUp = () => {
                   <label htmlFor="name">Name:</label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control name-input"
                     id="name"
                     name="name"
                     required
@@ -103,7 +103,7 @@ const SignUp = () => {
                   <label htmlFor="email">Email:</label>
                   <input
                     type="email"
-                    className="form-control"
+                    className="form-control email-input"
                     id="email"
                     name="email"
                     placeholder="Enter your email address here"
@@ -112,10 +112,10 @@ const SignUp = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password">Password:</label>
+                  <label htmlFor="password custom-signup-password">Password:</label>
                   <input
                     type="password"
-                    className="form-control"
+                    className="form-control password-input"
                     id="password"
                     name="password"
                     placeholder="Enter your password"
@@ -129,7 +129,7 @@ const SignUp = () => {
                   <label htmlFor="confirmPassword">Confirm Password:</label>
                   <input
                     type="password"
-                    className="form-control"
+                    className="form-control password-input"
                     id="confirmPassword"
                     name="confirmPassword"
                     required

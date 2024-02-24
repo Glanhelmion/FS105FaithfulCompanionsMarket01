@@ -79,9 +79,6 @@ const CustomNavbar = () => {
               <Nav.Link href="contactus" className="custom-navbar-text">
                 Contact Us
               </Nav.Link>
-              <Nav.Link href="profilepage" className="custom-navbar-text">
-                Profile Frontend
-              </Nav.Link>
               <NavDropdown
                 title="Catalog"
                 id="basic-nav-dropdown"
