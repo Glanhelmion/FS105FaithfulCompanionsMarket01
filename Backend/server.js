@@ -4,6 +4,7 @@ import connectDB from "./dbconfig.js";
 import cors from "cors";
 import authRoutes from "./routes/auth.js";
 import profileRoutes from "./routes/auth.js";
+import path from "path";
 import {
   accessoryRouter,
   birdRouter,
@@ -30,11 +31,17 @@ app.use(cookieParser());
 // Enable CORS
 app.use(cors());
 
+// Get the directory name of the current module
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 // Use the authentication routes
 app.use("/api/auth", authRoutes);
 
 // Use the profile routes
 app.use("/api/auth", profileRoutes);
+
+// For uploading photo route
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Routes
 app.use("/api/accessoriespage", accessoryRouter); // Mount the accessoryRouter at /api/accessories

@@ -1,0 +1,87 @@
+.custom-navbar-zindex {
+    z-index: 1000;
+  }
+  
+  .navbar {
+    background-color: #E48F45;
+  }
+  
+  .navbar-text-white {
+    color: #F5F5DC;
+    text-decoration: none;
+  }
+  
+  
+  @keyframes flickerAnimation {
+    0%   { opacity: 1; }
+    50%  { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; }
+  }
+  
+  .custom-navbar-icon {
+    box-shadow: 3px 3px 3px #7a3a01;
+    animation: flickerAnimation 0.5s infinite;
+  }
+  
+  .custom-navbar-icon:hover {
+    opacity: 0.1;
+  }
+  
+  .custom-navbar-text {
+    transition: color 0.3s ease, font-weight 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .custom-navbar-text:hover {
+    color: white;
+    font-weight: 900;
+
+    border: 1px solid white;
+  }
+  
+  .custom-navbar-dropdown {
+    color: black;
+  }
+  
+  .custom-navbar-dropdown:hover {
+      font-weight: 700;
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #FFA500, #FFD700);
+      border: 1px solid #FFB76B;
+      box-shadow: 1px 10px 10px #FFB76B;
+      color: white !important;
+  }
+  
+  .custom-navbar-login {
+      background-color: transparent;
+      width: 80px;
+      color: #ffffff;
+      font-weight: 500;
+      border-radius: 5%;
+      box-shadow: 3px 3px 3px 1px black;
+      text-transform: uppercase;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      position: relative;
+      
+  }
+  
+  .custom-navbar-login:before {
+    content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, yellow);
+      transform: translateX(-100%);
+      transition: 10s;
+      position: absolute;
+  }
+  
+  .custom-navbar-login:hover {
+    background: linear-gradient(120deg, transparent, rgb(255, 255, 255), rgb(54, 2, 2), transparent);
+    box-shadow: 0 0 20px 5px white;
+    color: #ff6f00;
+    transform: scale(1.1);
+  }

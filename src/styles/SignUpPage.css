@@ -6,8 +6,8 @@
     border-width: 1px;
     border-style: solid;
     border-color: #FFB76B;
-    height: 550px;
-    width: 600px;
+    height: 650px;
+    width: 700px;
     box-shadow: 3px 3px 3px #E48F45;
 }
 
@@ -16,30 +16,86 @@
     border-width: 1px;
     border-style: solid;
     border-color: #FFB76B;
-    border-radius: 20%;
+    border-radius: 7px;
+    color: #E48F45;
     background-color: transparent;
     padding: 10px;
-    font-weight: 100;
+    font-weight: 750;
+    transition: color 0.6s, font-weight 0.6s, background-color 0.1s;
 }
 
 .custom-signup-registermembershipbuttton:hover {
-    font-weight: 300;
+    font-weight: 780;
     background-color: #E48F45;
+    color: black;
+    box-shadow: 5px 5px 20px #FFB76B;
 }
 
 .custom-signup-takeatour {
-    margin-left: 32px;
+    margin-left: 12px;
     border-width: 1px;
     border-style: solid;
     border-color: #FFB76B;
-    border-radius: 10%;
+    border-radius: 7px;
+    color: #E48F45;
     background-color: transparent;
     padding: 10px;
-    font-weight: 100;
-    transition: background-color 0.5s ease, font-weight 0.5s ease;
+    font-weight: 750;
+    transition: color 0.6s, font-weight 0.6s, background-color 0.1s;
 }
 
 .custom-signup-takeatour:hover {
-    font-weight: 300;
+    font-weight: 780;
     background-color: #E48F45;
+    color: black;
+    box-shadow: 5px 5px 20px #FFB76B;
+}
+
+.email-input, .password-input, .name-input {
+    width: 100%; 
+    max-width: 100%; 
+    box-sizing: border-box; 
+  }
+
+@media (max-width: 768px) {
+  .email-input, .password-input, .name-input {
+    width: 100%;
+    padding: 10px;
+    margin-right: 250px;
+  }
+  
+  .form-group {
+    margin-left: 120px;
+    width: 100%;
+  }
+
+  .custom-signup-box {
+    margin-top: 10px; 
+    width: 77%; 
+    min-height: auto; 
+    height: 600px;
+    margin-left: 30px;
+  }
+
+  .custom-signup-title {
+    padding: 20px !important;
+  }
+
+  .custom-signup-fcmlogo {
+    width: 200px;
+    height: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  .custom-signup-registermembershipbuttton {
+    margin-left: 0;
+
+  }
+
+  .custom-signup-takeatour {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  
 }

@@ -114,7 +114,7 @@ const Login = () => {
                 </button>
                 <Link to="/signup">
                   <button className="custom-login-registerbutton">
-                    Don"t have an account yet? Sign ups here!
+                    Don't have an account yet? Sign ups here!
                   </button>
                 </Link>
                 <br></br>

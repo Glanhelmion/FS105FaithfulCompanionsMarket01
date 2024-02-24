@@ -33,6 +33,7 @@ import ProfileForm from "./UploadingTest.js";
 import ProfilePage from "./pages/Profilepage.jsx";
 import AnimatedCursor from "react-animated-cursor"
 import Checkout from "./pages/Checkout.jsx";
+import SuccessPage from "./pages/SuccessPage.jsx";
 
 // import "./styles/App.css";
 // import CustomCursor from "./custom-cursor/Custom-Cursor.jsx";
@@ -113,6 +114,7 @@ function App() {
               <Route path="/img" element={<ProfileForm />} />
               <Route path="/profilepage" element={<ProfilePage />} />
               <Route path="/payment" element={<Checkout />} />
+              <Route path="/successpage" element={<SuccessPage /> } />
             </Routes>
           </Router>
         </>

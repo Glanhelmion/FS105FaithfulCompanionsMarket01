@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import NavbarForAdmin from "./components/NavbarForAdmin.jsx";
+import "./styles/profilepage.css";
 
 const AdminPage = () => {
   const [itemData, setItemData] = useState({
@@ -176,8 +178,10 @@ const AdminPage = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Admin Page</h2>
+    <>
+    <div className="custom-profilepage-background"><NavbarForAdmin /></div>
+    <div className="bg-light custom-profilepage-container"> 
+      <h2 className="fw-bold mb-5">Management</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input
           type="text"
@@ -197,10 +201,11 @@ const AdminPage = () => {
           name="category"
           onChange={handleInputChange}
           value={itemData.category}
+          className="bg-primary custom-adminpage-category"
         >
-          <option value="">Select Category</option> {/* Unselected option */}
+          <option value="" className="bg-primary custom-adminpage-categoryoption">Select Category</option> {/* Unselected option */}
           <option value="pets">Pets</option>
-          <option value="toys">Toys</option>
+          <option value="toys">Toys & Food</option>
         </select>
         <input
           type="text"
@@ -208,6 +213,7 @@ const AdminPage = () => {
           placeholder="Species"
           onChange={handleInputChange}
           value={itemData.species}
+          className="ms-4"
         />
         <input
           type="number"
@@ -244,7 +250,7 @@ const AdminPage = () => {
           onChange={handleImageChange}
           required
         />
-        <button type="submit" value="Upload">
+        <button type="submit" value="Upload" className="custom-adminpage-additem bg-warning">
           Add Item
         </button>
       </form>
@@ -252,7 +258,7 @@ const AdminPage = () => {
       {successMessage && <div style={{ color: "green" }}>{successMessage}</div>}
       {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
       {/* Display the list of items */}
-      <h3>Item List</h3>
+      <h3 className="custom-adminpage-itemlist">Item List</h3>
       <ul>
         {items.map((item) => (
           <li key={item._id}>
@@ -321,7 +327,7 @@ const AdminPage = () => {
                 </div>
               ) : (
                 // Display item details or edit button
-                <div>
+                <div >
                   <strong>{item.name}</strong> - {item.description}, Category:{" "}
                   {item.category}, Species: {item.species}, Availability:{" "}
                   {item.availability}, Price: {item.price}, Rating:{" "}
@@ -334,8 +340,8 @@ const AdminPage = () => {
                       style={{ maxWidth: "500px", maxHeight: "500px" }}
                     />
                   )}
-                  <button onClick={() => handleEdit(item._id)}>Edit</button>
-                  <button onClick={() => handleDelete(item._id)}>Delete</button>
+                  <button  onClick={() => handleEdit(item._id)} className="me-2 ms-2 bg-success custom-adminpage-editbutton" >Edit</button>
+                  <button onClick={() => handleDelete(item._id)} className="me-2 ms-2 bg-danger custom-adminpage-deletebutton">Delete</button>
                 </div>
               )}
             </div>
@@ -343,6 +349,7 @@ const AdminPage = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 
